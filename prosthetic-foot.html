@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hardik Choudhary | Robotics portfolio</title>
-<meta name="description" content="Portfolio of Hardik Choudhary, M.S. Mechanical Engineering (Research) at Carnegie Mellon University: controls, motion planning, and contact dynamics for robotic manipulation.">
-<meta property="og:title" content="Hardik Choudhary | Robotics portfolio">
-<meta property="og:description" content="Portfolio of Hardik Choudhary, M.S. Mechanical Engineering (Research) at Carnegie Mellon University: controls, motion planning, and contact dynamics for robotic manipulation.">
+<title>A high-dexterity prosthetic foot and its test bed | Hardik Choudhary</title>
+<meta name="description" content="Most affordable prosthetic feet are rigid, which makes slopes and uneven ground harder to handle. As a project assistant at IIT Gandhinagar, I designed a high-dexterity prosthetic foot and built a test bed that evaluates it under repeatable loading, so designs can be compared under the same conditions.">
+<meta property="og:title" content="A high-dexterity prosthetic foot and its test bed | Hardik Choudhary">
+<meta property="og:description" content="Most affordable prosthetic feet are rigid, which makes slopes and uneven ground harder to handle. As a project assistant at IIT Gandhinagar, I designed a high-dexterity prosthetic foot and built a test bed that evaluates it under repeatable loading, so designs can be compared under the same conditions.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -335,129 +335,32 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 }
 </style>
 </head>
-<body class="page-home">
+<body class="page-project">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Site">
   <div class="wrap">
     <a class="brand" href="index.html">Hardik Choudhary</a>
     <ul>
-      <li><a class="link" href="#projects">Projects</a></li>
-      <li><a class="link" href="#about">About</a></li>
+      <li><a class="link" href="index.html#projects">Projects</a></li>
+      <li><a class="link" href="index.html#about">About</a></li>
       <li><a class="link" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-      <li><a class="link" href="#contact">Contact</a></li>
+      <li><a class="link" href="index.html#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 <main id="main">
-<header class="hero" id="top">
-  <div class="wrap">
-    <div class="hero-text">
-      <h1>Hardik Choudhary</h1>
-      <p class="tagline">Controls and motion planning for robots that make contact with the world.</p>
-      <p class="cred">M.S. Mechanical Engineering (Research), Carnegie Mellon University, graduating May 2027</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#projects">See my projects</a>
-        <a class="btn btn-secondary" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
-      </div>
-      <p class="hero-contact"><a href="mailto:hardikchoudhary3101@gmail.com">hardikchoudhary3101@gmail.com</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a></p>
-    </div>
-    <figure class="hero-figure">
-      <svg viewBox="0 0 520 440" role="img" aria-labelledby="hero-t hero-d">
-  <title id="hero-t">A robot arm grasping an object, with my skills pinned to its parts</title>
-  <desc id="hero-d">A three-link robot arm holds a hexagonal part. Callouts label real-time control at the joints, perception-aware planning at the wrist camera, contact dynamics at the fingertips, and mechanical design at the base.</desc>
-  <defs><marker id="h-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="d-contact"/></marker></defs>
-  <line x1="20" y1="404" x2="500" y2="404" class="d-ink-thin"/>
-  <rect x="60" y="380" width="120" height="24" rx="4" class="d-fill-soft"/>
-  <rect x="104" y="352" width="32" height="30" rx="3" class="d-fill"/>
-  <g class="d-ink" style="stroke-width:16">
-    <line x1="120" y1="352" x2="165" y2="225"/><line x1="165" y1="225" x2="300" y2="175"/><line x1="300" y1="175" x2="375" y2="215"/>
-  </g>
-  <g class="d-link-core" style="stroke-width:11">
-    <line x1="120" y1="352" x2="165" y2="225"/><line x1="165" y1="225" x2="300" y2="175"/><line x1="300" y1="175" x2="375" y2="215"/>
-  </g>
-  <circle cx="120" cy="352" r="11" class="d-joint"/><circle cx="120" cy="352" r="3.5" class="d-joint-core"/>
-  <circle cx="165" cy="225" r="11" class="d-joint"/><circle cx="165" cy="225" r="3.5" class="d-joint-core"/>
-  <circle cx="300" cy="175" r="11" class="d-joint"/><circle cx="300" cy="175" r="3.5" class="d-joint-core"/>
-  <circle cx="375" cy="215" r="9" class="d-joint"/><circle cx="375" cy="215" r="3" class="d-joint-core"/>
-  <rect x="356" y="188" width="20" height="14" rx="2" class="d-fill"/>
-  <circle cx="366" cy="195" r="3" class="d-accent-fill"/>
-  <path d="M366 200 L486 250" class="d-dash"/><path d="M366 200 L433 311" class="d-dash"/>
-  <path d="M486 250 A130 130 0 0 1 433 311" class="d-dash"/>
-  <path d="M378 208 L392 216 L386 236 L372 228 Z" class="d-fill"/>
-  <path d="M392 216 L404 230 L412 238" class="d-ink" style="stroke-width:4"/>
-  <path d="M386 236 L400 256 L416 272" class="d-ink" style="stroke-width:4"/>
-  <ellipse cx="432" cy="257" rx="44" ry="30" transform="rotate(-18 432 257)" class="d-dash"/>
-  <polygon points="452,243 452,269 432,281 412,269 412,243 432,231" class="d-fill-soft"/>
-  <circle cx="432" cy="256" r="6" class="d-fill"/>
-  <circle cx="412" cy="240" r="4.5" class="d-contact"/><circle cx="416" cy="270" r="4.5" class="d-contact"/>
-  <line x1="412" y1="240" x2="426" y2="246" class="d-contact-line" marker-end="url(#h-arrow)"/>
-  <line x1="416" y1="270" x2="428" y2="264" class="d-contact-line" marker-end="url(#h-arrow)"/>
-  <path d="M150 175 L161 214" class="d-leader"/>
-  <text x="22" y="150" class="d-label">Real-time control</text>
-  <text x="22" y="167" class="d-label-2">feedback control, tested on hardware</text>
-  <path d="M366 78 L366 186" class="d-leader"/>
-  <text x="222" y="52" class="d-label">Perception-aware planning</text>
-  <text x="222" y="69" class="d-label-2">keeps the target in view under uncertainty</text>
-  <path d="M400 324 L418 278" class="d-leader"/>
-  <text x="330" y="340" class="d-label">Contact dynamics</text>
-  <text x="330" y="357" class="d-label-2">fingertip forces in MuJoCo</text>
-  <path d="M196 388 L182 392" class="d-leader"/>
-  <text x="204" y="376" class="d-label">Mechanical design and FEA</text>
-  <text x="204" y="393" class="d-label-2">SolidWorks, ANSYS, GD&amp;T, machining</text>
-</svg>
-      <figcaption>What I work on, pinned to the parts of a manipulator.</figcaption>
-    </figure>
-  </div>
+<div class="wrap">
+<header class="proj-head">
+  <a class="back" href="index.html#projects">All projects</a>
+  <p class="kicker">Research project, IIT Gandhinagar</p>
+  <h1>A high-dexterity prosthetic foot and its test bed</h1>
+  <p class="proj-lead">A high-dexterity prosthetic foot and the test bed built to evaluate it, developed at IIT Gandhinagar. <strong>I designed the foot and built the test bed.</strong></p>
 </header>
 
-<section class="block" id="projects" aria-labelledby="projects-title">
-  <div class="wrap">
-    <h2 id="projects-title">Projects</h2>
-    <p class="lede">Selected work in manipulation, controls, and robot systems, most relevant first. Select a project to read the full write-up.</p>
-    <div class="featured">
-<article class="card card-lg">
-  <div class="card-visual photo"><img src="media/card-on-orbit.jpg" alt="" loading="lazy"></div>
-  <div class="card-body">
-    <p class="kicker">On-orbit servicing research at CMU, funded by SURI<span class="dates">Aug 2025 &ndash; present</span></p>
-    <h3><a href="mission-robotic-vehicle.html">Capturing and detumbling a tumbling satellite</a></h3>
-    <p class="summary">Most satellites were never designed to be grabbed, and a failed one is often tumbling. Our CMU team built a simulated pipeline in which a free-flying robot reaches a tumbling satellite, grasps it, and stops its spin, plus Snaker, a snake robot that wraps around features a standard gripper can&rsquo;t hold. Our planner reached the moving grasp point in 99% of randomized trials, and Snaker tolerated up to five times more misalignment than a standard gripper. We&rsquo;ve also started building a tendon-driven Snaker in hardware, at a very early stage. I worked on every stage: planning, control, gripper design, and grasp analysis.</p>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>C++</li><li>Drake</li><li>MuJoCo</li><li>Isaac Sim</li><li>Pinocchio</li><li>3D printing</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Kinodynamic motion planning</li><li>Trajectory optimization</li><li>Feedback control</li><li>Grasp analysis</li><li>Snake-robot design</li><li>Tendon-driven mechanisms</li></ul></div></div>
-    <span class="card-cta" aria-hidden="true">Read the full project</span>
-  </div>
-</article>
-<article class="card card-lg flip">
-  <div class="card-visual photo"><img src="media/raksh-card.jpg" alt="" loading="lazy"></div>
-  <div class="card-body">
-    <p class="kicker">RAKSH agriculture robot, SVNIT Surat<span class="dates">Feb &ndash; Dec 2023</span></p>
-    <h3><a href="raksh-agriculture-robot.html">Autonomous disease detection and pesticide spraying for polyhouses</a></h3>
-    <p class="summary">Spraying pesticide inside a polyhouse is repetitive work that keeps farm workers close to chemicals. I led the five-person team that built RAKSH, a robot that drives itself along the crop rows, looks for diseased plants, and sprays from a modular 10-chemical system. I developed its navigation using sensor fusion and vision-based row detection. RAKSH qualified the Proof of Concept stage of Robofest-Gujarat 3.0, winning a Rs 1,00,000 cash prize, and competed in the prototype stage in December 2023.</p>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>ROS</li><li>Jetson Nano</li><li>ESP32</li><li>Raspberry Pi</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Sensor fusion</li><li>Computer vision</li><li>VSLAM</li><li>Machine learning</li><li>Mechanism design</li><li>Team leadership</li></ul></div></div>
-    <span class="card-cta" aria-hidden="true">Read the full project</span>
-  </div>
-</article>
-<article class="card card-lg">
-  <div class="card-visual photo"><img src="media/drone-card.jpg" alt="" loading="lazy"></div>
-  <div class="card-body">
-    <p class="kicker">Engine-powered drone, SVNIT Surat<span class="dates">Jan &ndash; Jun 2024</span></p>
-    <h3><a href="engine-powered-drone.html">Driving every rotor from a single engine</a></h3>
-    <p class="summary">One engine powers all four propellers of this drone. A conventional drivetrain would lock every propeller to a fixed speed ratio, so I designed a contact-free magnetic gear pair for each propeller: a servo-driven linkage changes the gap between the two gears, which sets how much power, and so how much speed, reaches that propeller. The feedback control improved stability in flight tests, and a patent application has been filed for the transmission.</p>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Arduino</li><li>MATLAB</li><li>Simulink</li><li>SolidWorks</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Feedback control</li><li>Mechanism design</li><li>Magnetic gearing</li><li>Calibration</li><li>Flight testing</li></ul></div></div>
-    <span class="card-cta" aria-hidden="true">Read the full project</span>
-  </div>
-</article>
-<article class="card card-lg flip">
-  <div class="card-visual photo"><img src="media/fs-car.jpg" alt="" loading="lazy"></div>
-  <div class="card-body">
-    <p class="kicker">Team Phoenix Racing (Phoenix Racing Electric), SVNIT Surat<span class="dates">Nov 2021 &ndash; Jan 2023</span></p>
-    <h3><a href="formula-electric-chassis.html">Designing and building a Formula Electric chassis</a></h3>
-    <p class="summary">A Formula Student chassis has to meet the rulebook and a stiffness target while weighing as little as possible. As chassis head of Team Phoenix Racing, I led the design and fabrication of our electric car&rsquo;s chassis with a 30-member team: I optimized the frame with finite element analysis to cut mass while meeting the stiffness target, calculated the suspension hardpoints, and developed the bodywork and aero package. We competed in Formula Bharat 2023, Class I, held virtually in October 2022, and the team won the Concept Goals Management event in the electric category.</p>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>ANSYS</li><li>SolidWorks</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>FEA</li><li>Vehicle dynamics</li><li>Design optimization</li><li>Aero and bodywork</li><li>GD&amp;T</li><li>CNC machining</li><li>Team leadership</li></ul></div></div>
-    <span class="card-cta" aria-hidden="true">Read the full project</span>
-  </div>
-</article>
-<article class="card card-lg">
-  <div class="card-visual"><svg viewBox="0 0 600 356" aria-hidden="true" focusable="false">
-  
+<figure class="figure-block lead-visual">
+  <div class="frame" tabindex="0" role="region" aria-label="Diagram"><svg viewBox="0 0 600 356" role="img" aria-labelledby="foot-t foot-d">
+  <title id="foot-t">A prosthetic foot loaded on its test bed</title>
+  <desc id="foot-d">A rectangular test frame presses a prosthetic foot onto a base plate. An orange arrow shows the load applied down through the foot.</desc>
   <defs><marker id="ft-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="d-contact"/></marker></defs>
   <g class="d-ink" style="stroke-width:6"><line x1="120" y1="44" x2="480" y2="44"/><line x1="120" y1="44" x2="120" y2="340"/><line x1="480" y1="44" x2="480" y2="340"/><line x1="80" y1="340" x2="520" y2="340"/></g>
   <rect x="283" y="50" width="34" height="72" rx="4" class="d-fill-soft"/>
@@ -474,64 +377,50 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <path d="M392 240 L384 270" class="d-leader"/>
   <text x="342" y="232" class="d-label">High-dexterity foot</text>
 </svg></div>
-  <div class="card-body">
-    <p class="kicker">Research project, IIT Gandhinagar<span class="dates">Jan &ndash; Jun 2025</span></p>
-    <h3><a href="prosthetic-foot.html">A high-dexterity prosthetic foot and its test bed</a></h3>
-    <p class="summary">Most affordable prosthetic feet are rigid, which makes slopes and uneven ground harder to handle. As a project assistant at IIT Gandhinagar, I designed a high-dexterity prosthetic foot and built a test bed that evaluates it under repeatable loading, so designs can be compared under the same conditions.</p>
+  <figcaption><span class="scroll-hint">Scroll sideways to see the whole drawing.</span>Schematic of the foot under load on the test bed.</figcaption>
+</figure>
+
+<div class="proj-grid">
+  <div>
+    <section aria-labelledby="problem-title">
+      <h2 id="problem-title">The problem</h2>
+      <p>Most affordable prosthetic feet are rigid. A foot with more freedom of motion can handle slopes and uneven ground more naturally, but adding that dexterity adds parts, weight, and cost, and every new design has to be evaluated before it goes anywhere near a person.</p>
+    </section>
+    <section aria-labelledby="built-title">
+      <h2 id="built-title">What I built</h2>
+      <p>I designed a high-dexterity prosthetic foot, and I designed and built a test bed for evaluating it. The test bed applies repeatable loading to the mounted foot, so candidate designs can be compared under the same conditions rather than in one-off trials.</p>
+    </section>
+  </div>
+  <aside class="glance" aria-labelledby="glance-title">
+    <h2 id="glance-title">At a glance</h2>
+    <dl><dt>Where</dt><dd>IIT Gandhinagar, India</dd><dt>When</dt><dd>Jan &ndash; Jun 2025</dd><dt>My role</dt><dd>Project assistant</dd></dl>
     <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>SolidWorks</li><li>ANSYS</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Mechanism design</li><li>FEA</li><li>3D printing</li><li>Test-rig design</li></ul></div></div>
-    <span class="card-cta" aria-hidden="true">Read the full project</span>
-  </div>
-</article>
-    </div>
-  </div>
+  </aside>
+</div>
+
+
+
+
+<div class="proj-2col">
+  <section aria-labelledby="testing-title">
+    <h2 id="testing-title">Testing and results</h2>
+    <p>The test bed lets each design be checked under controlled, repeatable loading on the bench, before committing to trials with a user, which are slow and hard to repeat.</p>
+  </section>
+  <section aria-labelledby="why-title">
+    <h2 id="why-title">Why it matters</h2>
+    <p>A foot that adapts to the ground without a large increase in cost widens access to better mobility, especially where high-end prosthetics are out of reach.</p>
+  </section>
+</div>
+
+
+
+<section class="notes-block" aria-labelledby="notes-title">
+  <h2 id="notes-title">Technical notes</h2>
+  <div class="notes"><div class="tnote"><h3>Why a test bed comes first</h3><p>On a bench rig the same load can be applied again and again, so two designs can be compared like for like. That makes it the right place to find problems before anyone walks on the foot.</p></div></div>
 </section>
 
-<section class="block" id="about" aria-labelledby="about-title">
-  <div class="wrap">
-    <h2 id="about-title">About me</h2>
-    <p class="lede">Mechanical engineer by training, roboticist by choice.</p>
-    <div class="about-grid">
-      <div>
-        <p>I got into robotics by building things that had to work: a race-car chassis that had to survive a season, a spraying robot that had to find its own way down a crop row, a drone whose rotors all ran off one engine. Each project pushed me from mechanical design toward the control and planning problems that decide whether a machine actually does its job.</p>
-        <p>At CMU I work on on-orbit servicing research funded by SURI: how a free-flying robot can rendezvous with a tumbling satellite, grasp it, and stop its spin, including with Snaker, our snake robot. I&rsquo;ve worked on the motion planning, the controllers, the gripper design, and the grasp analysis, and I&rsquo;m now building an early tendon-driven version of Snaker with two teammates. I also serve as a course assistant for AI Agents for Engineers and for Applied Finite Element Analysis.</p>
-        <p>I graduate in May 2027 and am looking for a full-time role in robotic manipulation, controls, or motion planning, ideally on a team that tests its ideas on physical robots.</p>
-        <ul class="skills-list" aria-label="Skills">
-          <li><strong>Robotics and simulation:</strong> MuJoCo, Isaac Sim, Webots, ROS</li>
-          <li><strong>Programming:</strong> Python, C++, MATLAB, Simulink</li>
-          <li><strong>Design and analysis:</strong> SolidWorks (PDM/PLM), GD&amp;T, ANSYS FEA, CFD, design optimization</li>
-          <li><strong>Manufacturing:</strong> CNC machining, 3D printing (FDM, SLS, SLA)</li>
-          <li><strong>Graduate coursework:</strong> Modern control theory, nonlinear control, deep learning, machine learning and AI for engineers</li>
-        </ul>
-      </div>
-      <ul class="facts">
-        <li><span class="k">Education</span><span>M.S. Mechanical Engineering (Research), Carnegie Mellon University, May 2027</span></li>
-        <li><span class="k">Previously</span><span>B.Tech. Mechanical Engineering, Sardar Vallabhbhai National Institute of Technology, Surat, 2024</span></li>
-        <li><span class="k">Leadership</span><span>Chassis head for a 30-member Formula Electric team; team lead for the five-person RAKSH robot</span></li>
-        <li><span class="k">Teaching</span><span>Course assistant, AI Agents for Engineers and Applied Finite Element Analysis, CMU</span></li>
-        <li><span class="k">Industry</span><span>Intern, Banaras Locomotive Works, 2023: large-scale mechanical assembly and quality control</span></li>
-        <li><span class="k">Looking for</span><span>Full-time roles in manipulation, controls, and motion planning, from May 2027</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="block" id="contact" aria-labelledby="contact-title">
-  <div class="wrap">
-    <h2 id="contact-title">Contact</h2>
-    <div class="contact-grid">
-      <div>
-        <p class="lede">If you&rsquo;re hiring for manipulation, controls, or motion planning, I&rsquo;d like to hear from you. Email is the fastest way to reach me.</p>
-        <div class="actions"><a class="btn btn-primary" href="mailto:hardikchoudhary3101@gmail.com">Email me</a><a class="btn btn-secondary" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></div>
-      </div>
-      <ul class="contact-list">
-        <li><span class="k">Email</span><span><a href="mailto:hardikchoudhary3101@gmail.com">hardikchoudhary3101@gmail.com</a></span></li>
-        <li><span class="k">LinkedIn</span><span><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">linkedin.com/in/hardik-choudhary-38524324a</a></span></li>
-        <li><span class="k">Location</span><span>Pittsburgh, PA</span></li>
-        <li><span class="k">Available</span><span>Full-time from May 2027</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
+<nav class="pager" aria-label="More projects"><a class="prev" href="formula-electric-chassis.html"><small>Previous project</small><span>Formula Electric chassis</span></a><a class="next" href="index.html#projects"><small>Back to</small><span>All projects</span></a></nav>
+</div>
 </main>
 <footer>
   <div class="wrap">
@@ -539,22 +428,6 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
     <span class="links"><a href="mailto:hardikchoudhary3101@gmail.com">Email</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></span>
   </div>
 </footer>
-<script>
-  // Highlight the section in view in the navigation bar
-  (function () {
-    var links = Array.prototype.slice.call(document.querySelectorAll('.nav a.link[href^="#"]'));
-    if (!('IntersectionObserver' in window)) return;
-    var byId = {};
-    links.forEach(function (a) { byId[a.getAttribute('href').split('#')[1]] = a; });
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        links.forEach(function (a) { a.removeAttribute('aria-current'); });
-        if (byId[e.target.id]) byId[e.target.id].setAttribute('aria-current', 'true');
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    Object.keys(byId).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
-  })();
-</script>
+
 </body>
 </html>
