@@ -318,6 +318,31 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .lead-photo img, .proj-figure img { width: 100%; height: auto; }
 .proj-figure { margin-top: clamp(28px, 4vw, 40px); }
 .proof-fig img { width: 100%; height: auto; }
+.timeline-box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px 8px; }
+.timeline-title { font-size: 1.05rem; margin: 0 0 12px; }
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 14px; width: 2px; background: var(--line); }
+.timeline li { position: relative; padding: 0 0 14px 24px; display: grid; gap: 1px; }
+.timeline li::before { content: ""; position: absolute; left: 0; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent); box-sizing: border-box; }
+.timeline li:first-child::before { background: var(--accent); }
+.tl-when { font-size: 0.8rem; color: var(--ink-2); font-weight: 500; }
+.tl-what { font-size: 0.95rem; font-weight: 600; line-height: 1.3; }
+.tl-note { font-size: 0.86rem; color: var(--ink-2); line-height: 1.4; }
+.about-skills { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; align-self: start; }
+.skills-title { font-family: var(--body); font-size: 1.05rem; margin: 0 0 10px; letter-spacing: 0; }
+.about-skills .skills-list { margin: 0; }
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: clamp(28px, 4vw, 40px); }
+.course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+.course-card .dates { display: block; font-weight: 400; }
+.course-card h3 { font-size: 1.2rem; line-height: 1.25; margin: 0; }
+.course-card .summary { margin: 0; font-size: 0.97rem; }
+.course-card .tags { margin-top: auto; padding-top: 6px; }
+.flag-inline { color: var(--flag-ink); font-weight: 600; }
+.sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
+.portrait-fig { max-width: 340px; justify-self: center; }
+.portrait-fig video { aspect-ratio: 3 / 4; }
+.result-split { margin-top: 1.6rem; align-items: center; }
+.cad-fig { max-width: 760px; margin-top: 1.4rem; }
 .stage-text.proto { margin-top: 1.8rem; }
 @media (max-width: 860px) { .card-lg, .card-lg.flip, .contact-grid, .proj-2col, .media-pair, .stage-split { grid-template-columns: 1fr; } }
 @media (max-width: 600px) { .results { grid-template-columns: 1fr; } }
@@ -341,8 +366,9 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <div class="wrap">
     <a class="brand" href="index.html">Hardik Choudhary</a>
     <ul>
-      <li><a class="link" href="#projects">Projects</a></li>
       <li><a class="link" href="#about">About</a></li>
+      <li><a class="link" href="#projects">Projects</a></li>
+      <li><a class="link" href="#course-projects">Course projects</a></li>
       <li><a class="link" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       <li><a class="link" href="#contact">Contact</a></li>
     </ul>
@@ -361,54 +387,38 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
       </div>
       <p class="hero-contact"><a href="mailto:hardikchoudhary3101@gmail.com">hardikchoudhary3101@gmail.com</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a></p>
     </div>
-    <figure class="hero-figure">
-      <svg viewBox="0 0 520 440" role="img" aria-labelledby="hero-t hero-d">
-  <title id="hero-t">A robot arm grasping an object, with my skills pinned to its parts</title>
-  <desc id="hero-d">A three-link robot arm holds a hexagonal part. Callouts label real-time control at the joints, perception-aware planning at the wrist camera, contact dynamics at the fingertips, and mechanical design at the base.</desc>
-  <defs><marker id="h-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="d-contact"/></marker></defs>
-  <line x1="20" y1="404" x2="500" y2="404" class="d-ink-thin"/>
-  <rect x="60" y="380" width="120" height="24" rx="4" class="d-fill-soft"/>
-  <rect x="104" y="352" width="32" height="30" rx="3" class="d-fill"/>
-  <g class="d-ink" style="stroke-width:16">
-    <line x1="120" y1="352" x2="165" y2="225"/><line x1="165" y1="225" x2="300" y2="175"/><line x1="300" y1="175" x2="375" y2="215"/>
-  </g>
-  <g class="d-link-core" style="stroke-width:11">
-    <line x1="120" y1="352" x2="165" y2="225"/><line x1="165" y1="225" x2="300" y2="175"/><line x1="300" y1="175" x2="375" y2="215"/>
-  </g>
-  <circle cx="120" cy="352" r="11" class="d-joint"/><circle cx="120" cy="352" r="3.5" class="d-joint-core"/>
-  <circle cx="165" cy="225" r="11" class="d-joint"/><circle cx="165" cy="225" r="3.5" class="d-joint-core"/>
-  <circle cx="300" cy="175" r="11" class="d-joint"/><circle cx="300" cy="175" r="3.5" class="d-joint-core"/>
-  <circle cx="375" cy="215" r="9" class="d-joint"/><circle cx="375" cy="215" r="3" class="d-joint-core"/>
-  <rect x="356" y="188" width="20" height="14" rx="2" class="d-fill"/>
-  <circle cx="366" cy="195" r="3" class="d-accent-fill"/>
-  <path d="M366 200 L486 250" class="d-dash"/><path d="M366 200 L433 311" class="d-dash"/>
-  <path d="M486 250 A130 130 0 0 1 433 311" class="d-dash"/>
-  <path d="M378 208 L392 216 L386 236 L372 228 Z" class="d-fill"/>
-  <path d="M392 216 L404 230 L412 238" class="d-ink" style="stroke-width:4"/>
-  <path d="M386 236 L400 256 L416 272" class="d-ink" style="stroke-width:4"/>
-  <ellipse cx="432" cy="257" rx="44" ry="30" transform="rotate(-18 432 257)" class="d-dash"/>
-  <polygon points="452,243 452,269 432,281 412,269 412,243 432,231" class="d-fill-soft"/>
-  <circle cx="432" cy="256" r="6" class="d-fill"/>
-  <circle cx="412" cy="240" r="4.5" class="d-contact"/><circle cx="416" cy="270" r="4.5" class="d-contact"/>
-  <line x1="412" y1="240" x2="426" y2="246" class="d-contact-line" marker-end="url(#h-arrow)"/>
-  <line x1="416" y1="270" x2="428" y2="264" class="d-contact-line" marker-end="url(#h-arrow)"/>
-  <path d="M150 175 L161 214" class="d-leader"/>
-  <text x="22" y="150" class="d-label">Real-time control</text>
-  <text x="22" y="167" class="d-label-2">feedback control, tested on hardware</text>
-  <path d="M366 78 L366 186" class="d-leader"/>
-  <text x="222" y="52" class="d-label">Perception-aware planning</text>
-  <text x="222" y="69" class="d-label-2">keeps the target in view under uncertainty</text>
-  <path d="M400 324 L418 278" class="d-leader"/>
-  <text x="330" y="340" class="d-label">Contact dynamics</text>
-  <text x="330" y="357" class="d-label-2">fingertip forces in MuJoCo</text>
-  <path d="M196 388 L182 392" class="d-leader"/>
-  <text x="204" y="376" class="d-label">Mechanical design and FEA</text>
-  <text x="204" y="393" class="d-label-2">SolidWorks, ANSYS, GD&amp;T, machining</text>
-</svg>
-      <figcaption>What I work on, pinned to the parts of a manipulator.</figcaption>
-    </figure>
+    <section class="timeline-box" aria-labelledby="timeline-title">
+      <h2 id="timeline-title" class="timeline-title">Timeline</h2>
+      <ol class="timeline"><li><span class="tl-when">2025 &ndash; May 2027</span><span class="tl-what">M.S. Mechanical Engineering (Research), Carnegie Mellon University</span><span class="tl-note">On-orbit servicing research funded by SURI; course assistant for three courses</span></li><li><span class="tl-when">Jan &ndash; Jun 2025</span><span class="tl-what">Project Assistant, IIT Gandhinagar</span><span class="tl-note">High-dexterity prosthetic foot and its test bed</span></li><li><span class="tl-when">Jan &ndash; Jun 2024</span><span class="tl-what">Engine-powered drone</span><span class="tl-note">Contact-free magnetic-gear transmission</span></li><li><span class="tl-when">2020 &ndash; May 2024</span><span class="tl-what">B.Tech. Mechanical Engineering, SVNIT Surat</span><span class="tl-note">GPA 8.03/10.0</span></li><li><span class="tl-when">Feb &ndash; Dec 2023</span><span class="tl-what">Team lead, RAKSH agriculture robot</span><span class="tl-note">Qualified the Proof of Concept stage of Robofest-Gujarat 3.0</span></li><li><span class="tl-when">Jun &ndash; Jul 2023</span><span class="tl-what">Intern, Banaras Locomotive Works</span><span class="tl-note">Locomotive assembly and quality control</span></li><li><span class="tl-when">Nov 2021 &ndash; Jan 2023</span><span class="tl-what">Chassis head, Team Phoenix Racing</span><span class="tl-note">Won the Concept Goals Management event, Formula Bharat 2023</span></li></ol>
+    </section>
   </div>
 </header>
+
+<section class="block" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <h2 id="about-title">About me</h2>
+    <p class="lede">Mechanical engineer by training, roboticist by choice.</p>
+    <div class="about-grid">
+      <div>
+        <p>I got into robotics by building things that had to work: a race-car chassis that had to survive a season, a spraying robot that had to find its own way down a crop row, a drone whose rotors all ran off one engine. Each project pushed me from mechanical design toward the control and planning problems that decide whether a machine actually does its job.</p>
+        <p>At CMU I work on on-orbit servicing research funded by SURI: how a free-flying robot can rendezvous with a tumbling satellite, grasp it, and stop its spin, including with Snaker, our snake robot. I&rsquo;ve worked on the motion planning, the controllers, the gripper design, and the grasp analysis, and I&rsquo;m now building an early tendon-driven version of Snaker with two teammates. I&rsquo;m currently a course assistant for Machine Learning and AI for Engineers, and previously assisted AI Agents for Engineers and Applied Finite Element Analysis.</p>
+        <p>I graduate in May 2027 and am looking for a full-time role in robotic manipulation, controls, or motion planning, ideally on a team that tests its ideas on physical robots.</p>
+        
+      </div>
+      <div class="about-skills"><h3 class="skills-title">Skills</h3>
+        <ul class="skills-list" aria-label="Skills">
+          <li><strong>Robotics and simulation:</strong> MuJoCo, Drake, Isaac Sim, Pinocchio, SOFA, ROS, Webots</li>
+          <li><strong>Embedded hardware:</strong> Arduino, ESP32, NVIDIA Jetson Nano, Raspberry Pi</li>
+          <li><strong>Programming:</strong> Python, C++, MATLAB, Simulink</li>
+          <li><strong>Design and analysis:</strong> SolidWorks (PDM/PLM), GD&amp;T, ANSYS FEA, CFD, design optimization</li>
+          <li><strong>Manufacturing:</strong> CNC machining, 3D printing (FDM, SLS, SLA)</li>
+          <li><strong>Graduate coursework:</strong> Modern control theory, nonlinear control, deep learning, machine learning and AI for engineers</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <section class="block" id="projects" aria-labelledby="projects-title">
   <div class="wrap">
@@ -420,8 +430,8 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <div class="card-body">
     <p class="kicker">On-orbit servicing research at CMU, funded by SURI<span class="dates">Aug 2025 &ndash; present</span></p>
     <h3><a href="mission-robotic-vehicle.html">Capturing and detumbling a tumbling satellite</a></h3>
-    <p class="summary">Most satellites were never designed to be grabbed, and a failed one is often tumbling. Our CMU team built a simulated pipeline in which a free-flying robot reaches a tumbling satellite, grasps it, and stops its spin, plus Snaker, a snake robot that wraps around features a standard gripper can&rsquo;t hold. Our planner reached the moving grasp point in 99% of randomized trials, and Snaker tolerated up to five times more misalignment than a standard gripper. We&rsquo;ve also started building a tendon-driven Snaker in hardware, at a very early stage. I worked on every stage: planning, control, gripper design, and grasp analysis.</p>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>C++</li><li>Drake</li><li>MuJoCo</li><li>Isaac Sim</li><li>Pinocchio</li><li>3D printing</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Kinodynamic motion planning</li><li>Trajectory optimization</li><li>Feedback control</li><li>Grasp analysis</li><li>Snake-robot design</li><li>Tendon-driven mechanisms</li></ul></div></div>
+    <p class="summary">Most satellites were never designed to be grabbed, and a failed one is often tumbling. Our CMU team built a simulated pipeline in which a free-flying robot reaches a tumbling satellite, grasps it, and stops its spin, plus Snaker, a snake robot that wraps around features a standard gripper can&rsquo;t hold. Our planner reached the moving grasp point in 99% of randomized trials, and Snaker tolerated up to five times more misalignment than a standard gripper. We&rsquo;ve also started building a tendon-driven Snaker in hardware, at a very early stage, and showed in SOFA simulations that tapering its spine keeps its loops even. I worked on every stage: planning, control, gripper design, and grasp analysis.</p>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>C++</li><li>Drake</li><li>MuJoCo</li><li>Isaac Sim</li><li>Pinocchio</li><li>SOFA</li><li>3D printing</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Kinodynamic motion planning</li><li>Trajectory optimization</li><li>Feedback control</li><li>Grasp analysis</li><li>Snake-robot design</li><li>Tendon-driven mechanisms</li></ul></div></div>
     <span class="card-cta" aria-hidden="true">Read the full project</span>
   </div>
 </article>
@@ -440,7 +450,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <div class="card-body">
     <p class="kicker">Engine-powered drone, SVNIT Surat<span class="dates">Jan &ndash; Jun 2024</span></p>
     <h3><a href="engine-powered-drone.html">Driving every rotor from a single engine</a></h3>
-    <p class="summary">One engine powers all four propellers of this drone. A conventional drivetrain would lock every propeller to a fixed speed ratio, so I designed a contact-free magnetic gear pair for each propeller: a servo-driven linkage changes the gap between the two gears, which sets how much power, and so how much speed, reaches that propeller. The feedback control improved stability in flight tests, and a patent application has been filed for the transmission.</p>
+    <p class="summary">One engine powers all four propellers of this drone. A conventional drivetrain would lock every propeller to a fixed speed ratio, so I designed a contact-free magnetic gear pair for each propeller: a servo-driven linkage changes the gap between the two gears, which sets how much power, and so how much speed, reaches that propeller. The feedback control improved stability in flight tests.</p>
     <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Arduino</li><li>MATLAB</li><li>Simulink</li><li>SolidWorks</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Feedback control</li><li>Mechanism design</li><li>Magnetic gearing</li><li>Calibration</li><li>Flight testing</li></ul></div></div>
     <span class="card-cta" aria-hidden="true">Read the full project</span>
   </div>
@@ -486,31 +496,14 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   </div>
 </section>
 
-<section class="block" id="about" aria-labelledby="about-title">
+<section class="block" id="course-projects" aria-labelledby="course-title">
   <div class="wrap">
-    <h2 id="about-title">About me</h2>
-    <p class="lede">Mechanical engineer by training, roboticist by choice.</p>
-    <div class="about-grid">
-      <div>
-        <p>I got into robotics by building things that had to work: a race-car chassis that had to survive a season, a spraying robot that had to find its own way down a crop row, a drone whose rotors all ran off one engine. Each project pushed me from mechanical design toward the control and planning problems that decide whether a machine actually does its job.</p>
-        <p>At CMU I work on on-orbit servicing research funded by SURI: how a free-flying robot can rendezvous with a tumbling satellite, grasp it, and stop its spin, including with Snaker, our snake robot. I&rsquo;ve worked on the motion planning, the controllers, the gripper design, and the grasp analysis, and I&rsquo;m now building an early tendon-driven version of Snaker with two teammates. I also serve as a course assistant for AI Agents for Engineers and for Applied Finite Element Analysis.</p>
-        <p>I graduate in May 2027 and am looking for a full-time role in robotic manipulation, controls, or motion planning, ideally on a team that tests its ideas on physical robots.</p>
-        <ul class="skills-list" aria-label="Skills">
-          <li><strong>Robotics and simulation:</strong> MuJoCo, Isaac Sim, Webots, ROS</li>
-          <li><strong>Programming:</strong> Python, C++, MATLAB, Simulink</li>
-          <li><strong>Design and analysis:</strong> SolidWorks (PDM/PLM), GD&amp;T, ANSYS FEA, CFD, design optimization</li>
-          <li><strong>Manufacturing:</strong> CNC machining, 3D printing (FDM, SLS, SLA)</li>
-          <li><strong>Graduate coursework:</strong> Modern control theory, nonlinear control, deep learning, machine learning and AI for engineers</li>
-        </ul>
-      </div>
-      <ul class="facts">
-        <li><span class="k">Education</span><span>M.S. Mechanical Engineering (Research), Carnegie Mellon University, May 2027</span></li>
-        <li><span class="k">Previously</span><span>B.Tech. Mechanical Engineering, Sardar Vallabhbhai National Institute of Technology, Surat, 2024</span></li>
-        <li><span class="k">Leadership</span><span>Chassis head for a 30-member Formula Electric team; team lead for the five-person RAKSH robot</span></li>
-        <li><span class="k">Teaching</span><span>Course assistant, AI Agents for Engineers and Applied Finite Element Analysis, CMU</span></li>
-        <li><span class="k">Industry</span><span>Intern, Banaras Locomotive Works, 2023: large-scale mechanical assembly and quality control</span></li>
-        <li><span class="k">Looking for</span><span>Full-time roles in manipulation, controls, and motion planning, from May 2027</span></li>
-      </ul>
+    <h2 id="course-title">Course projects</h2>
+    <p class="lede">Projects from my graduate coursework at Carnegie Mellon University.</p>
+    <div class="course-grid">
+<article class="course-card"><p class="kicker">24-774 Advanced Control System Integration<span class="dates">Fall 2026 &middot; <span class="flag-inline">In progress</span></span></p><h3>Rotor fault detection and recovery on a Crazyflie</h3><p class="summary">A team project to let a Crazyflie 2.1 nano-quadrotor detect and survive partial thrust loss on any rotor without motor-speed sensors. My proposal compares the IMU-measured forces and torques with the commanded motor outputs, estimates each rotor&rsquo;s health with recursive least squares, flags a steady mismatch with a CUSUM test, and reallocates thrust, giving up yaw to keep altitude, roll, and pitch.</p><ul class="tags"><li>Fault detection</li><li>State estimation</li><li>Control allocation</li><li>Crazyflie</li></ul></article>
+<article class="course-card"><p class="kicker">24-774 Advanced Control System Integration<span class="dates">Fall 2026</span></p><h3>Rotary pendulum control on the Quanser QUBE-Servo 2</h3><p class="summary">Team hardware labs on a rotary pendulum. I designed a discrete PID motor-angle controller by pole placement and ran it on an Arduino, tracking a &plusmn;10&deg; square wave; a sampling-rate sweep showed instability at 90 ms, close to the model&rsquo;s prediction of about 98 ms. I also implemented a Luenberger observer on the Arduino, found and fixed an angle-offset error, and estimated both joint speeds with 0.98 and 0.96 correlation to measurements.</p><ul class="tags"><li>PID control</li><li>State observers</li><li>Arduino</li><li>MATLAB</li><li>Simulink</li></ul></article>
+<article class="course-card"><p class="kicker">16-782 Planning and Decision-Making in Robotics<span class="dates">Fall 2026</span></p><h3>Catching a moving target on large cost maps</h3><p class="summary">A C++ planner that intercepts a moving target at minimum path cost on 2-D cost maps of up to 1825 &times; 2332 cells, within a one-second budget per planning call. It combines breadth-first search for reachability, Dijkstra-based lower bounds and heuristics, and an exact layered search with branch-and-bound pruning, and it reached the proven optimal cost on all nine test maps.</p><ul class="tags"><li>C++</li><li>Graph search</li><li>Heuristic search</li><li>Motion planning</li></ul></article>
     </div>
   </div>
 </section>
