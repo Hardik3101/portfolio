@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Designing and building a Formula Electric chassis | Hardik Choudhary</title>
-<meta name="description" content="A Formula Student chassis has to meet the rulebook and a stiffness target while weighing as little as possible. As chassis head of Team Phoenix Racing, I led the design and fabrication of our electric car's chassis with a 30-member team: I optimized the frame with finite element analysis to cut mass while meeting the stiffness target, calculated the suspension hardpoints, and developed the bodywork and aero package. We competed in Formula Bharat 2023, Class I, held virtually in October 2022, and the team won the Concept Goals Management event in the electric category.">
-<meta property="og:title" content="Designing and building a Formula Electric chassis | Hardik Choudhary">
-<meta property="og:description" content="A Formula Student chassis has to meet the rulebook and a stiffness target while weighing as little as possible. As chassis head of Team Phoenix Racing, I led the design and fabrication of our electric car's chassis with a 30-member team: I optimized the frame with finite element analysis to cut mass while meeting the stiffness target, calculated the suspension hardpoints, and developed the bodywork and aero package. We competed in Formula Bharat 2023, Class I, held virtually in October 2022, and the team won the Concept Goals Management event in the electric category.">
+<title>Formula Student Electric Car | Hardik Choudhary</title>
+<meta name="description" content="As chassis head, I led a 30-member team through the design and fabrication of our electric race car's chassis: I optimized the frame with finite element analysis to cut mass while meeting its stiffness target, calculated the suspension hardpoints, and developed the bodywork and aero package. Team Phoenix Racing competed in Formula Bharat 2023, Class I, held virtually in October 2022, and won the Concept Goals Management event in the electric category.">
+<meta property="og:title" content="Formula Student Electric Car | Hardik Choudhary">
+<meta property="og:description" content="As chassis head, I led a 30-member team through the design and fabrication of our electric race car's chassis: I optimized the frame with finite element analysis to cut mass while meeting its stiffness target, calculated the suspension hardpoints, and developed the bodywork and aero package. Team Phoenix Racing competed in Formula Bharat 2023, Class I, held virtually in October 2022, and won the Concept Goals Management event in the electric category.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -257,6 +257,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   details.tech .tech-body { display: block; }
 }
 
+[hidden] { display: none !important; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .flow li.mine { border-width: 2px; }
 .glance h3 { font-family: var(--body); font-size: 0.95rem; font-weight: 600; letter-spacing: 0; margin: 1.3rem 0 0; }
@@ -293,6 +294,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .card-visual img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; display: block; }
 .card-visual.photo { padding: 0; overflow: hidden; }
 .card-visual.photo img { border-radius: 7px; }
+.card-visual.chart { background: #fff; }
 .results { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; max-width: 900px; }
 .results li { border-top: 2px solid var(--accent); padding-top: 8px; font-size: 0.98rem; line-height: 1.45; }
 .results strong { font-weight: 700; color: var(--ink); }
@@ -302,11 +304,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .media-fig figcaption { font-size: 0.9rem; color: var(--ink-2); margin-top: 8px; max-width: 72ch; line-height: 1.5; }
 .media-fig.wide { margin-top: 1.4rem; }
 .media-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 24px; margin-top: 1.4rem; align-items: start; }
+.media-pair.proj-figure { margin-top: clamp(28px, 4vw, 40px); }
 .stage { margin-top: clamp(40px, 6vw, 64px); padding-top: clamp(28px, 4vw, 40px); border-top: 1px solid var(--line); }
 .stage h2 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); margin-bottom: 0.9rem; max-width: 30ch; }
 .stage-text { max-width: 68ch; }
 .stage-text p { margin: 0; }
 .stage-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 20px clamp(24px, 4vw, 48px); align-items: start; }
+.stage-split.side { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); }
+.side-fig { justify-self: end; width: 100%; }
+.stage .proj-figure { margin-top: clamp(24px, 3vw, 32px); }
 .next-line { margin: clamp(36px, 5vw, 52px) 0 0; max-width: 70ch; }
 :root { --flag-ink: #A8431A; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --flag-ink: #F0844E; } }
@@ -331,12 +337,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .about-skills { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; align-self: start; }
 .skills-title { font-family: var(--body); font-size: 1.05rem; margin: 0 0 10px; letter-spacing: 0; }
 .about-skills .skills-list { margin: 0; }
-.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: clamp(28px, 4vw, 40px); }
+.course-features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 4vw, 48px); margin-top: clamp(28px, 4vw, 40px); align-items: start; }
+.cf-card .card-visual { margin-bottom: 18px; }
+.cf-card h3 { font-size: clamp(1.2rem, 2vw, 1.4rem); }
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: clamp(32px, 4vw, 48px); }
 .course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
 .course-card .dates { display: block; font-weight: 400; }
 .course-card h3 { font-size: 1.2rem; line-height: 1.25; margin: 0; }
 .course-card .summary { margin: 0; font-size: 0.97rem; }
-.course-card .tags { margin-top: auto; padding-top: 6px; }
+.course-card .tagrows { margin-top: auto; padding-top: 8px; }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
 .portrait-fig { max-width: 340px; justify-self: center; }
@@ -344,12 +353,48 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .result-split { margin-top: 1.6rem; align-items: center; }
 .cad-fig { max-width: 760px; margin-top: 1.4rem; }
 .stage-text.proto { margin-top: 1.8rem; }
-@media (max-width: 860px) { .card-lg, .card-lg.flip, .contact-grid, .proj-2col, .media-pair, .stage-split { grid-template-columns: 1fr; } }
+/* Skill and tool filter on the front page */
+.filter { margin-top: clamp(24px, 3vw, 32px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; }
+.filter-body { display: grid; gap: 12px; margin-top: 12px; }
+.filter-title { font-size: 1rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.filter-title::-webkit-details-marker { display: none; }
+.filter-title::after { content: "2"; font-size: 1.3rem; line-height: 1; color: var(--ink-2); font-weight: 400; }
+.filter:not([open]) .filter-title::after { content: "+"; }
+.filter-count { font-weight: 500; color: var(--ink-2); margin-right: auto; padding-left: 4px; }
+.filter-row { display: grid; grid-template-columns: 3.6em minmax(0, 1fr); gap: 10px; align-items: start; }
+.filter-label { font-size: 0.85rem; font-weight: 600; color: var(--ink-2); padding-top: 7px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: inherit; font-size: 0.86rem; font-weight: 500; line-height: 1.2; padding: 6px 11px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip:hover { border-color: var(--accent); }
+.chip .n { font-size: 0.74rem; font-weight: 600; color: var(--ink-2); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: 0.85; }
+:root[data-theme="dark"] .chip[aria-pressed="true"] { color: #0F1720; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .chip[aria-pressed="true"] { color: #0F1720; } }
+.filter-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; border-top: 1px solid var(--line); padding-top: 10px; }
+.filter-status { margin: 0; font-size: 0.92rem; color: var(--ink-2); max-width: none; }
+.filter-clear { font: inherit; font-size: 0.92rem; font-weight: 600; color: var(--accent-ink); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.filter-note { margin: 1rem 0 0; font-size: 0.95rem; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; max-width: none; }
+.filter-empty { margin: clamp(24px, 3vw, 32px) 0 0; padding: 16px 20px; border: 1px dashed var(--line); border-radius: 10px; color: var(--ink-2); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 20px; }
+.filter-empty p { margin: 0; max-width: none; }
+.featured:not(:has(> :not([hidden]))) { display: none; }
+/* Data tables on course pages */
+.table-wrap { overflow-x: auto; margin-top: 1rem; }
+.data-table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.95rem; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.data-table caption { caption-side: bottom; text-align: left; font-size: 0.88rem; color: var(--ink-2); padding-top: 8px; }
+.data-table th, .data-table td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.data-table th:first-child, .data-table td:first-child { text-align: left; }
+.data-table thead th { font-weight: 600; color: var(--ink-2); font-size: 0.86rem; }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table strong { font-weight: 700; }
+@media (max-width: 860px) { .card-lg, .card-lg.flip, .contact-grid, .proj-2col, .media-pair, .stage-split, .stage-split.side, .course-features { grid-template-columns: 1fr; } .side-fig { justify-self: start; max-width: 340px; } }
 @media (max-width: 600px) { .results { grid-template-columns: 1fr; } }
 @media (max-width: 600px) {
   .lead-visual .frame { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .lead-visual svg { min-width: 560px; }
   .scroll-hint { display: block; margin-bottom: 2px; }
+  .filter-row { grid-template-columns: 1fr; gap: 6px; }
+  .filter-label { padding-top: 0; }
 }
 @media (max-width: 560px) {
   html { scroll-padding-top: 0; }
@@ -378,9 +423,9 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <div class="wrap">
 <header class="proj-head">
   <a class="back" href="index.html#projects">All projects</a>
-  <p class="kicker">Team Phoenix Racing (Phoenix Racing Electric), SVNIT Surat</p>
-  <h1>Designing and building a Formula Electric chassis</h1>
-  <p class="proj-lead">The chassis of Team Phoenix Racing&rsquo;s Formula Student electric car. <strong>As chassis head, I led its design and fabrication with a 30-member team</strong>, optimizing the frame with finite element analysis to cut mass while meeting its stiffness target. Competing as Phoenix Racing Electric in Formula Bharat 2023, Class I, the team won the Concept Goals Management event in the electric category.</p>
+  <p class="kicker">Chassis head, Team Phoenix Racing, SVNIT Surat</p>
+  <h1>Formula Student Electric Car</h1>
+  <p class="proj-lead"><strong>As chassis head, I led the design and fabrication of Team Phoenix Racing&rsquo;s Formula Student electric car chassis with a 30-member team</strong>, optimizing the frame with finite element analysis to cut mass while meeting its stiffness target. Competing as Phoenix Racing Electric in Formula Bharat 2023, Class I, the team won the Concept Goals Management event in the electric category.</p>
 </header>
 
 <figure class="media-fig lead-photo" style="max-width:640px"><img src="media/fs-car.jpg" alt="Team Phoenix Racing's blue and black Formula Student electric car, number E25, with a helmeted driver in the cockpit and spectators behind it." width="540" height="332"><figcaption>Team Phoenix Racing&rsquo;s Formula Student electric car.</figcaption></figure>
@@ -399,7 +444,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
     <dl><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Nov 2021 &ndash; Jan 2023</dd><dt>My role</dt><dd>Chassis head</dd><dt>Team</dt><dd>Phoenix Racing Electric (team EA05), 30 members</dd><dt>Competition</dt><dd>Formula Bharat 2023, Class I, held virtually Oct 7&ndash;29, 2022</dd><dt>Result</dt><dd>Team won the Concept Goals Management event (electric)</dd><dt>After</dt><dd>Mentored the next team, 2023</dd></dl>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>ANSYS</li><li>SolidWorks</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>FEA</li><li>Vehicle dynamics</li><li>Design optimization</li><li>Aero and bodywork</li><li>GD&amp;T</li><li>CNC machining</li><li>Team leadership</li></ul></div></div>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>SolidWorks</li><li>ANSYS</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>FEA</li><li>Vehicle dynamics</li><li>Design optimization</li><li>Aero and bodywork</li><li>GD&amp;T</li><li>CNC machining</li><li>Team leadership</li></ul></div></div>
   </aside>
 </div>
 
@@ -433,7 +478,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <div class="notes"><div class="tnote"><h3>Why stiffness matters</h3><p>A stiff frame lets the suspension, not the chassis, control how the tires load the track. If the frame twists, the car&rsquo;s handling becomes harder to predict and tune, which is why torsional stiffness is a standard check for a race-car frame.</p></div><div class="tnote"><h3>Reducing mass with FEA</h3><p>Analysis shows which parts of the frame carry little load. Those can be lightened or removed, then the frame is checked again, until mass is down and the stiffness target is still met.</p></div></div>
 </section>
 
-<nav class="pager" aria-label="More projects"><a class="prev" href="engine-powered-drone.html"><small>Previous project</small><span>Engine-powered drone</span></a><a class="next" href="prosthetic-foot.html"><small>Next project</small><span>Prosthetic foot and test bed</span></a></nav>
+<nav class="pager" aria-label="More projects"><a class="prev" href="engine-powered-drone.html"><small>Previous project</small><span>Engine-Powered Drone</span></a><a class="next" href="prosthetic-foot.html"><small>Next project</small><span>Prosthetic Foot</span></a></nav>
 </div>
 </main>
 <footer>

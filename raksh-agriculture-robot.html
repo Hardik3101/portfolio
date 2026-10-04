@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Autonomous disease detection and pesticide spraying for polyhouses | Hardik Choudhary</title>
-<meta name="description" content="Spraying pesticide inside a polyhouse is repetitive work that keeps farm workers close to chemicals. I led the five-person team that built RAKSH, a robot that drives itself along the crop rows, looks for diseased plants, and sprays from a modular 10-chemical system. I developed its navigation using sensor fusion and vision-based row detection. RAKSH qualified the Proof of Concept stage of Robofest-Gujarat 3.0, winning a Rs 1,00,000 cash prize, and competed in the prototype stage in December 2023.">
-<meta property="og:title" content="Autonomous disease detection and pesticide spraying for polyhouses | Hardik Choudhary">
-<meta property="og:description" content="Spraying pesticide inside a polyhouse is repetitive work that keeps farm workers close to chemicals. I led the five-person team that built RAKSH, a robot that drives itself along the crop rows, looks for diseased plants, and sprays from a modular 10-chemical system. I developed its navigation using sensor fusion and vision-based row detection. RAKSH qualified the Proof of Concept stage of Robofest-Gujarat 3.0, winning a Rs 1,00,000 cash prize, and competed in the prototype stage in December 2023.">
+<title>RAKSH | Hardik Choudhary</title>
+<meta name="description" content="I led the five-person team that built RAKSH, an autonomous pesticide-spraying robot for polyhouses, and developed its navigation: sensor fusion and vision-based crop-row detection on ROS, so it drives itself down the rows. I also designed its slide-in 10-chemical spraying module and the lead-screw lift that raises its camera to the leaves. RAKSH uses machine learning to spot diseased plants and sprays only where needed; it qualified the Proof of Concept stage of Robofest-Gujarat 3.0, winning a Rs 1,00,000 cash prize, and competed in the prototype stage.">
+<meta property="og:title" content="RAKSH | Hardik Choudhary">
+<meta property="og:description" content="I led the five-person team that built RAKSH, an autonomous pesticide-spraying robot for polyhouses, and developed its navigation: sensor fusion and vision-based crop-row detection on ROS, so it drives itself down the rows. I also designed its slide-in 10-chemical spraying module and the lead-screw lift that raises its camera to the leaves. RAKSH uses machine learning to spot diseased plants and sprays only where needed; it qualified the Proof of Concept stage of Robofest-Gujarat 3.0, winning a Rs 1,00,000 cash prize, and competed in the prototype stage.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -257,6 +257,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   details.tech .tech-body { display: block; }
 }
 
+[hidden] { display: none !important; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .flow li.mine { border-width: 2px; }
 .glance h3 { font-family: var(--body); font-size: 0.95rem; font-weight: 600; letter-spacing: 0; margin: 1.3rem 0 0; }
@@ -293,6 +294,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .card-visual img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; display: block; }
 .card-visual.photo { padding: 0; overflow: hidden; }
 .card-visual.photo img { border-radius: 7px; }
+.card-visual.chart { background: #fff; }
 .results { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; max-width: 900px; }
 .results li { border-top: 2px solid var(--accent); padding-top: 8px; font-size: 0.98rem; line-height: 1.45; }
 .results strong { font-weight: 700; color: var(--ink); }
@@ -302,11 +304,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .media-fig figcaption { font-size: 0.9rem; color: var(--ink-2); margin-top: 8px; max-width: 72ch; line-height: 1.5; }
 .media-fig.wide { margin-top: 1.4rem; }
 .media-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 24px; margin-top: 1.4rem; align-items: start; }
+.media-pair.proj-figure { margin-top: clamp(28px, 4vw, 40px); }
 .stage { margin-top: clamp(40px, 6vw, 64px); padding-top: clamp(28px, 4vw, 40px); border-top: 1px solid var(--line); }
 .stage h2 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); margin-bottom: 0.9rem; max-width: 30ch; }
 .stage-text { max-width: 68ch; }
 .stage-text p { margin: 0; }
 .stage-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 20px clamp(24px, 4vw, 48px); align-items: start; }
+.stage-split.side { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); }
+.side-fig { justify-self: end; width: 100%; }
+.stage .proj-figure { margin-top: clamp(24px, 3vw, 32px); }
 .next-line { margin: clamp(36px, 5vw, 52px) 0 0; max-width: 70ch; }
 :root { --flag-ink: #A8431A; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --flag-ink: #F0844E; } }
@@ -331,12 +337,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .about-skills { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; align-self: start; }
 .skills-title { font-family: var(--body); font-size: 1.05rem; margin: 0 0 10px; letter-spacing: 0; }
 .about-skills .skills-list { margin: 0; }
-.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: clamp(28px, 4vw, 40px); }
+.course-features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 4vw, 48px); margin-top: clamp(28px, 4vw, 40px); align-items: start; }
+.cf-card .card-visual { margin-bottom: 18px; }
+.cf-card h3 { font-size: clamp(1.2rem, 2vw, 1.4rem); }
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: clamp(32px, 4vw, 48px); }
 .course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
 .course-card .dates { display: block; font-weight: 400; }
 .course-card h3 { font-size: 1.2rem; line-height: 1.25; margin: 0; }
 .course-card .summary { margin: 0; font-size: 0.97rem; }
-.course-card .tags { margin-top: auto; padding-top: 6px; }
+.course-card .tagrows { margin-top: auto; padding-top: 8px; }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
 .portrait-fig { max-width: 340px; justify-self: center; }
@@ -344,12 +353,48 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .result-split { margin-top: 1.6rem; align-items: center; }
 .cad-fig { max-width: 760px; margin-top: 1.4rem; }
 .stage-text.proto { margin-top: 1.8rem; }
-@media (max-width: 860px) { .card-lg, .card-lg.flip, .contact-grid, .proj-2col, .media-pair, .stage-split { grid-template-columns: 1fr; } }
+/* Skill and tool filter on the front page */
+.filter { margin-top: clamp(24px, 3vw, 32px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; }
+.filter-body { display: grid; gap: 12px; margin-top: 12px; }
+.filter-title { font-size: 1rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.filter-title::-webkit-details-marker { display: none; }
+.filter-title::after { content: "2"; font-size: 1.3rem; line-height: 1; color: var(--ink-2); font-weight: 400; }
+.filter:not([open]) .filter-title::after { content: "+"; }
+.filter-count { font-weight: 500; color: var(--ink-2); margin-right: auto; padding-left: 4px; }
+.filter-row { display: grid; grid-template-columns: 3.6em minmax(0, 1fr); gap: 10px; align-items: start; }
+.filter-label { font-size: 0.85rem; font-weight: 600; color: var(--ink-2); padding-top: 7px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: inherit; font-size: 0.86rem; font-weight: 500; line-height: 1.2; padding: 6px 11px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip:hover { border-color: var(--accent); }
+.chip .n { font-size: 0.74rem; font-weight: 600; color: var(--ink-2); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: 0.85; }
+:root[data-theme="dark"] .chip[aria-pressed="true"] { color: #0F1720; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .chip[aria-pressed="true"] { color: #0F1720; } }
+.filter-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; border-top: 1px solid var(--line); padding-top: 10px; }
+.filter-status { margin: 0; font-size: 0.92rem; color: var(--ink-2); max-width: none; }
+.filter-clear { font: inherit; font-size: 0.92rem; font-weight: 600; color: var(--accent-ink); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.filter-note { margin: 1rem 0 0; font-size: 0.95rem; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; max-width: none; }
+.filter-empty { margin: clamp(24px, 3vw, 32px) 0 0; padding: 16px 20px; border: 1px dashed var(--line); border-radius: 10px; color: var(--ink-2); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 20px; }
+.filter-empty p { margin: 0; max-width: none; }
+.featured:not(:has(> :not([hidden]))) { display: none; }
+/* Data tables on course pages */
+.table-wrap { overflow-x: auto; margin-top: 1rem; }
+.data-table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.95rem; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.data-table caption { caption-side: bottom; text-align: left; font-size: 0.88rem; color: var(--ink-2); padding-top: 8px; }
+.data-table th, .data-table td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.data-table th:first-child, .data-table td:first-child { text-align: left; }
+.data-table thead th { font-weight: 600; color: var(--ink-2); font-size: 0.86rem; }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table strong { font-weight: 700; }
+@media (max-width: 860px) { .card-lg, .card-lg.flip, .contact-grid, .proj-2col, .media-pair, .stage-split, .stage-split.side, .course-features { grid-template-columns: 1fr; } .side-fig { justify-self: start; max-width: 340px; } }
 @media (max-width: 600px) { .results { grid-template-columns: 1fr; } }
 @media (max-width: 600px) {
   .lead-visual .frame { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .lead-visual svg { min-width: 560px; }
   .scroll-hint { display: block; margin-bottom: 2px; }
+  .filter-row { grid-template-columns: 1fr; gap: 6px; }
+  .filter-label { padding-top: 0; }
 }
 @media (max-width: 560px) {
   html { scroll-padding-top: 0; }
@@ -378,9 +423,9 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <div class="wrap">
 <header class="proj-head">
   <a class="back" href="index.html#projects">All projects</a>
-  <p class="kicker">RAKSH agriculture robot, SVNIT Surat</p>
-  <h1>Autonomous disease detection and pesticide spraying for polyhouses</h1>
-  <p class="proj-lead">An autonomous robot for polyhouses that drives along the crop rows, uses machine learning on its camera images to spot diseased plants, and sprays from a modular system that holds 10 chemicals. <strong>I led the five-person team and built the robot&rsquo;s navigation.</strong> RAKSH qualified the Proof of Concept stage of Robofest-Gujarat 3.0, with a Rs 1,00,000 cash prize, and competed in the prototype stage.</p>
+  <p class="kicker">Team lead, SVNIT Surat</p>
+  <h1>RAKSH</h1>
+  <p class="proj-lead"><strong>I led the five-person team that built RAKSH and developed its navigation.</strong> RAKSH is an autonomous robot for polyhouses: it drives along the crop rows, uses machine learning on its camera images to spot diseased plants, and sprays from a modular system that holds 10 chemicals. It qualified the Proof of Concept stage of Robofest-Gujarat 3.0, with a Rs 1,00,000 cash prize, and competed in the prototype stage.</p>
 </header>
 
 <figure class="media-fig lead-photo" style="max-width:560px"><img src="media/raksh-robot.jpg" alt="The RAKSH robot indoors: a black aluminium frame on rocker-bogie wheels, a white module with ten blue caps on top, and a tall white 3D-printed tower with a camera at the top." width="720" height="884"><figcaption>RAKSH: a rocker-bogie chassis on an aluminium frame, the 10-container chemical module, and a 3D-printed tower with the camera on top.</figcaption></figure>
@@ -398,8 +443,8 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   </div>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Feb &ndash; Dec 2023</dd><dt>My role</dt><dd>Controls, perception, and team lead</dd><dt>Team</dt><dd>5 members, mentored by Prof. Suresh Dahiya (SVNIT)</dd><dt>Competition</dt><dd>Robofest-Gujarat 3.0 (GUJCOST), Others Application Based Robot category</dd><dt>Result</dt><dd>Qualified the Proof of Concept stage (Rs 1,00,000 prize); competed in the prototype stage, Dec 29&ndash;31, 2023</dd></dl>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>ROS</li><li>Jetson Nano</li><li>ESP32</li><li>Raspberry Pi</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Sensor fusion</li><li>Computer vision</li><li>VSLAM</li><li>Machine learning</li><li>Mechanism design</li><li>Team leadership</li></ul></div></div>
+    <dl><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Feb &ndash; Dec 2023</dd><dt>My role</dt><dd>Team lead; navigation and perception</dd><dt>Team</dt><dd>5 members, mentored by Prof. Suresh Dahiya (SVNIT)</dd><dt>Competition</dt><dd>Robofest-Gujarat 3.0 (GUJCOST), Others Application Based Robot category</dd><dt>Result</dt><dd>Qualified the Proof of Concept stage (Rs 1,00,000 prize); competed in the prototype stage, Dec 29&ndash;31, 2023</dd></dl>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>ROS</li><li>Jetson Nano</li><li>ESP32</li><li>Raspberry Pi</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Sensor fusion</li><li>Computer vision</li><li>VSLAM</li><li>Mechanism design</li><li>Team leadership</li></ul></div></div>
   </aside>
 </div>
 
@@ -434,7 +479,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <div class="notes"><div class="tnote"><h3>Navigation</h3><p>Crop-row detection gives the robot a visual reference to follow down each row. Fusing it with the robot&rsquo;s other onboard sensors makes the estimate of where the robot is in the row more robust than vision alone.</p></div><div class="tnote"><h3>Modular pesticide delivery</h3><p>Each of the ten containers has its own servo-driven valve on a shared line, so the robot can switch treatments without changing hardware, and the whole module slides out of the frame.</p></div><div class="tnote"><h3>Leading the team</h3><p>As team lead I coordinated the five-person team from concept to the Robofest prototype stage, while owning the navigation and perception work myself.</p></div></div>
 </section>
 
-<nav class="pager" aria-label="More projects"><a class="prev" href="mission-robotic-vehicle.html"><small>Previous project</small><span>Capturing a tumbling satellite</span></a><a class="next" href="engine-powered-drone.html"><small>Next project</small><span>Engine-powered drone</span></a></nav>
+<nav class="pager" aria-label="More projects"><a class="prev" href="on-orbit-manipulation.html"><small>Previous project</small><span>On-Orbit Manipulation</span></a><a class="next" href="engine-powered-drone.html"><small>Next project</small><span>Engine-Powered Drone</span></a></nav>
 </div>
 </main>
 <footer>

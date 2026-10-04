@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A high-dexterity prosthetic foot and its test bed | Hardik Choudhary</title>
-<meta name="description" content="Most affordable prosthetic feet are rigid, which makes slopes and uneven ground harder to handle. As a project assistant at IIT Gandhinagar, I designed a high-dexterity prosthetic foot and built a test bed that evaluates it under repeatable loading, so designs can be compared under the same conditions.">
-<meta property="og:title" content="A high-dexterity prosthetic foot and its test bed | Hardik Choudhary">
-<meta property="og:description" content="Most affordable prosthetic feet are rigid, which makes slopes and uneven ground harder to handle. As a project assistant at IIT Gandhinagar, I designed a high-dexterity prosthetic foot and built a test bed that evaluates it under repeatable loading, so designs can be compared under the same conditions.">
+<title>Prosthetic Foot | Hardik Choudhary</title>
+<meta name="description" content="I designed a prosthetic foot whose forefoot can tilt from side to side like a human foot's, taking it through three CAD iterations refined with Ansys FEA, and built a test bed that loads it repeatably. Working with Ronak Vyas under Prof. Vineet Vashista, we cut the forefoot slits from four to two after FEA showed the extra slits only weakened the foot, matched it to a standard pylon mount, and compared carbon fiber, POM, and PPS for a foot meant to weigh 600-700 g and last a million load cycles.">
+<meta property="og:title" content="Prosthetic Foot | Hardik Choudhary">
+<meta property="og:description" content="I designed a prosthetic foot whose forefoot can tilt from side to side like a human foot's, taking it through three CAD iterations refined with Ansys FEA, and built a test bed that loads it repeatably. Working with Ronak Vyas under Prof. Vineet Vashista, we cut the forefoot slits from four to two after FEA showed the extra slits only weakened the foot, matched it to a standard pylon mount, and compared carbon fiber, POM, and PPS for a foot meant to weigh 600-700 g and last a million load cycles.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -257,6 +257,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   details.tech .tech-body { display: block; }
 }
 
+[hidden] { display: none !important; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .flow li.mine { border-width: 2px; }
 .glance h3 { font-family: var(--body); font-size: 0.95rem; font-weight: 600; letter-spacing: 0; margin: 1.3rem 0 0; }
@@ -293,6 +294,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .card-visual img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; display: block; }
 .card-visual.photo { padding: 0; overflow: hidden; }
 .card-visual.photo img { border-radius: 7px; }
+.card-visual.chart { background: #fff; }
 .results { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; max-width: 900px; }
 .results li { border-top: 2px solid var(--accent); padding-top: 8px; font-size: 0.98rem; line-height: 1.45; }
 .results strong { font-weight: 700; color: var(--ink); }
@@ -302,11 +304,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .media-fig figcaption { font-size: 0.9rem; color: var(--ink-2); margin-top: 8px; max-width: 72ch; line-height: 1.5; }
 .media-fig.wide { margin-top: 1.4rem; }
 .media-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 24px; margin-top: 1.4rem; align-items: start; }
+.media-pair.proj-figure { margin-top: clamp(28px, 4vw, 40px); }
 .stage { margin-top: clamp(40px, 6vw, 64px); padding-top: clamp(28px, 4vw, 40px); border-top: 1px solid var(--line); }
 .stage h2 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); margin-bottom: 0.9rem; max-width: 30ch; }
 .stage-text { max-width: 68ch; }
 .stage-text p { margin: 0; }
 .stage-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 20px clamp(24px, 4vw, 48px); align-items: start; }
+.stage-split.side { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); }
+.side-fig { justify-self: end; width: 100%; }
+.stage .proj-figure { margin-top: clamp(24px, 3vw, 32px); }
 .next-line { margin: clamp(36px, 5vw, 52px) 0 0; max-width: 70ch; }
 :root { --flag-ink: #A8431A; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --flag-ink: #F0844E; } }
@@ -331,12 +337,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .about-skills { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; align-self: start; }
 .skills-title { font-family: var(--body); font-size: 1.05rem; margin: 0 0 10px; letter-spacing: 0; }
 .about-skills .skills-list { margin: 0; }
-.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: clamp(28px, 4vw, 40px); }
+.course-features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 4vw, 48px); margin-top: clamp(28px, 4vw, 40px); align-items: start; }
+.cf-card .card-visual { margin-bottom: 18px; }
+.cf-card h3 { font-size: clamp(1.2rem, 2vw, 1.4rem); }
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: clamp(32px, 4vw, 48px); }
 .course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
 .course-card .dates { display: block; font-weight: 400; }
 .course-card h3 { font-size: 1.2rem; line-height: 1.25; margin: 0; }
 .course-card .summary { margin: 0; font-size: 0.97rem; }
-.course-card .tags { margin-top: auto; padding-top: 6px; }
+.course-card .tagrows { margin-top: auto; padding-top: 8px; }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
 .portrait-fig { max-width: 340px; justify-self: center; }
@@ -344,12 +353,48 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .result-split { margin-top: 1.6rem; align-items: center; }
 .cad-fig { max-width: 760px; margin-top: 1.4rem; }
 .stage-text.proto { margin-top: 1.8rem; }
-@media (max-width: 860px) { .card-lg, .card-lg.flip, .contact-grid, .proj-2col, .media-pair, .stage-split { grid-template-columns: 1fr; } }
+/* Skill and tool filter on the front page */
+.filter { margin-top: clamp(24px, 3vw, 32px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; }
+.filter-body { display: grid; gap: 12px; margin-top: 12px; }
+.filter-title { font-size: 1rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.filter-title::-webkit-details-marker { display: none; }
+.filter-title::after { content: "2"; font-size: 1.3rem; line-height: 1; color: var(--ink-2); font-weight: 400; }
+.filter:not([open]) .filter-title::after { content: "+"; }
+.filter-count { font-weight: 500; color: var(--ink-2); margin-right: auto; padding-left: 4px; }
+.filter-row { display: grid; grid-template-columns: 3.6em minmax(0, 1fr); gap: 10px; align-items: start; }
+.filter-label { font-size: 0.85rem; font-weight: 600; color: var(--ink-2); padding-top: 7px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: inherit; font-size: 0.86rem; font-weight: 500; line-height: 1.2; padding: 6px 11px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip:hover { border-color: var(--accent); }
+.chip .n { font-size: 0.74rem; font-weight: 600; color: var(--ink-2); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: 0.85; }
+:root[data-theme="dark"] .chip[aria-pressed="true"] { color: #0F1720; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .chip[aria-pressed="true"] { color: #0F1720; } }
+.filter-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; border-top: 1px solid var(--line); padding-top: 10px; }
+.filter-status { margin: 0; font-size: 0.92rem; color: var(--ink-2); max-width: none; }
+.filter-clear { font: inherit; font-size: 0.92rem; font-weight: 600; color: var(--accent-ink); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.filter-note { margin: 1rem 0 0; font-size: 0.95rem; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; max-width: none; }
+.filter-empty { margin: clamp(24px, 3vw, 32px) 0 0; padding: 16px 20px; border: 1px dashed var(--line); border-radius: 10px; color: var(--ink-2); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 20px; }
+.filter-empty p { margin: 0; max-width: none; }
+.featured:not(:has(> :not([hidden]))) { display: none; }
+/* Data tables on course pages */
+.table-wrap { overflow-x: auto; margin-top: 1rem; }
+.data-table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.95rem; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.data-table caption { caption-side: bottom; text-align: left; font-size: 0.88rem; color: var(--ink-2); padding-top: 8px; }
+.data-table th, .data-table td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.data-table th:first-child, .data-table td:first-child { text-align: left; }
+.data-table thead th { font-weight: 600; color: var(--ink-2); font-size: 0.86rem; }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table strong { font-weight: 700; }
+@media (max-width: 860px) { .card-lg, .card-lg.flip, .contact-grid, .proj-2col, .media-pair, .stage-split, .stage-split.side, .course-features { grid-template-columns: 1fr; } .side-fig { justify-self: start; max-width: 340px; } }
 @media (max-width: 600px) { .results { grid-template-columns: 1fr; } }
 @media (max-width: 600px) {
   .lead-visual .frame { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .lead-visual svg { min-width: 560px; }
   .scroll-hint { display: block; margin-bottom: 2px; }
+  .filter-row { grid-template-columns: 1fr; gap: 6px; }
+  .filter-label { padding-top: 0; }
 }
 @media (max-width: 560px) {
   html { scroll-padding-top: 0; }
@@ -378,63 +423,44 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <div class="wrap">
 <header class="proj-head">
   <a class="back" href="index.html#projects">All projects</a>
-  <p class="kicker">Research project, IIT Gandhinagar</p>
-  <h1>A high-dexterity prosthetic foot and its test bed</h1>
-  <p class="proj-lead">A high-dexterity prosthetic foot and the test bed built to evaluate it, developed at IIT Gandhinagar. <strong>I designed the foot and built the test bed.</strong></p>
+  <p class="kicker">Project assistant, Human-Centered Robotics Lab, IIT Gandhinagar</p>
+  <h1>Prosthetic Foot</h1>
+  <p class="proj-lead"><strong>I designed a prosthetic foot whose forefoot can tilt from side to side, as a human foot does on uneven ground, and built a test bed that loads it repeatably.</strong> With Ronak Vyas, under Prof. Vineet Vashista in IIT Gandhinagar&rsquo;s Human-Centered Robotics Lab, I took the design through three CAD iterations, each refined with finite element analysis in Ansys.</p>
 </header>
 
-<figure class="figure-block lead-visual">
-  <div class="frame" tabindex="0" role="region" aria-label="Diagram"><svg viewBox="0 0 600 356" role="img" aria-labelledby="foot-t foot-d">
-  <title id="foot-t">A prosthetic foot loaded on its test bed</title>
-  <desc id="foot-d">A rectangular test frame presses a prosthetic foot onto a base plate. An orange arrow shows the load applied down through the foot.</desc>
-  <defs><marker id="ft-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="d-contact"/></marker></defs>
-  <g class="d-ink" style="stroke-width:6"><line x1="120" y1="44" x2="480" y2="44"/><line x1="120" y1="44" x2="120" y2="340"/><line x1="480" y1="44" x2="480" y2="340"/><line x1="80" y1="340" x2="520" y2="340"/></g>
-  <rect x="283" y="50" width="34" height="72" rx="4" class="d-fill-soft"/>
-  <line x1="300" y1="122" x2="300" y2="166" class="d-ink" style="stroke-width:6"/>
-  <line x1="300" y1="130" x2="300" y2="160" class="d-contact-line" marker-end="url(#ft-arrow)" style="stroke-width:2.5"/>
-  <rect x="283" y="166" width="34" height="20" rx="3" class="d-fill"/>
-  <line x1="300" y1="186" x2="300" y2="246" class="d-ink" style="stroke-width:6"/>
-  <path d="M300 252 L268 262 Q246 276 250 300 L372 300 L396 290 L386 272 L346 268 Z" class="d-fill"/>
-  <circle cx="300" cy="250" r="8" class="d-joint"/><circle cx="300" cy="250" r="3" class="d-joint-core"/>
-  <rect x="200" y="300" width="200" height="12" class="d-fill-soft"/>
-  <text x="136" y="76" class="d-label">Test bed</text>
-  <path d="M330 142 L312 142" class="d-leader"/>
-  <text x="336" y="146" class="d-label">Applied load</text>
-  <path d="M392 240 L384 270" class="d-leader"/>
-  <text x="342" y="232" class="d-label">High-dexterity foot</text>
-</svg></div>
-  <figcaption><span class="scroll-hint">Scroll sideways to see the whole drawing.</span>Schematic of the foot under load on the test bed.</figcaption>
-</figure>
+<figure class="media-fig lead-photo" style="max-width:860px"><img src="media/foot-cad-later.jpg" alt="CAD render of a prosthetic foot in several parts: a round pylon mount with bolt holes on top of a curved keel, a heel, and a tan toe plate split by a slit, bolted to the keel by four bolts." width="1131" height="703"><figcaption>A later iteration in SolidWorks: separate parts that bolt together, a back end matched to the pylon mount, and two slits in the forefoot.</figcaption></figure>
 
 <div class="proj-grid">
   <div>
     <section aria-labelledby="problem-title">
       <h2 id="problem-title">The problem</h2>
-      <p>Most affordable prosthetic feet are rigid. A foot with more freedom of motion can handle slopes and uneven ground more naturally, but adding that dexterity adds parts, weight, and cost, and every new design has to be evaluated before it goes anywhere near a person.</p>
+      <p>A foot has to carry around 0.8 times body weight in walking and up to 2.75 times in running, cushion the impact at heel strike, and still let the forefoot tilt inward and outward (inversion and eversion) on uneven ground. A prosthetic foot also has to fit a standard pylon mount, stay light, and survive years of daily steps. We set out to design one for forefoot mobility, a weight of 600&ndash;700 g, and a life of up to a million load cycles.</p>
     </section>
     <section aria-labelledby="built-title">
       <h2 id="built-title">What I built</h2>
-      <p>I designed a high-dexterity prosthetic foot, and I designed and built a test bed for evaluating it. The test bed applies repeatable loading to the mounted foot, so candidate designs can be compared under the same conditions rather than in one-off trials.</p>
+      <p>I designed the foot in SolidWorks over three iterations. The first, inspired by the human foot, was a single piece with four slits in the forefoot for inversion and eversion, but it was thicker than the pylon mount. The second matched the back of the foot to the mount&rsquo;s width, cut the slits to two, and split the foot into four parts that are easier to make and assemble. In the third we worked on fewer forefoot fixtures and a lower weight. I also designed and built a test bed that applies repeatable loading to the mounted foot, so designs can be compared under the same conditions.</p>
     </section>
   </div>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Where</dt><dd>IIT Gandhinagar, India</dd><dt>When</dt><dd>Jan &ndash; Jun 2025</dd><dt>My role</dt><dd>Project assistant</dd></dl>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>SolidWorks</li><li>ANSYS</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Mechanism design</li><li>FEA</li><li>3D printing</li><li>Test-rig design</li></ul></div></div>
+    <dl><dt>Where</dt><dd>Human-Centered Robotics Lab, IIT Gandhinagar</dd><dt>When</dt><dd>Jan &ndash; Jun 2025</dd><dt>My role</dt><dd>Project assistant</dd><dt>Team</dt><dd>With Ronak Vyas; advisor Prof. Vineet Vashista</dd><dt>Targets</dt><dd>600&ndash;700 g, up to a million load cycles</dd></dl>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>SolidWorks</li><li>ANSYS</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Mechanism design</li><li>FEA</li><li>Material selection</li><li>Design for assembly</li><li>Test-rig design</li></ul></div></div>
   </aside>
 </div>
 
 
-
+<figure class="media-fig proj-figure" style="max-width:760px"><img src="media/foot-cad-early.jpg" alt="CAD render of a single-piece prosthetic foot with a pyramid adapter and a short pylon on top, and the forefoot divided into four strips." width="1211" height="614" loading="lazy"><figcaption>An earlier iteration: a single piece with the forefoot split into four, under a pyramid adapter.</figcaption></figure>
+<figure class="media-fig proj-figure" style="max-width:900px"><img src="media/foot-fea-deformation.jpg" alt="Ansys result: side view of the foot standing on a plate, colored by total deformation, up to 5.04 mm at the pylon mount." width="1400" height="721" loading="lazy"><figcaption>Ansys static analysis of the foot standing on a plate: total deformation, up to about 5 mm.</figcaption></figure>
+<div class="media-pair proj-figure"><figure class="media-fig"><img src="media/foot-fea-stress-pps.jpg" alt="Ansys result: von Mises stress in a PPS foot at mid-stance, up to 96.8 MPa near the keel." width="1400" height="729" loading="lazy"><figcaption>PPS at mid-stance: von Mises stress, up to about 97 MPa.</figcaption></figure><figure class="media-fig"><img src="media/foot-fea-heel-cf.jpg" alt="Ansys result: strain energy in a carbon fiber foot at heel strike, concentrated in the curved heel spring." width="1400" height="718" loading="lazy"><figcaption>Carbon fiber at heel strike: strain energy stored in the heel spring.</figcaption></figure></div>
 
 <div class="proj-2col">
   <section aria-labelledby="testing-title">
     <h2 id="testing-title">Testing and results</h2>
-    <p>The test bed lets each design be checked under controlled, repeatable loading on the bench, before committing to trials with a user, which are slow and hard to repeat.</p>
+    <p>FEA in Ansys checked each iteration. On the first it showed that four forefoot slits weakened the structure without improving inversion or eversion, and that the foot bent near the pylon mount. Stress results on the second led to a lower profile. On the third we compared materials, carbon fiber, POM, and PPS, for energy storage, deformation at mid-stance, and impact absorption at heel strike. The test bed lets each design be loaded the same way, again and again, on the bench.</p>
   </section>
   <section aria-labelledby="why-title">
     <h2 id="why-title">Why it matters</h2>
-    <p>A foot that adapts to the ground without a large increase in cost widens access to better mobility, especially where high-end prosthetics are out of reach.</p>
+    <p>Affordable prosthetic feet are often rigid, which makes slopes and uneven ground harder to walk on. A foot whose forefoot can adapt to the ground, while staying light and durable, brings walking closer to natural.</p>
   </section>
 </div>
 
@@ -442,10 +468,10 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 <section class="notes-block" aria-labelledby="notes-title">
   <h2 id="notes-title">Technical notes</h2>
-  <div class="notes"><div class="tnote"><h3>Why a test bed comes first</h3><p>On a bench rig the same load can be applied again and again, so two designs can be compared like for like. That makes it the right place to find problems before anyone walks on the foot.</p></div></div>
+  <div class="notes"><div class="tnote"><h3>Why slit the forefoot</h3><p>Slits let each side of the forefoot bend on its own, so the foot can tilt inward or outward on a slope or uneven ground. FEA showed that four slits weakened the foot without adding that motion, so the design went to two.</p></div><div class="tnote"><h3>What came next</h3><p>Our poster planned FEA of the toe-off phase to choose the forefoot&rsquo;s material properties, a stress-cycle test to check the foot lasts its intended life, and a physical prototype to validate the design.</p></div></div>
 </section>
 
-<nav class="pager" aria-label="More projects"><a class="prev" href="formula-electric-chassis.html"><small>Previous project</small><span>Formula Electric chassis</span></a><a class="next" href="index.html#projects"><small>Back to</small><span>All projects</span></a></nav>
+<nav class="pager" aria-label="More projects"><a class="prev" href="formula-electric-chassis.html"><small>Previous project</small><span>Formula Student Electric Car</span></a><a class="next" href="index.html#projects"><small>Back to</small><span>All projects</span></a></nav>
 </div>
 </main>
 <footer>

@@ -257,6 +257,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   details.tech .tech-body { display: block; }
 }
 
+[hidden] { display: none !important; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .flow li.mine { border-width: 2px; }
 .glance h3 { font-family: var(--body); font-size: 0.95rem; font-weight: 600; letter-spacing: 0; margin: 1.3rem 0 0; }
@@ -293,6 +294,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .card-visual img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; display: block; }
 .card-visual.photo { padding: 0; overflow: hidden; }
 .card-visual.photo img { border-radius: 7px; }
+.card-visual.chart { background: #fff; }
 .results { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; max-width: 900px; }
 .results li { border-top: 2px solid var(--accent); padding-top: 8px; font-size: 0.98rem; line-height: 1.45; }
 .results strong { font-weight: 700; color: var(--ink); }
@@ -302,11 +304,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .media-fig figcaption { font-size: 0.9rem; color: var(--ink-2); margin-top: 8px; max-width: 72ch; line-height: 1.5; }
 .media-fig.wide { margin-top: 1.4rem; }
 .media-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 24px; margin-top: 1.4rem; align-items: start; }
+.media-pair.proj-figure { margin-top: clamp(28px, 4vw, 40px); }
 .stage { margin-top: clamp(40px, 6vw, 64px); padding-top: clamp(28px, 4vw, 40px); border-top: 1px solid var(--line); }
 .stage h2 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); margin-bottom: 0.9rem; max-width: 30ch; }
 .stage-text { max-width: 68ch; }
 .stage-text p { margin: 0; }
 .stage-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 20px clamp(24px, 4vw, 48px); align-items: start; }
+.stage-split.side { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); }
+.side-fig { justify-self: end; width: 100%; }
+.stage .proj-figure { margin-top: clamp(24px, 3vw, 32px); }
 .next-line { margin: clamp(36px, 5vw, 52px) 0 0; max-width: 70ch; }
 :root { --flag-ink: #A8431A; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --flag-ink: #F0844E; } }
@@ -331,12 +337,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .about-skills { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; align-self: start; }
 .skills-title { font-family: var(--body); font-size: 1.05rem; margin: 0 0 10px; letter-spacing: 0; }
 .about-skills .skills-list { margin: 0; }
-.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: clamp(28px, 4vw, 40px); }
+.course-features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 4vw, 48px); margin-top: clamp(28px, 4vw, 40px); align-items: start; }
+.cf-card .card-visual { margin-bottom: 18px; }
+.cf-card h3 { font-size: clamp(1.2rem, 2vw, 1.4rem); }
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: clamp(32px, 4vw, 48px); }
 .course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
 .course-card .dates { display: block; font-weight: 400; }
 .course-card h3 { font-size: 1.2rem; line-height: 1.25; margin: 0; }
 .course-card .summary { margin: 0; font-size: 0.97rem; }
-.course-card .tags { margin-top: auto; padding-top: 6px; }
+.course-card .tagrows { margin-top: auto; padding-top: 8px; }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
 .portrait-fig { max-width: 340px; justify-self: center; }
@@ -344,12 +353,48 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .result-split { margin-top: 1.6rem; align-items: center; }
 .cad-fig { max-width: 760px; margin-top: 1.4rem; }
 .stage-text.proto { margin-top: 1.8rem; }
-@media (max-width: 860px) { .card-lg, .card-lg.flip, .contact-grid, .proj-2col, .media-pair, .stage-split { grid-template-columns: 1fr; } }
+/* Skill and tool filter on the front page */
+.filter { margin-top: clamp(24px, 3vw, 32px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; }
+.filter-body { display: grid; gap: 12px; margin-top: 12px; }
+.filter-title { font-size: 1rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.filter-title::-webkit-details-marker { display: none; }
+.filter-title::after { content: "2"; font-size: 1.3rem; line-height: 1; color: var(--ink-2); font-weight: 400; }
+.filter:not([open]) .filter-title::after { content: "+"; }
+.filter-count { font-weight: 500; color: var(--ink-2); margin-right: auto; padding-left: 4px; }
+.filter-row { display: grid; grid-template-columns: 3.6em minmax(0, 1fr); gap: 10px; align-items: start; }
+.filter-label { font-size: 0.85rem; font-weight: 600; color: var(--ink-2); padding-top: 7px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: inherit; font-size: 0.86rem; font-weight: 500; line-height: 1.2; padding: 6px 11px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip:hover { border-color: var(--accent); }
+.chip .n { font-size: 0.74rem; font-weight: 600; color: var(--ink-2); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: 0.85; }
+:root[data-theme="dark"] .chip[aria-pressed="true"] { color: #0F1720; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .chip[aria-pressed="true"] { color: #0F1720; } }
+.filter-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; border-top: 1px solid var(--line); padding-top: 10px; }
+.filter-status { margin: 0; font-size: 0.92rem; color: var(--ink-2); max-width: none; }
+.filter-clear { font: inherit; font-size: 0.92rem; font-weight: 600; color: var(--accent-ink); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.filter-note { margin: 1rem 0 0; font-size: 0.95rem; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; max-width: none; }
+.filter-empty { margin: clamp(24px, 3vw, 32px) 0 0; padding: 16px 20px; border: 1px dashed var(--line); border-radius: 10px; color: var(--ink-2); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 20px; }
+.filter-empty p { margin: 0; max-width: none; }
+.featured:not(:has(> :not([hidden]))) { display: none; }
+/* Data tables on course pages */
+.table-wrap { overflow-x: auto; margin-top: 1rem; }
+.data-table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.95rem; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.data-table caption { caption-side: bottom; text-align: left; font-size: 0.88rem; color: var(--ink-2); padding-top: 8px; }
+.data-table th, .data-table td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.data-table th:first-child, .data-table td:first-child { text-align: left; }
+.data-table thead th { font-weight: 600; color: var(--ink-2); font-size: 0.86rem; }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table strong { font-weight: 700; }
+@media (max-width: 860px) { .card-lg, .card-lg.flip, .contact-grid, .proj-2col, .media-pair, .stage-split, .stage-split.side, .course-features { grid-template-columns: 1fr; } .side-fig { justify-self: start; max-width: 340px; } }
 @media (max-width: 600px) { .results { grid-template-columns: 1fr; } }
 @media (max-width: 600px) {
   .lead-visual .frame { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .lead-visual svg { min-width: 560px; }
   .scroll-hint { display: block; margin-bottom: 2px; }
+  .filter-row { grid-template-columns: 1fr; gap: 6px; }
+  .filter-label { padding-top: 0; }
 }
 @media (max-width: 560px) {
   html { scroll-padding-top: 0; }
@@ -389,7 +434,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
     </div>
     <section class="timeline-box" aria-labelledby="timeline-title">
       <h2 id="timeline-title" class="timeline-title">Timeline</h2>
-      <ol class="timeline"><li><span class="tl-when">2025 &ndash; May 2027</span><span class="tl-what">M.S. Mechanical Engineering (Research), Carnegie Mellon University</span><span class="tl-note">On-orbit servicing research funded by SURI; course assistant for three courses</span></li><li><span class="tl-when">Jan &ndash; Jun 2025</span><span class="tl-what">Project Assistant, IIT Gandhinagar</span><span class="tl-note">High-dexterity prosthetic foot and its test bed</span></li><li><span class="tl-when">Jan &ndash; Jun 2024</span><span class="tl-what">Engine-powered drone</span><span class="tl-note">Contact-free magnetic-gear transmission</span></li><li><span class="tl-when">2020 &ndash; May 2024</span><span class="tl-what">B.Tech. Mechanical Engineering, SVNIT Surat</span><span class="tl-note">GPA 8.03/10.0</span></li><li><span class="tl-when">Feb &ndash; Dec 2023</span><span class="tl-what">Team lead, RAKSH agriculture robot</span><span class="tl-note">Qualified the Proof of Concept stage of Robofest-Gujarat 3.0</span></li><li><span class="tl-when">Jun &ndash; Jul 2023</span><span class="tl-what">Intern, Banaras Locomotive Works</span><span class="tl-note">Locomotive assembly and quality control</span></li><li><span class="tl-when">Nov 2021 &ndash; Jan 2023</span><span class="tl-what">Chassis head, Team Phoenix Racing</span><span class="tl-note">Won the Concept Goals Management event, Formula Bharat 2023</span></li></ol>
+      <ol class="timeline"><li><span class="tl-when">2025 &ndash; May 2027</span><span class="tl-what">M.S. Mechanical Engineering (Research), Carnegie Mellon University</span><span class="tl-note">On-orbit manipulation research funded by SURI; course assistant for three courses</span></li><li><span class="tl-when">Jan &ndash; Jun 2025</span><span class="tl-what">Project assistant, IIT Gandhinagar</span><span class="tl-note">Prosthetic foot design and analysis</span></li><li><span class="tl-when">Jan &ndash; Jun 2024</span><span class="tl-what">Designer, Engine-Powered Drone</span><span class="tl-note">Contact-free magnetic-gear transmission and speed control</span></li><li><span class="tl-when">2020 &ndash; May 2024</span><span class="tl-what">B.Tech. Mechanical Engineering, SVNIT Surat</span><span class="tl-note">GPA 8.03/10.0</span></li><li><span class="tl-when">Feb &ndash; Dec 2023</span><span class="tl-what">Team lead, RAKSH</span><span class="tl-note">Qualified the Proof of Concept stage of Robofest-Gujarat 3.0</span></li><li><span class="tl-when">Jun &ndash; Jul 2023</span><span class="tl-what">Intern, Banaras Locomotive Works</span><span class="tl-note">Locomotive assembly and quality control</span></li><li><span class="tl-when">Nov 2021 &ndash; Jan 2023</span><span class="tl-what">Chassis head, Team Phoenix Racing</span><span class="tl-note">Won the Concept Goals Management event, Formula Bharat 2023</span></li></ol>
     </section>
   </div>
 </header>
@@ -401,21 +446,19 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
     <div class="about-grid">
       <div>
         <p>I got into robotics by building things that had to work: a race-car chassis that had to survive a season, a spraying robot that had to find its own way down a crop row, a drone whose rotors all ran off one engine. Each project pushed me from mechanical design toward the control and planning problems that decide whether a machine actually does its job.</p>
-        <p>At CMU I work on on-orbit servicing research funded by SURI: how a free-flying robot can rendezvous with a tumbling satellite, grasp it, and stop its spin, including with Snaker, our snake robot. I&rsquo;ve worked on the motion planning, the controllers, the gripper design, and the grasp analysis, and I&rsquo;m now building an early tendon-driven version of Snaker with two teammates. I&rsquo;m currently a course assistant for Machine Learning and AI for Engineers, and previously assisted AI Agents for Engineers and Applied Finite Element Analysis.</p>
+        <p>At CMU I work on on-orbit manipulation research funded by SURI: how a free-flying robot can rendezvous with a tumbling satellite, grasp it, and stop its spin, including with Snaker, our snake robot. I&rsquo;ve worked on the motion planning, the controllers, the gripper design, and the grasp analysis, and I&rsquo;m now building an early tendon-driven version of Snaker with two teammates. I&rsquo;m currently a course assistant for Machine Learning and AI for Engineers, and previously assisted AI Agents for Engineers and Applied Finite Element Analysis.</p>
         <p>I graduate in May 2027 and am looking for a full-time role in robotic manipulation, controls, or motion planning, ideally on a team that tests its ideas on physical robots.</p>
-        
       </div>
       <div class="about-skills"><h3 class="skills-title">Skills</h3>
         <ul class="skills-list" aria-label="Skills">
-          <li><strong>Robotics and simulation:</strong> MuJoCo, Drake, Isaac Sim, Pinocchio, SOFA, ROS, Webots</li>
-          <li><strong>Embedded hardware:</strong> Arduino, ESP32, NVIDIA Jetson Nano, Raspberry Pi</li>
-          <li><strong>Programming:</strong> Python, C++, MATLAB, Simulink</li>
-          <li><strong>Design and analysis:</strong> SolidWorks (PDM/PLM), GD&amp;T, ANSYS FEA, CFD, design optimization</li>
-          <li><strong>Manufacturing:</strong> CNC machining, 3D printing (FDM, SLS, SLA)</li>
-          <li><strong>Graduate coursework:</strong> Modern control theory, nonlinear control, deep learning, machine learning and AI for engineers</li>
+          <li><strong>Programming and machine learning:</strong> Python, C++, MATLAB, Simulink, PyTorch, NumPy, pandas</li>
+          <li><strong>Robotics and simulation:</strong> MuJoCo, Drake, Isaac Sim, Pinocchio, SOFA, Webots, ROS</li>
+          <li><strong>Control and planning:</strong> trajectory optimization, graph search (INSAT, A*), LQR, adaptive control, PID, state observers, EKF SLAM</li>
+          <li><strong>Hardware:</strong> Arduino, ESP32, NVIDIA Jetson Nano, Raspberry Pi, Quanser QUBE-Servo 2</li>
+          <li><strong>Mechanical design:</strong> SolidWorks (PDM/PLM), ANSYS (FEA), CFD, GD&amp;T, design optimization, CNC machining, 3D printing</li>
+          <li><strong>Graduate coursework:</strong> Modern Control Theory, Nonlinear Control, Introduction to Deep Learning, Machine Learning and AI for Engineers, Planning and Decision-Making in Robotics, Advanced Control Systems Integration</li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
@@ -423,76 +466,71 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <section class="block" id="projects" aria-labelledby="projects-title">
   <div class="wrap">
     <h2 id="projects-title">Projects</h2>
-    <p class="lede">Selected work in manipulation, controls, and robot systems, most relevant first. Select a project to read the full write-up.</p>
+    <p class="lede">Selected work in manipulation, controls, and robot systems, most relevant first. Filter by a skill or tool to see only the work that uses it, here and in my course projects below.</p>
+    <details class="filter" id="filter" open hidden>
+      <summary class="filter-title">Filter by skill or tool<span class="filter-count"></span></summary>
+      <div class="filter-body">
+      <div class="filter-row"><span class="filter-label" id="filter-skills">Skills</span>
+        <div class="chips" role="group" aria-labelledby="filter-skills"><button type="button" class="chip" aria-pressed="false" data-tag="s:manipulation" data-label="Manipulation" aria-label="Manipulation, 1 project">Manipulation<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="s:motion-planning" data-label="Motion planning" aria-label="Motion planning, 3 projects">Motion planning<span class="n" aria-hidden="true">3</span></button><button type="button" class="chip" aria-pressed="false" data-tag="s:controls" data-label="Controls" aria-label="Controls, 5 projects">Controls<span class="n" aria-hidden="true">5</span></button><button type="button" class="chip" aria-pressed="false" data-tag="s:state-estimation" data-label="State estimation" aria-label="State estimation, 4 projects">State estimation<span class="n" aria-hidden="true">4</span></button><button type="button" class="chip" aria-pressed="false" data-tag="s:machine-learning" data-label="Machine learning" aria-label="Machine learning, 1 project">Machine learning<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="s:computer-vision" data-label="Computer vision" aria-label="Computer vision, 1 project">Computer vision<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="s:mechanical-design" data-label="Mechanical design" aria-label="Mechanical design, 5 projects">Mechanical design<span class="n" aria-hidden="true">5</span></button><button type="button" class="chip" aria-pressed="false" data-tag="s:fea" data-label="FEA" aria-label="FEA, 2 projects">FEA<span class="n" aria-hidden="true">2</span></button><button type="button" class="chip" aria-pressed="false" data-tag="s:embedded-systems" data-label="Embedded systems" aria-label="Embedded systems, 3 projects">Embedded systems<span class="n" aria-hidden="true">3</span></button><button type="button" class="chip" aria-pressed="false" data-tag="s:team-leadership" data-label="Team leadership" aria-label="Team leadership, 2 projects">Team leadership<span class="n" aria-hidden="true">2</span></button></div></div>
+      <div class="filter-row"><span class="filter-label" id="filter-tools">Tools</span>
+        <div class="chips" role="group" aria-labelledby="filter-tools"><button type="button" class="chip" aria-pressed="false" data-tag="t:python" data-label="Python" aria-label="Python, 4 projects">Python<span class="n" aria-hidden="true">4</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:solidworks" data-label="SolidWorks" aria-label="SolidWorks, 3 projects">SolidWorks<span class="n" aria-hidden="true">3</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:cplusplus" data-label="C++" aria-label="C++, 2 projects">C++<span class="n" aria-hidden="true">2</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:arduino" data-label="Arduino" aria-label="Arduino, 2 projects">Arduino<span class="n" aria-hidden="true">2</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:matlab-simulink" data-label="MATLAB / Simulink" aria-label="MATLAB / Simulink, 2 projects">MATLAB / Simulink<span class="n" aria-hidden="true">2</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:ansys" data-label="ANSYS" aria-label="ANSYS, 2 projects">ANSYS<span class="n" aria-hidden="true">2</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:drake" data-label="Drake" aria-label="Drake, 1 project">Drake<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:mujoco" data-label="MuJoCo" aria-label="MuJoCo, 1 project">MuJoCo<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:isaac-sim" data-label="Isaac Sim" aria-label="Isaac Sim, 1 project">Isaac Sim<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:pinocchio" data-label="Pinocchio" aria-label="Pinocchio, 1 project">Pinocchio<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:sofa" data-label="SOFA" aria-label="SOFA, 1 project">SOFA<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:ros" data-label="ROS" aria-label="ROS, 1 project">ROS<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:jetson-nano" data-label="Jetson Nano" aria-label="Jetson Nano, 1 project">Jetson Nano<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:esp32" data-label="ESP32" aria-label="ESP32, 1 project">ESP32<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:raspberry-pi" data-label="Raspberry Pi" aria-label="Raspberry Pi, 1 project">Raspberry Pi<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:webots" data-label="Webots" aria-label="Webots, 1 project">Webots<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:pytorch" data-label="PyTorch" aria-label="PyTorch, 1 project">PyTorch<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:quanser-qube-servo-2" data-label="Quanser QUBE-Servo 2" aria-label="Quanser QUBE-Servo 2, 1 project">Quanser QUBE-Servo 2<span class="n" aria-hidden="true">1</span></button><button type="button" class="chip" aria-pressed="false" data-tag="t:crazyflie-2-1" data-label="Crazyflie 2.1" aria-label="Crazyflie 2.1, 1 project">Crazyflie 2.1<span class="n" aria-hidden="true">1</span></button></div></div>
+      <div class="filter-foot"><p class="filter-status" id="filter-status" aria-live="polite"></p>
+        <button type="button" class="filter-clear" data-filter-clear hidden>Clear filters</button></div>
+      </div>
+    </details>
     <div class="featured">
-<article class="card card-lg">
+<article class="card card-lg" data-kind="project" data-tags="s:manipulation|s:motion-planning|s:controls|s:mechanical-design|t:python|t:cplusplus|t:drake|t:mujoco|t:isaac-sim|t:pinocchio|t:sofa">
   <div class="card-visual photo"><img src="media/card-on-orbit.jpg" alt="" loading="lazy"></div>
   <div class="card-body">
-    <p class="kicker">On-orbit servicing research at CMU, funded by SURI<span class="dates">Aug 2025 &ndash; present</span></p>
-    <h3><a href="mission-robotic-vehicle.html">Capturing and detumbling a tumbling satellite</a></h3>
-    <p class="summary">Most satellites were never designed to be grabbed, and a failed one is often tumbling. Our CMU team built a simulated pipeline in which a free-flying robot reaches a tumbling satellite, grasps it, and stops its spin, plus Snaker, a snake robot that wraps around features a standard gripper can&rsquo;t hold. Our planner reached the moving grasp point in 99% of randomized trials, and Snaker tolerated up to five times more misalignment than a standard gripper. We&rsquo;ve also started building a tendon-driven Snaker in hardware, at a very early stage, and showed in SOFA simulations that tapering its spine keeps its loops even. I worked on every stage: planning, control, gripper design, and grasp analysis.</p>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>C++</li><li>Drake</li><li>MuJoCo</li><li>Isaac Sim</li><li>Pinocchio</li><li>SOFA</li><li>3D printing</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Kinodynamic motion planning</li><li>Trajectory optimization</li><li>Feedback control</li><li>Grasp analysis</li><li>Snake-robot design</li><li>Tendon-driven mechanisms</li></ul></div></div>
+    <p class="kicker">Graduate student researcher, Carnegie Mellon University, funded by SURI<span class="dates">Aug 2025 &ndash; present</span></p>
+    <h3><a href="on-orbit-manipulation.html">On-Orbit Manipulation</a></h3>
+    <p class="summary">I work on every stage of our CMU team&rsquo;s pipeline for capturing a tumbling satellite: I extended the INSAT planner to the satellite&rsquo;s moving grasp point, raising rendezvous success from 80% to 99% over 200 randomized trials; I built the grasp, base, and arm controllers that stop its spin; and I analyzed grasps for Snaker, our snake robot, which tolerates up to five times more misalignment than a standard gripper. With two teammates, I&rsquo;m also building an early tendon-driven Snaker that needs far fewer motors, and showed in SOFA that tapering its spine keeps its loops even.</p>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>C++</li><li>Drake</li><li>MuJoCo</li><li>Isaac Sim</li><li>Pinocchio</li><li>SOFA</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Manipulation</li><li>Motion planning</li><li>Controls</li><li>Mechanical design</li></ul></div></div>
     <span class="card-cta" aria-hidden="true">Read the full project</span>
   </div>
 </article>
-<article class="card card-lg flip">
+<article class="card card-lg flip" data-kind="project" data-tags="s:computer-vision|s:state-estimation|s:embedded-systems|s:mechanical-design|s:team-leadership|t:python|t:ros|t:jetson-nano|t:esp32|t:raspberry-pi">
   <div class="card-visual photo"><img src="media/raksh-card.jpg" alt="" loading="lazy"></div>
   <div class="card-body">
-    <p class="kicker">RAKSH agriculture robot, SVNIT Surat<span class="dates">Feb &ndash; Dec 2023</span></p>
-    <h3><a href="raksh-agriculture-robot.html">Autonomous disease detection and pesticide spraying for polyhouses</a></h3>
-    <p class="summary">Spraying pesticide inside a polyhouse is repetitive work that keeps farm workers close to chemicals. I led the five-person team that built RAKSH, a robot that drives itself along the crop rows, looks for diseased plants, and sprays from a modular 10-chemical system. I developed its navigation using sensor fusion and vision-based row detection. RAKSH qualified the Proof of Concept stage of Robofest-Gujarat 3.0, winning a Rs 1,00,000 cash prize, and competed in the prototype stage in December 2023.</p>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>ROS</li><li>Jetson Nano</li><li>ESP32</li><li>Raspberry Pi</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Sensor fusion</li><li>Computer vision</li><li>VSLAM</li><li>Machine learning</li><li>Mechanism design</li><li>Team leadership</li></ul></div></div>
+    <p class="kicker">Team lead, SVNIT Surat<span class="dates">Feb &ndash; Dec 2023</span></p>
+    <h3><a href="raksh-agriculture-robot.html">RAKSH</a></h3>
+    <p class="summary">I led the five-person team that built RAKSH, an autonomous pesticide-spraying robot for polyhouses, and developed its navigation: sensor fusion and vision-based crop-row detection on ROS, so it drives itself down the rows. I also designed its slide-in 10-chemical spraying module and the lead-screw lift that raises its camera to the leaves. RAKSH uses machine learning to spot diseased plants and sprays only where needed; it qualified the Proof of Concept stage of Robofest-Gujarat 3.0, winning a Rs 1,00,000 cash prize, and competed in the prototype stage.</p>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>ROS</li><li>Jetson Nano</li><li>ESP32</li><li>Raspberry Pi</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Computer vision</li><li>State estimation</li><li>Embedded systems</li><li>Mechanical design</li><li>Team leadership</li></ul></div></div>
     <span class="card-cta" aria-hidden="true">Read the full project</span>
   </div>
 </article>
-<article class="card card-lg">
+<article class="card card-lg" data-kind="project" data-tags="s:controls|s:mechanical-design|s:embedded-systems|t:arduino|t:matlab-simulink|t:solidworks">
   <div class="card-visual photo"><img src="media/drone-card.jpg" alt="" loading="lazy"></div>
   <div class="card-body">
-    <p class="kicker">Engine-powered drone, SVNIT Surat<span class="dates">Jan &ndash; Jun 2024</span></p>
-    <h3><a href="engine-powered-drone.html">Driving every rotor from a single engine</a></h3>
-    <p class="summary">One engine powers all four propellers of this drone. A conventional drivetrain would lock every propeller to a fixed speed ratio, so I designed a contact-free magnetic gear pair for each propeller: a servo-driven linkage changes the gap between the two gears, which sets how much power, and so how much speed, reaches that propeller. The feedback control improved stability in flight tests.</p>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Arduino</li><li>MATLAB</li><li>Simulink</li><li>SolidWorks</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Feedback control</li><li>Mechanism design</li><li>Magnetic gearing</li><li>Calibration</li><li>Flight testing</li></ul></div></div>
+    <p class="kicker">Designer and controls developer, SVNIT Surat<span class="dates">Jan &ndash; Jun 2024</span></p>
+    <h3><a href="engine-powered-drone.html">Engine-Powered Drone</a></h3>
+    <p class="summary">I designed a contact-free magnetic gear for each propeller of this single-engine drone, the servo linkage that changes the gap between its two gears, and the feedback control that uses that gap to set each propeller&rsquo;s speed. Running every rotor off one engine lets the drone fly longer in remote areas while staying lighter and cheaper than one carrying large battery packs. At the smallest gap the propeller reached 75% of its ideal speed, and the feedback control improved stability in flight tests.</p>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Arduino</li><li>MATLAB / Simulink</li><li>SolidWorks</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Controls</li><li>Mechanical design</li><li>Embedded systems</li></ul></div></div>
     <span class="card-cta" aria-hidden="true">Read the full project</span>
   </div>
 </article>
-<article class="card card-lg flip">
+<article class="card card-lg flip" data-kind="project" data-tags="s:mechanical-design|s:fea|s:team-leadership|t:solidworks|t:ansys">
   <div class="card-visual photo"><img src="media/fs-car.jpg" alt="" loading="lazy"></div>
   <div class="card-body">
-    <p class="kicker">Team Phoenix Racing (Phoenix Racing Electric), SVNIT Surat<span class="dates">Nov 2021 &ndash; Jan 2023</span></p>
-    <h3><a href="formula-electric-chassis.html">Designing and building a Formula Electric chassis</a></h3>
-    <p class="summary">A Formula Student chassis has to meet the rulebook and a stiffness target while weighing as little as possible. As chassis head of Team Phoenix Racing, I led the design and fabrication of our electric car&rsquo;s chassis with a 30-member team: I optimized the frame with finite element analysis to cut mass while meeting the stiffness target, calculated the suspension hardpoints, and developed the bodywork and aero package. We competed in Formula Bharat 2023, Class I, held virtually in October 2022, and the team won the Concept Goals Management event in the electric category.</p>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>ANSYS</li><li>SolidWorks</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>FEA</li><li>Vehicle dynamics</li><li>Design optimization</li><li>Aero and bodywork</li><li>GD&amp;T</li><li>CNC machining</li><li>Team leadership</li></ul></div></div>
+    <p class="kicker">Chassis head, Team Phoenix Racing, SVNIT Surat<span class="dates">Nov 2021 &ndash; Jan 2023</span></p>
+    <h3><a href="formula-electric-chassis.html">Formula Student Electric Car</a></h3>
+    <p class="summary">As chassis head, I led a 30-member team through the design and fabrication of our electric race car&rsquo;s chassis: I optimized the frame with finite element analysis to cut mass while meeting its stiffness target, calculated the suspension hardpoints, and developed the bodywork and aero package. Team Phoenix Racing competed in Formula Bharat 2023, Class I, held virtually in October 2022, and won the Concept Goals Management event in the electric category.</p>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>SolidWorks</li><li>ANSYS</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Mechanical design</li><li>FEA</li><li>Team leadership</li></ul></div></div>
     <span class="card-cta" aria-hidden="true">Read the full project</span>
   </div>
 </article>
-<article class="card card-lg">
-  <div class="card-visual"><svg viewBox="0 0 600 356" aria-hidden="true" focusable="false">
-  
-  <defs><marker id="ft-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="d-contact"/></marker></defs>
-  <g class="d-ink" style="stroke-width:6"><line x1="120" y1="44" x2="480" y2="44"/><line x1="120" y1="44" x2="120" y2="340"/><line x1="480" y1="44" x2="480" y2="340"/><line x1="80" y1="340" x2="520" y2="340"/></g>
-  <rect x="283" y="50" width="34" height="72" rx="4" class="d-fill-soft"/>
-  <line x1="300" y1="122" x2="300" y2="166" class="d-ink" style="stroke-width:6"/>
-  <line x1="300" y1="130" x2="300" y2="160" class="d-contact-line" marker-end="url(#ft-arrow)" style="stroke-width:2.5"/>
-  <rect x="283" y="166" width="34" height="20" rx="3" class="d-fill"/>
-  <line x1="300" y1="186" x2="300" y2="246" class="d-ink" style="stroke-width:6"/>
-  <path d="M300 252 L268 262 Q246 276 250 300 L372 300 L396 290 L386 272 L346 268 Z" class="d-fill"/>
-  <circle cx="300" cy="250" r="8" class="d-joint"/><circle cx="300" cy="250" r="3" class="d-joint-core"/>
-  <rect x="200" y="300" width="200" height="12" class="d-fill-soft"/>
-  <text x="136" y="76" class="d-label">Test bed</text>
-  <path d="M330 142 L312 142" class="d-leader"/>
-  <text x="336" y="146" class="d-label">Applied load</text>
-  <path d="M392 240 L384 270" class="d-leader"/>
-  <text x="342" y="232" class="d-label">High-dexterity foot</text>
-</svg></div>
+<article class="card card-lg" data-kind="project" data-tags="s:mechanical-design|s:fea|t:solidworks|t:ansys">
+  <div class="card-visual photo"><img src="media/foot-card.jpg" alt="" loading="lazy"></div>
   <div class="card-body">
-    <p class="kicker">Research project, IIT Gandhinagar<span class="dates">Jan &ndash; Jun 2025</span></p>
-    <h3><a href="prosthetic-foot.html">A high-dexterity prosthetic foot and its test bed</a></h3>
-    <p class="summary">Most affordable prosthetic feet are rigid, which makes slopes and uneven ground harder to handle. As a project assistant at IIT Gandhinagar, I designed a high-dexterity prosthetic foot and built a test bed that evaluates it under repeatable loading, so designs can be compared under the same conditions.</p>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>SolidWorks</li><li>ANSYS</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Mechanism design</li><li>FEA</li><li>3D printing</li><li>Test-rig design</li></ul></div></div>
+    <p class="kicker">Project assistant, Human-Centered Robotics Lab, IIT Gandhinagar<span class="dates">Jan &ndash; Jun 2025</span></p>
+    <h3><a href="prosthetic-foot.html">Prosthetic Foot</a></h3>
+    <p class="summary">I designed a prosthetic foot whose forefoot can tilt from side to side like a human foot&rsquo;s, taking it through three CAD iterations refined with Ansys FEA, and built a test bed that loads it repeatably. Working with Ronak Vyas under Prof. Vineet Vashista, we cut the forefoot slits from four to two after FEA showed the extra slits only weakened the foot, matched it to a standard pylon mount, and compared carbon fiber, POM, and PPS for a foot meant to weigh 600&ndash;700 g and last a million load cycles.</p>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>SolidWorks</li><li>ANSYS</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Mechanical design</li><li>FEA</li></ul></div></div>
     <span class="card-cta" aria-hidden="true">Read the full project</span>
   </div>
 </article>
     </div>
+    <div class="filter-empty" data-empty="project" hidden><p><span class="empty-text"></span> <a class="empty-link" href="#course-projects">See the course projects that do</a></p><button type="button" class="filter-clear" data-filter-clear>Clear filters</button></div>
   </div>
 </section>
 
@@ -500,11 +538,46 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <div class="wrap">
     <h2 id="course-title">Course projects</h2>
     <p class="lede">Projects from my graduate coursework at Carnegie Mellon University.</p>
-    <div class="course-grid">
-<article class="course-card"><p class="kicker">24-774 Advanced Control System Integration<span class="dates">Fall 2026 &middot; <span class="flag-inline">In progress</span></span></p><h3>Rotor fault detection and recovery on a Crazyflie</h3><p class="summary">A team project to let a Crazyflie 2.1 nano-quadrotor detect and survive partial thrust loss on any rotor without motor-speed sensors. My proposal compares the IMU-measured forces and torques with the commanded motor outputs, estimates each rotor&rsquo;s health with recursive least squares, flags a steady mismatch with a CUSUM test, and reallocates thrust, giving up yaw to keep altitude, roll, and pitch.</p><ul class="tags"><li>Fault detection</li><li>State estimation</li><li>Control allocation</li><li>Crazyflie</li></ul></article>
-<article class="course-card"><p class="kicker">24-774 Advanced Control System Integration<span class="dates">Fall 2026</span></p><h3>Rotary pendulum control on the Quanser QUBE-Servo 2</h3><p class="summary">Team hardware labs on a rotary pendulum. I designed a discrete PID motor-angle controller by pole placement and ran it on an Arduino, tracking a &plusmn;10&deg; square wave; a sampling-rate sweep showed instability at 90 ms, close to the model&rsquo;s prediction of about 98 ms. I also implemented a Luenberger observer on the Arduino, found and fixed an angle-offset error, and estimated both joint speeds with 0.98 and 0.96 correlation to measurements.</p><ul class="tags"><li>PID control</li><li>State observers</li><li>Arduino</li><li>MATLAB</li><li>Simulink</li></ul></article>
-<article class="course-card"><p class="kicker">16-782 Planning and Decision-Making in Robotics<span class="dates">Fall 2026</span></p><h3>Catching a moving target on large cost maps</h3><p class="summary">A C++ planner that intercepts a moving target at minimum path cost on 2-D cost maps of up to 1825 &times; 2332 cells, within a one-second budget per planning call. It combines breadth-first search for reachability, Dijkstra-based lower bounds and heuristics, and an exact layered search with branch-and-bound pruning, and it reached the proven optimal cost on all nine test maps.</p><ul class="tags"><li>C++</li><li>Graph search</li><li>Heuristic search</li><li>Motion planning</li></ul></article>
+    <p class="filter-note" id="course-filter-note" hidden><span></span><button type="button" class="filter-clear" data-filter-clear>Clear filters</button></p>
+    <div class="course-features">
+<article class="card cf-card" data-kind="course" data-tags="s:controls|s:state-estimation|s:motion-planning|t:python|t:webots">
+  <div class="card-visual photo"><img src="media/mct-card.jpg" alt="" loading="lazy"></div>
+  <p class="kicker">24-677 Modern Control Theory<span class="dates">Fall 2025</span></p>
+  <h3><a href="control-autonomous-vehicles.html">Control and Estimation for Autonomous Vehicles</a></h3>
+  <p class="summary">I derived a car&rsquo;s dynamics by hand and wrote its controllers in Python for a simulated Tesla Model 3 in Webots: PID and LQR tracking, A* re-planning to overtake another car, and EKF SLAM. Driving on its own EKF SLAM estimates, the car scored 100/100 on the course autograder. For a DJI Mavic 2 Pro, my model reference adaptive controller kept the drone flying with up to 65% of one motor&rsquo;s thrust lost, where LQR alone crashed at 50%.</p>
+  <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>Webots</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Controls</li><li>State estimation</li><li>Motion planning</li></ul></div></div>
+  <span class="card-cta" aria-hidden="true">Read the full project</span>
+</article>
+<article class="card cf-card" data-kind="course" data-tags="s:machine-learning|t:python|t:pytorch">
+  <div class="card-visual photo chart"><img src="media/dl-card.png" alt="" loading="lazy"></div>
+  <p class="kicker">Introduction to Deep Learning<span class="dates">Spring 2026</span></p>
+  <h3><a href="deep-learning-rul.html">Deep Learning for Engine Remaining-Useful-Life Prediction</a></h3>
+  <p class="summary">With a teammate, I benchmarked an LSTM, a Transformer encoder, and a temporal convolutional network in PyTorch for predicting how many cycles a turbofan engine has left, on NASA&rsquo;s C-MAPSS data, training each with three seeds under one protocol. The Transformer was most accurate (13.66 &plusmn; 0.47 cycles RMSE), a single-seed run would have flipped the top two, and the TCN learned best from little data.</p>
+  <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>PyTorch</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Machine learning</li></ul></div></div>
+  <span class="card-cta" aria-hidden="true">Read the full project</span>
+</article>
     </div>
+    <div class="course-grid">
+<article class="course-card" data-kind="course" data-tags="s:controls|s:state-estimation|s:embedded-systems|t:arduino|t:matlab-simulink|t:quanser-qube-servo-2">
+  <p class="kicker">24-774 Advanced Control Systems Integration<span class="dates">Fall 2026</span></p>
+  <h3>Rotary Pendulum Control on the Quanser QUBE-Servo 2</h3>
+  <p class="summary">I designed a discrete PID motor-angle controller by pole placement for our team&rsquo;s hardware labs and ran it on an Arduino, tracking a &plusmn;10&deg; square wave; a sampling-rate sweep showed instability at 90 ms, close to the model&rsquo;s prediction of about 98 ms. I also implemented a Luenberger observer on the Arduino, found and fixed an angle-offset error, and estimated both joint speeds with 0.98 and 0.96 correlation to measurements.</p>
+  <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Arduino</li><li>MATLAB / Simulink</li><li>Quanser QUBE-Servo 2</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Controls</li><li>State estimation</li><li>Embedded systems</li></ul></div></div>
+</article>
+<article class="course-card" data-kind="course" data-tags="s:motion-planning|t:cplusplus">
+  <p class="kicker">16-782 Planning and Decision-Making in Robotics<span class="dates">Fall 2026</span></p>
+  <h3>Moving-Target Interception Planner</h3>
+  <p class="summary">I wrote a C++ planner that intercepts a moving target at minimum path cost on 2-D cost maps of up to 1825 &times; 2332 cells, within a one-second budget per planning call. It combines breadth-first search for reachability, Dijkstra-based lower bounds and heuristics, and an exact layered search with branch-and-bound pruning, and it reached the proven optimal cost on all nine test maps.</p>
+  <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>C++</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Motion planning</li></ul></div></div>
+</article>
+<article class="course-card" data-kind="course" data-tags="s:controls|s:state-estimation|t:crazyflie-2-1">
+  <p class="kicker">24-774 Advanced Control Systems Integration<span class="dates">Fall 2026 &middot; <span class="flag-inline">In progress</span></span></p>
+  <h3>Rotor Fault Detection and Recovery on a Crazyflie</h3>
+  <p class="summary">My proposal for our team project lets a Crazyflie 2.1 nano-quadrotor detect and survive partial thrust loss on any rotor without motor-speed sensors: compare the IMU-measured forces and torques with the commanded motor outputs, estimate each rotor&rsquo;s health with recursive least squares, flag a steady mismatch with a CUSUM test, and reallocate thrust, giving up yaw to keep altitude, roll, and pitch.</p>
+  <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Crazyflie 2.1</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Controls</li><li>State estimation</li></ul></div></div>
+</article>
+    </div>
+    <div class="filter-empty" data-empty="course" hidden><p><span class="empty-text"></span></p><button type="button" class="filter-clear" data-filter-clear>Clear filters</button></div>
   </div>
 </section>
 
@@ -547,6 +620,70 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
     Object.keys(byId).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
+  })();
+</script>
+<script>
+  // Skill and tool filter: show the projects and course projects that use any selected chip
+  (function () {
+    var bar = document.getElementById('filter');
+    if (!bar) return;
+    bar.hidden = false;
+    // On phones the chips take a lot of room, so the filter starts folded there
+    if (window.matchMedia && window.matchMedia('(max-width: 600px)').matches) bar.open = false;
+    var count = bar.querySelector('.filter-count');
+    var chips = [].slice.call(bar.querySelectorAll('.chip'));
+    var items = [].slice.call(document.querySelectorAll('[data-tags]'));
+    var status = document.getElementById('filter-status');
+    var clears = [].slice.call(document.querySelectorAll('[data-filter-clear]'));
+    var note = document.getElementById('course-filter-note');
+    function list(a) { return a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' or ' + a[a.length - 1]; }
+    function update() {
+      var on = chips.filter(function (c) { return c.getAttribute('aria-pressed') === 'true'; });
+      var keys = on.map(function (c) { return c.getAttribute('data-tag'); });
+      var names = on.map(function (c) { return c.getAttribute('data-label'); });
+      var n = { project: [0, 0], course: [0, 0] };
+      items.forEach(function (el) {
+        var tags = el.getAttribute('data-tags').split('|');
+        var show = !keys.length || keys.some(function (k) { return tags.indexOf(k) >= 0; });
+        el.hidden = !show;
+        var kind = el.getAttribute('data-kind');
+        n[kind][1]++; if (show) n[kind][0]++;
+      });
+      [].slice.call(document.querySelectorAll('.featured .card-lg:not([hidden])')).forEach(function (el, i) {
+        el.classList.toggle('flip', i % 2 === 1);
+      });
+      [].slice.call(document.querySelectorAll('[data-empty]')).forEach(function (e) {
+        var kind = e.getAttribute('data-empty');
+        e.hidden = n[kind][0] > 0;
+        e.querySelector('.empty-text').textContent = 'None of my ' + (kind === 'course' ? 'course projects' : 'projects') + ' match ' + list(names) + '.';
+        var link = e.querySelector('.empty-link');
+        if (link) link.hidden = !n.course[0];
+      });
+      clears.forEach(function (b) { b.hidden = !keys.length; });
+      count.textContent = keys.length ? ' (' + keys.length + ' selected)' : '';
+      status.textContent = keys.length
+        ? 'Showing ' + n.project[0] + ' of ' + n.project[1] + ' projects and ' + n.course[0] + ' of ' + n.course[1] +
+          ' course projects matching ' + list(names) + '.'
+        : 'Showing all ' + n.project[1] + ' projects and ' + n.course[1] + ' course projects. Select a chip to narrow them down.';
+      if (note) {
+        note.hidden = !keys.length;
+        note.querySelector('span').textContent = 'Filtered by ' + list(names) + ': ' + n.course[0] + ' of ' + n.course[1] + ' shown.';
+      }
+    }
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+        update();
+      });
+    });
+    clears.forEach(function (b) {
+      b.addEventListener('click', function () {
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+        update();
+        if (b.closest('.filter-empty, .filter-note')) bar.querySelector('.chip').focus();
+      });
+    });
+    update();
   })();
 </script>
 </body>

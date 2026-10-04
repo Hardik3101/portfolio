@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Engine-Powered Drone | Hardik Choudhary</title>
-<meta name="description" content="I designed a contact-free magnetic gear for each propeller of this single-engine drone, the servo linkage that changes the gap between its two gears, and the feedback control that uses that gap to set each propeller's speed. Running every rotor off one engine lets the drone fly longer in remote areas while staying lighter and cheaper than one carrying large battery packs. At the smallest gap the propeller reached 75% of its ideal speed, and the feedback control improved stability in flight tests.">
-<meta property="og:title" content="Engine-Powered Drone | Hardik Choudhary">
-<meta property="og:description" content="I designed a contact-free magnetic gear for each propeller of this single-engine drone, the servo linkage that changes the gap between its two gears, and the feedback control that uses that gap to set each propeller's speed. Running every rotor off one engine lets the drone fly longer in remote areas while staying lighter and cheaper than one carrying large battery packs. At the smallest gap the propeller reached 75% of its ideal speed, and the feedback control improved stability in flight tests.">
+<title>Deep Learning for Engine Remaining-Useful-Life Prediction | Hardik Choudhary</title>
+<meta name="description" content="Comparing an LSTM, a Transformer encoder, and a temporal convolutional network in PyTorch for turbofan remaining-useful-life prediction on NASA C-MAPSS FD001, with three seeds per model.">
+<meta property="og:title" content="Deep Learning for Engine Remaining-Useful-Life Prediction | Hardik Choudhary">
+<meta property="og:description" content="Comparing an LSTM, a Transformer encoder, and a temporal convolutional network in PyTorch for turbofan remaining-useful-life prediction on NASA C-MAPSS FD001, with three seeds per model.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -422,88 +422,31 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <main id="main">
 <div class="wrap">
 <header class="proj-head">
-  <a class="back" href="index.html#projects">All projects</a>
-  <p class="kicker">Designer and controls developer, SVNIT Surat</p>
-  <h1>Engine-Powered Drone</h1>
-  <p class="proj-lead"><strong>I designed a contact-free magnetic gear for each propeller whose gap can be changed</strong>, so one engine can power all four propellers of a drone built for long flights in remote places: the closer the two gears, the more power passes through, so each propeller&rsquo;s speed can be controlled even though they all share one engine. The feedback control improved stability in flight tests.</p>
+  <a class="back" href="index.html#course-projects">All course projects</a>
+  <p class="kicker">Introduction to Deep Learning, Carnegie Mellon University, Spring 2026</p>
+  <h1>Deep Learning for Engine Remaining-Useful-Life Prediction</h1>
+  <p class="proj-lead"><strong>With my teammate Harshit Jain, I compared three deep-learning architectures</strong> for predicting how many cycles a turbofan engine has left before it fails, on NASA&rsquo;s C-MAPSS FD001 data: a stacked LSTM, a Transformer encoder, and a temporal convolutional network (TCN). We trained all three in PyTorch under one protocol, with three random seeds each, and wrote up the results as a paper.</p>
+  <ul class="results" aria-label="Key results"><li><strong>13.66 &plusmn; 0.47</strong> cycles test RMSE for the Transformer, the most accurate of the three, which also had the lowest PHM-2008 score</li><li><strong>Flipped</strong> ranking of the two best models between a single-seed run and the three-seed average</li><li><strong>&rho; = 0.99</strong> agreement between the LSTM and the Transformer on which sensors matter</li></ul>
 </header>
 
-<figure class="media-fig lead-photo"><img src="media/drone-cad.jpg" alt="CAD model of a four-rotor drone seen from above and from the side: a central body, four arms, and a transparent gearbox under each propeller." width="1269" height="495"><figcaption>CAD model of the drone, from above and from the side. A single engine drives all four propellers through shafts that run along the arms.</figcaption></figure>
+<figure class="media-fig lead-photo" style="max-width:1000px"><img src="media/dl-pred-vs-true.png" alt="Three scatter plots of predicted against true remaining useful life on the test engines, for the LSTM (RMSE 13.81), Transformer (13.66), and TCN (15.43), each with a dashed ideal line." width="1400" height="450"><figcaption>Predicted against true remaining useful life on the 100 test engines; the dashed line is a perfect prediction. All three flatten near 125 cycles because the training target is capped there.</figcaption></figure>
 
 <div class="proj-grid">
-  <div>
-    <section aria-labelledby="problem-title">
-      <h2 id="problem-title">The problem</h2>
-      <p>Battery-powered drones run out of energy quickly, and flying longer means carrying large, heavy, expensive battery packs. An engine carries far more energy in its fuel, but a drone flies by running each propeller at its own speed, and a conventional drivetrain from one engine fixes the speed ratio to every propeller when it is designed.</p>
-    </section>
-    <section aria-labelledby="built-title">
-      <h2 id="built-title">What I built</h2>
-      <p>Each propeller has its own pair of magnetic gears: one on the shaft driven by the engine and one on the propeller shaft. The gears never touch, so nothing wears. With the two gears at their closest, the most power passes through; widening the gap passes less. A servo drives a linkage that sets the gap, an encoder measures the propeller&rsquo;s speed, and an Arduino drove the servo and read the encoder. To calibrate it, we held the engine at 3,000 rpm, so with the 2:1 gear the ideal propeller speed was 6,000 rpm, and measured propeller speed as we closed the gap from 10 mm. At 10 mm the propeller didn&rsquo;t turn; speed then rose roughly exponentially and reached about 4,500 rpm, 75% of ideal, at the smallest gap. Interpolating the readings gave a continuous map of the gap needed for any propeller speed.</p>
-    </section>
-  </div>
+  <section aria-labelledby="did-title">
+    <h2 id="did-title">What we did</h2>
+    <ul class="did"><li>Built 30-cycle sensor windows with remaining useful life capped at 125 cycles: 14,241 training, 3,490 validation, and 100 test windows.</li><li>Trained an LSTM (56,641 parameters), a Transformer encoder (70,337), and a TCN (34,593) with Adam, a cosine learning-rate schedule, gradient clipping, and early stopping, three seeds each, on a Colab T4 GPU.</li><li>Evaluated with RMSE, MAE, and the asymmetric PHM-2008 score, by life stage, and against training-set size.</li><li>Measured per-sensor importance with gradients to compare what each model relies on.</li></ul>
+  </section>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Jan &ndash; Jun 2024</dd><dt>My role</dt><dd>Designer and controls developer</dd><dt>Result</dt><dd>Improved stability in flight tests</dd><dt>Calibration</dt><dd>About 75% of ideal propeller speed at the smallest gap</dd></dl>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Arduino</li><li>MATLAB / Simulink</li><li>SolidWorks</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Feedback control</li><li>Mechanism design</li><li>Magnetic gearing</li><li>Calibration</li><li>Flight testing</li></ul></div></div>
+    <dl><dt>Course</dt><dd>Introduction to Deep Learning</dd><dt>When</dt><dd>Spring 2026</dd><dt>Team</dt><dd>Hardik Choudhary, Harshit Jain</dd><dt>Data</dt><dd>NASA C-MAPSS, sub-fleet FD001</dd><dt>Compute</dt><dd>Colab T4 GPU, about 22 min for the full sweep</dd></dl>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>PyTorch</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>LSTM</li><li>Transformer</li><li>Temporal convolutional networks</li><li>Multi-seed evaluation</li><li>Gradient-based attribution</li></ul></div></div>
   </aside>
 </div>
 
-<section class="proj-section" aria-labelledby="how-title">
-  <h2 id="how-title">How it works</h2>
-  <figure class="figure-block">
-    <div class="frame">
-      <div class="flow-lanes"><div class="lane"><p class="lane-name">Power</p><ol class="flow"><li><span class="name">Engine</span><span class="note">one power source</span></li><li class="mine"><span class="name">Magnetic gear pair<span class="sr"> (my contribution)</span></span><span class="note">one per propeller, contact-free</span></li><li><span class="name">Propeller</span><span class="note">produces thrust</span></li></ol></div><div class="lane"><p class="lane-name">Speed control, for each propeller</p><ol class="flow"><li><span class="name">Desired speed</span><span class="note">what the propeller needs</span></li><li class="mine"><span class="name">Calibration map<span class="sr"> (my contribution)</span></span><span class="note">gives the gap for that speed</span></li><li class="mine"><span class="name">Servo and linkage<span class="sr"> (my contribution)</span></span><span class="note">set the gap</span></li><li><span class="name">Encoder</span><span class="note">measures the speed</span></li></ol><div class="loopback" aria-hidden="true"><span>runs continuously in flight</span></div></div></div>
-      <p class="legend"><i></i>My contribution</p>
-    </div>
-    <figcaption>The power path, and the loop that sets each propeller&rsquo;s speed.</figcaption>
-  </figure>
-</section>
-<figure class="media-fig proj-figure" style="max-width:900px"><img src="media/drone-gearbox.jpg" alt="Cross-section of a rotor gearbox: a shaft inside the arm enters a transparent housing, where a gear turns a vertical 3 mm propeller shaft held by a bearing." width="1280" height="455" loading="lazy"><figcaption>Cross-section of one propeller&rsquo;s gearbox. The gear on the engine-driven shaft turns the gear on the 3 mm propeller shaft without touching it, and a servo linkage changes the gap between them.</figcaption></figure>
-<figure class="figure-block lead-visual proj-figure" style="max-width:780px"><div class="frame" tabindex="0" role="region" aria-label="Propeller speed against gear gap"><svg viewBox="0 0 640 336" role="img" aria-labelledby="rg-t rg-d">
-  <title id="rg-t">Propeller speed against the gap between the magnetic gears</title>
-  <desc id="rg-d">Engine held at 3,000 rpm through a 2:1 gear, so the ideal propeller speed is 6,000 rpm. Two values from the test are marked: 0 rpm at a 10 mm gap, where the propeller did not turn, and about 4,500 rpm, 75 percent of ideal, at the smallest gap. A dashed curve sketches the roughly exponential rise between them; it is not the original data.</desc>
-  <text x="88" y="22" class="d-label-2">Propeller speed (rpm)</text>
-  <line x1="88" y1="214.3" x2="604" y2="214.3" style="stroke:var(--line);stroke-width:1"/><line x1="88" y1="182.6" x2="604" y2="182.6" style="stroke:var(--line);stroke-width:1"/><line x1="88" y1="150.9" x2="604" y2="150.9" style="stroke:var(--line);stroke-width:1"/><line x1="88" y1="119.2" x2="604" y2="119.2" style="stroke:var(--line);stroke-width:1"/><line x1="88" y1="87.5" x2="604" y2="87.5" style="stroke:var(--line);stroke-width:1"/>
-  <line x1="88" y1="55.8" x2="604" y2="55.8" style="stroke:var(--ink-2);stroke-width:1.5"/>
-  <text x="96" y="47.8" class="d-label-2">Ideal: 6,000 rpm (2:1 gear, engine at 3,000 rpm)</text>
-  <line x1="88" y1="36" x2="88" y2="246" class="d-ink-thin"/>
-  <line x1="88" y1="246" x2="604" y2="246" class="d-ink-thin"/>
-  <text x="78" y="250.0" text-anchor="end" class="d-label-2">0</text><text x="78" y="218.3" text-anchor="end" class="d-label-2">1,000</text><text x="78" y="186.6" text-anchor="end" class="d-label-2">2,000</text><text x="78" y="154.9" text-anchor="end" class="d-label-2">3,000</text><text x="78" y="123.2" text-anchor="end" class="d-label-2">4,000</text><text x="78" y="91.5" text-anchor="end" class="d-label-2">5,000</text><text x="78" y="59.8" text-anchor="end" class="d-label-2">6,000</text>
-  <path d="M106.0 246.0 L110.8 245.7 L115.5 245.3 L120.3 245.0 L125.0 244.7 L129.8 244.3 L134.6 243.9 L139.3 243.6 L144.1 243.2 L148.8 242.8 L153.6 242.4 L158.4 242.0 L163.1 241.5 L167.9 241.1 L172.6 240.7 L177.4 240.2 L182.2 239.7 L186.9 239.2 L191.7 238.8 L196.4 238.2 L201.2 237.7 L206.0 237.2 L210.7 236.6 L215.5 236.1 L220.2 235.5 L225.0 234.9 L229.8 234.3 L234.5 233.7 L239.3 233.1 L244.0 232.4 L248.8 231.8 L253.6 231.1 L258.3 230.4 L263.1 229.7 L267.8 228.9 L272.6 228.2 L277.4 227.4 L282.1 226.6 L286.9 225.8 L291.6 224.9 L296.4 224.1 L301.2 223.2 L305.9 222.3 L310.7 221.4 L315.4 220.4 L320.2 219.5 L325.0 218.5 L329.7 217.5 L334.5 216.4 L339.2 215.3 L344.0 214.2 L348.8 213.1 L353.5 212.0 L358.3 210.8 L363.0 209.6 L367.8 208.3 L372.6 207.0 L377.3 205.7 L382.1 204.4 L386.8 203.0 L391.6 201.6 L396.4 200.1 L401.1 198.7 L405.9 197.1 L410.6 195.6 L415.4 194.0 L420.2 192.3 L424.9 190.7 L429.7 188.9 L434.4 187.2 L439.2 185.4 L444.0 183.5 L448.7 181.6 L453.5 179.6 L458.2 177.6 L463.0 175.6 L467.8 173.5 L472.5 171.3 L477.3 169.1 L482.0 166.8 L486.8 164.5 L491.6 162.1 L496.3 159.7 L501.1 157.2 L505.8 154.6 L510.6 152.0 L515.4 149.3 L520.1 146.5 L524.9 143.7 L529.6 140.7 L534.4 137.8 L539.2 134.7 L543.9 131.5 L548.7 128.3 L553.4 125.0 L558.2 121.6 L563.0 118.2 L567.7 114.6 L572.5 111.0 L577.2 107.2 L582.0 103.4" class="d-accent" style="stroke-width:2;stroke-dasharray:7 6"/>
-  <circle cx="106.0" cy="246" r="5.5" style="fill:var(--accent);stroke:var(--surface);stroke-width:2"><title>10 mm gap: 0 rpm, the propeller didn&#8217;t turn</title></circle>
-  <circle cx="582.0" cy="103.4" r="5.5" style="fill:var(--accent);stroke:var(--surface);stroke-width:2"><title>Smallest gap: about 4,500 rpm, 75% of ideal</title></circle>
-  <text x="566.0" y="77.4" text-anchor="end" class="d-label">about 4,500 rpm</text>
-  <text x="566.0" y="94.4" text-anchor="end" class="d-label-2">75% of ideal, at the smallest gap</text>
-  <text x="118.0" y="196" class="d-label">0 rpm at 10 mm</text>
-  <text x="118.0" y="213" class="d-label-2">the propeller didn&#8217;t turn</text>
-  <text x="106.0" y="266" text-anchor="middle" class="d-label-2">10 mm</text>
-  <text x="582.0" y="266" text-anchor="middle" class="d-label-2">smallest gap</text>
-  <text x="346" y="292" text-anchor="middle" class="d-label">Gap between the gears, closing from 10 mm</text>
-  <circle cx="94" cy="322" r="5" style="fill:var(--accent);stroke:var(--surface);stroke-width:2"/>
-  <text x="106" y="326" class="d-label-2">values recalled from the test</text>
-  <line x1="320" y1="322" x2="350" y2="322" class="d-accent" style="stroke-width:2;stroke-dasharray:7 6"/>
-  <text x="358" y="326" class="d-label-2">sketch of the trend, not measured data</text>
-</svg></div><figcaption><span class="scroll-hint">Scroll sideways to see the whole drawing.</span>Calibration with the engine held at 3,000 rpm. The two marked values are from the test: no rotation at a 10 mm gap, and about 4,500 rpm, 75% of the ideal 6,000 rpm, at the smallest gap. The dashed curve sketches the roughly exponential rise between them; it is not the original data. The full interpolated curve is what the controller used to pick the gap for a desired speed.</figcaption></figure>
+<section class="proj-section" aria-labelledby="table-title"><h2 id="table-title">Results</h2><div class="table-wrap"><table class="data-table"><caption>Test-set results on FD001 (mean &plusmn; standard deviation over 3 seeds; lower is better on every metric).</caption><thead><tr><th scope="col">Model</th><th scope="col">Parameters</th><th scope="col">Test RMSE</th><th scope="col">Test MAE</th><th scope="col">PHM score</th></tr></thead><tbody><tr><th scope="row">LSTM (baseline)</th><td>56,641</td><td>13.81 &plusmn; 0.15</td><td>10.04 &plusmn; 0.11</td><td>369 &plusmn; 14</td></tr><tr><th scope="row">Transformer</th><td>70,337</td><td><strong>13.66 &plusmn; 0.47</strong></td><td>10.06 &plusmn; 0.57</td><td><strong>337 &plusmn; 13</strong></td></tr><tr><th scope="row">TCN</th><td>34,593</td><td>15.43 &plusmn; 1.04</td><td>11.59 &plusmn; 0.75</td><td>423 &plusmn; 129</td></tr></tbody></table></div></section>
+<section class="stage" aria-labelledby="train-title"><div class="stage-text"><h2 id="train-title">Training under one protocol</h2><p>Every model saw the same windows, the same optimizer and schedule, and the same three seeds, so the differences come from the architectures. The Transformer converged fastest, the TCN plateaued earliest, and the LSTM kept improving slowly across the full schedule.</p><p>One run is not enough on this benchmark: in a preliminary single-seed run the LSTM looked clearly better than the Transformer (13.55 against 14.14 RMSE), but across three seeds the order flips and the gap is small.</p></div><figure class="media-fig proj-figure" style="max-width:620px"><img src="media/dl-val-curves.png" alt="Validation RMSE in cycles against epoch for the LSTM, Transformer, and TCN: all start high, the Transformer drops fastest, the TCN levels off around 14 to 15, and the LSTM keeps improving." width="702" height="455" loading="lazy"><figcaption>Validation RMSE per epoch (seed 42).</figcaption></figure></section><section class="stage" aria-labelledby="data-title"><div class="stage-text"><h2 id="data-title">How much data each model needs</h2><p>Trained on less data, the models rank differently. With 10% of the training windows the TCN was far better (RMSE 23.6 against about 71 for the other two); the Transformer improved sharply between 25% and 50% of the data, and the LSTM gave the best full-data result in this single-seed sweep (14.05).</p></div><figure class="media-fig proj-figure" style="max-width:620px"><img src="media/dl-data-size.png" alt="Test RMSE against the number of training windows on a log axis: the TCN stays near 20 to 24 throughout, while the LSTM and Transformer start near 70 and fall to about 14 with the full data." width="702" height="455" loading="lazy"><figcaption>Test RMSE against training-set size (single seed).</figcaption></figure></section><section class="stage" aria-labelledby="sensors-title"><div class="stage-text"><h2 id="sensors-title">Which sensors each model relies on</h2><p>Gradient-based importance shows the two most accurate models also agree on what matters: the LSTM and Transformer rank the sensors almost identically (Spearman &rho; = 0.99), while the TCN diverges (&rho; &asymp; 0.7).</p></div><figure class="media-fig proj-figure" style="max-width:1000px"><img src="media/dl-sensor-importance.png" alt="Grouped bar chart of relative gradient-based importance for each sensor and operating setting, for the LSTM, Transformer, and TCN; sensor 9 has the tallest Transformer bar." width="1400" height="500" loading="lazy"><figcaption>Relative per-sensor importance for each model.</figcaption></figure></section>
 
-<div class="proj-2col">
-  <section aria-labelledby="testing-title">
-    <h2 id="testing-title">Testing and results</h2>
-    <p>We calibrated each gear pair by measuring propeller speed at a series of gaps with the engine held at 3,000 rpm; at the smallest gap the propeller reached about 75% of its ideal speed. We then tested the drivetrain and controller in flight, where the feedback control improved the drone&rsquo;s stability. Because the gears never touch, the transmission also avoids the tooth wear a conventional gearbox accumulates.</p>
-  </section>
-  <section aria-labelledby="why-title">
-    <h2 id="why-title">Why it matters</h2>
-    <p>The drone is meant for long flights in remote locations. Running on fuel lets it fly longer while staying lighter and cheaper than a drone carrying large battery packs, without giving up agility or stability. Crop monitoring, infrastructure inspection, and search and rescue all run into the battery limit first.</p>
-  </section>
-</div>
-
-
-
-<section class="notes-block" aria-labelledby="notes-title">
-  <h2 id="notes-title">Technical notes</h2>
-  <div class="notes"><div class="tnote"><h3>How a magnetic gear works</h3><p>A magnetic gear transmits torque through the pull between magnets rather than through teeth in contact, so nothing wears, and it slips instead of breaking when it is overloaded. That pull weakens as the magnets move apart, which is what lets the gap control how much power gets through.</p></div><div class="tnote"><h3>Why one engine needs adjustable gears</h3><p>A drone steers and balances by running its propellers at different speeds. With one engine and fixed gearing, every propeller would turn at a set ratio to the engine; an adjustable gap gives each propeller its own speed.</p></div></div>
-</section>
-
-<nav class="pager" aria-label="More projects"><a class="prev" href="raksh-agriculture-robot.html"><small>Previous project</small><span>RAKSH</span></a><a class="next" href="formula-electric-chassis.html"><small>Next project</small><span>Formula Student Electric Car</span></a></nav>
+<nav class="pager" aria-label="More course projects"><a class="prev" href="control-autonomous-vehicles.html"><small>Previous course project</small><span>Control and Estimation for Autonomous Vehicles</span></a><a class="next" href="index.html#course-projects"><small>Back to</small><span>All course projects</span></a></nav>
 </div>
 </main>
 <footer>
