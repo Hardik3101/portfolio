@@ -340,6 +340,12 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .course-features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 4vw, 48px); margin-top: clamp(28px, 4vw, 40px); align-items: start; }
 .cf-card .card-visual { margin-bottom: 18px; }
 .cf-card h3 { font-size: clamp(1.2rem, 2vw, 1.4rem); }
+/* An odd last feature card spans the row: image left, text right */
+.course-features > .cf-card:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, auto) 1fr; column-gap: clamp(32px, 4vw, 48px); align-items: start; }
+.course-features > .cf-card:last-child:nth-child(odd) > .card-visual { grid-column: 1; grid-row: 1 / -1; margin-bottom: 0; }
+.course-features > .cf-card:last-child:nth-child(odd) > :not(.card-visual) { grid-column: 2; }
+.course-features > .cf-card:last-child:nth-child(odd) > .card-cta { justify-self: start; }
+@media (max-width: 860px) { .course-features > .cf-card:last-child:nth-child(odd) { display: block; } .course-features > .cf-card:last-child:nth-child(odd) > .card-visual { margin-bottom: 18px; } }
 .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: clamp(32px, 4vw, 48px); }
 .course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
 .course-card .dates { display: block; font-weight: 400; }
