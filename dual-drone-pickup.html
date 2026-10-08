@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Formula Student Electric Car | Hardik Choudhary</title>
-<meta name="description" content="As chassis head, I led a 30-member team through the design and fabrication of our electric race car's chassis: I optimized the frame with finite element analysis to cut mass while meeting its stiffness target, calculated the suspension hardpoints, and developed the bodywork and aero package. Team Phoenix Racing competed in Formula Bharat 2023, Class I, held virtually in October 2022, and won the Concept Goals Management event in the electric category.">
-<meta property="og:title" content="Formula Student Electric Car | Hardik Choudhary">
-<meta property="og:description" content="As chassis head, I led a 30-member team through the design and fabrication of our electric race car's chassis: I optimized the frame with finite element analysis to cut mass while meeting its stiffness target, calculated the suspension hardpoints, and developed the bodywork and aero package. Team Phoenix Racing competed in Formula Bharat 2023, Class I, held virtually in October 2022, and won the Concept Goals Management event in the electric category.">
+<title>Dual-Drone Pickup and Landing on a Moving Self-Balancing Robot | Hardik Choudhary</title>
+<meta name="description" content="Team project in progress: two rigidly joined Crazyflie 2.1 drones pick a paper clip off a moving, self-balancing ELEGOO Tumbller with a magnet, then land back on it.">
+<meta property="og:title" content="Dual-Drone Pickup and Landing on a Moving Self-Balancing Robot | Hardik Choudhary">
+<meta property="og:description" content="Team project in progress: two rigidly joined Crazyflie 2.1 drones pick a paper clip off a moving, self-balancing ELEGOO Tumbller with a magnet, then land back on it.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -435,63 +435,31 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <main id="main">
 <div class="wrap">
 <header class="proj-head">
-  <a class="back" href="index.html#projects">All projects</a>
-  <p class="kicker">Chassis head, Team Phoenix Racing, SVNIT Surat</p>
-  <h1>Formula Student Electric Car</h1>
-  <p class="proj-lead"><strong>As chassis head, I led the design and fabrication of Team Phoenix Racing&rsquo;s Formula Student electric car chassis with a 30-member team</strong>, optimizing the frame with finite element analysis to cut mass while meeting its stiffness target. Competing as Phoenix Racing Electric in Formula Bharat 2023, Class I, the team won the Concept Goals Management event in the electric category.</p>
+  <a class="back" href="index.html#course-projects">All course projects</a>
+  <p class="kicker">24-774 Advanced Control Systems Integration, Carnegie Mellon University, Fall 2026 (in progress)</p>
+  <h1>Dual-Drone Pickup and Landing on a Moving Self-Balancing Robot</h1>
+  <p class="proj-lead"><strong>For our five-person team&rsquo;s proposal, I wrote the problem statement, the use cases, and the success metrics.</strong> Two Crazyflie 2.1 drones joined by a rigid frame will use a magnet to pick a paper clip off an ELEGOO Tumbller as it balances and drives a fixed path, then land back on its deck later in the run. The project is at the proposal stage, with a six-week plan from system identification to landing on the moving robot.</p>
+  <ul class="results" aria-label="Targets"><li><strong>&plusmn;3 cm</strong> target landing error on the moving deck, equal to the deck&rsquo;s margin</li><li><strong>0.2 m/s</strong> maximum touchdown speed, Bitcraze&rsquo;s default landing speed for the Crazyflie</li><li><strong>30 g</strong> maximum added mass for the frame, magnet, and clip: two drones at 15 g of payload each</li></ul>
 </header>
 
-<figure class="media-fig lead-photo" style="max-width:640px"><img src="media/fs-car.jpg" alt="Team Phoenix Racing's blue and black Formula Student electric car, number E25, with a helmeted driver in the cockpit and spectators behind it." width="540" height="332"><figcaption>Team Phoenix Racing&rsquo;s Formula Student electric car.</figcaption></figure>
+<figure class="media-fig lead-photo" style="max-width:760px"><img src="media/acsi-problem.png" alt="Side view: two Crazyflies joined by a rigid bar, with a magnet underneath, hover above a two-wheeled Tumbller that rocks while balancing. A dashed arrow points from the magnet down to a paper clip on the Tumbller's deck, and the Tumbller moves along a fixed path. Downwash lines fall from the rotors." width="1200" height="610"><figcaption>The problem statement from our proposal: two Crazyflies on a rigid frame lower a magnet onto a paper clip riding on a balancing, moving Tumbller.</figcaption></figure>
 
 <div class="proj-grid">
-  <div>
-    <section aria-labelledby="problem-title">
-      <h2 id="problem-title">The problem</h2>
-      <p>The chassis carries every load the car sees, from the suspension and driver to the battery pack, and has to meet the rulebook&rsquo;s safety requirements and a stiffness target while weighing as little as possible. Every kilogram of frame is acceleration and battery range lost.</p>
-    </section>
-    <section aria-labelledby="built-title">
-      <h2 id="built-title">What I built</h2>
-      <p>As chassis head, I led a 30-member team through the design and fabrication of the chassis. I ran finite element analysis on the frame and removed material where it wasn&rsquo;t needed, iterating until it met the stiffness target at lower mass. I also calculated the suspension hardpoints, optimized the vehicle dynamics, balanced the weight distribution and driver ergonomics, and developed the bodywork and aero package alongside performance simulations. In 2023, I mentored juniors on the team&rsquo;s design and development for the next competition.</p>
-    </section>
-  </div>
+  <section aria-labelledby="did-title">
+    <h2 id="did-title">My part so far</h2>
+    <ul class="did"><li>Wrote the problem statement the team planned around: what the joined drones must do, and on what.</li><li>Set the success metrics and grounded each target in a number we can check: added mass in the Crazyflie&rsquo;s recommended payload, touchdown speed in Bitcraze&rsquo;s default landing speed, deck size in the frame footprint, landing error in the deck margin, and the Tumbller&rsquo;s pitch in where its linear balance model holds.</li><li>Researched real-world use cases: robot-to-drone package handoff, drones landing on moving vehicles, and rigidly joined drones lifting more than one can alone.</li></ul>
+  </section>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Nov 2021 &ndash; Jan 2023</dd><dt>My role</dt><dd>Chassis head</dd><dt>Team</dt><dd>Phoenix Racing Electric (team EA05), 30 members</dd><dt>Competition</dt><dd>Formula Bharat 2023, Class I, held virtually Oct 7&ndash;29, 2022</dd><dt>Result</dt><dd>Team won the Concept Goals Management event (electric)</dd><dt>After</dt><dd>Mentored the next team, 2023</dd></dl>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>SolidWorks</li><li>ANSYS</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>FEA</li><li>Vehicle dynamics</li><li>Design optimization</li><li>Aero and bodywork</li><li>GD&amp;T</li><li>CNC machining</li><li>Team leadership</li></ul></div></div>
+    <dl><dt>Course</dt><dd>24-774 Advanced Control Systems Integration</dd><dt>When</dt><dd>Fall 2026, in progress</dd><dt>Team</dt><dd>Amir White, Amogh Amonkar, Fawaz Mallick, Hardik Choudhary, Wenzhen Zhang</dd><dt>Hardware</dt><dd>Two Crazyflie 2.1 drones, an ELEGOO Tumbller</dd><dt>Stage</dt><dd>Proposal; six-week build plan</dd></dl>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Crazyflie 2.1</li><li>ELEGOO Tumbller</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Problem definition</li><li>Requirements and success metrics</li><li>Use-case research</li></ul></div></div>
   </aside>
 </div>
 
-<section class="proj-section" aria-labelledby="how-title">
-  <h2 id="how-title">How it works</h2>
-  <figure class="figure-block">
-    <div class="frame">
-      <div class="flow-lanes"><div class="lane"><ol class="flow"><li><span class="name">Stiffness target</span><span class="note">plus competition rules</span></li><li class="mine"><span class="name">FEA<span class="sr"> (my contribution)</span></span><span class="note">check the frame under load</span></li><li class="mine"><span class="name">Remove mass<span class="sr"> (my contribution)</span></span><span class="note">where there is margin</span></li><li class="mine"><span class="name">Verify<span class="sr"> (my contribution)</span></span><span class="note">stiffness still met</span></li><li><span class="name">Compete</span><span class="note">Formula Bharat 2023, Class I</span></li></ol></div></div>
-      <p class="legend"><i></i>My contribution</p>
-    </div>
-    <figcaption>The design loop. The middle three steps repeat until mass is down and the stiffness target is still met.</figcaption>
-  </figure>
-</section>
+<section class="proj-section" aria-labelledby="table-title"><h2 id="table-title">Success metrics</h2><div class="table-wrap"><table class="data-table text-table"><caption>Tentative design specifications from our proposal, with where each target comes from.</caption><thead><tr><th scope="col">Requirement</th><th scope="col">Target</th><th scope="col">Derived from</th></tr></thead><tbody><tr><th scope="row">Added mass (frame, magnet, and clip)</th><td>&le; 30 g</td><td>2 Crazyflie 2.1 drones &times; 15 g maximum recommended payload</td></tr><tr><th scope="row">Touchdown vertical speed</th><td>&le; 0.2 m/s</td><td>Bitcraze&rsquo;s default <code>land()</code> speed for the Crazyflie</td></tr><tr><th scope="row">Landing deck on the Tumbller</th><td>32 &times; 16 cm</td><td>Frame footprint of about 25 &times; 10 cm (two drones with a 6 cm mount between them), plus a 3 cm margin on each side</td></tr><tr><th scope="row">Landing position error</th><td>&le; &plusmn;3 cm</td><td>Equal to the deck margin</td></tr><tr><th scope="row">Tumbller pitch at contact</th><td>within &plusmn;10&deg;</td><td>Keeps the linear balance model valid (sin&nbsp;&theta; &asymp; &theta;)</td></tr></tbody></table></div></section>
+<section class="stage" aria-labelledby="mission-title"><div class="stage-text"><h2 id="mission-title">The mission, step by step</h2><p>The Tumbller drives a fixed path with the clip on its deck, balancing as it goes. The joined pair flies above it and matches its speed, lowers the magnet onto the clip, and climbs away. Some time later, it lands back on the deck at a new point on the path, which means touching down on a robot that is both moving and rocking.</p></div><figure class="media-fig proj-figure" style="max-width:1000px"><img src="media/acsi-mission.png" alt="Four panels in a loop. 1, Drive: the Tumbller follows its path with the clip on its deck. 2, Track: the joined pair matches the Tumbller's speed from above. 3, Pick up: the magnet grabs the clip and the pair climbs away. 4, Land back, later: after some time, the pair lands on the Tumbller at a new spot on its path." width="1600" height="766" loading="lazy"><figcaption>The four steps we will demonstrate: drive, track, pick up, and land back later.</figcaption></figure></section><section class="stage" aria-labelledby="why-title"><div class="stage-text"><h2 id="why-title">Why it matters</h2><p>Ground robots carry the load and drones cover the distance; the hard part is the handoff between them. In Serve Robotics and Wing&rsquo;s 2024 partnership, a sidewalk robot hands packages to a drone. In the MBZIRC 2017 challenge, drones landed on a moving car and picked objects off a field with magnetic grippers. Rigidly joined drones can lift more than one alone, for logistics, construction, and disaster response.</p><p>Existing demonstrations each cover part of this: eight rotor units fixed directly to an unknown 2.7 kg payload (Oishi et al., ICRA 2022), the MBZIRC pickups and moving-car landing, and teams of up to six Crazyflies carrying a cable-suspended payload. None we found combines joined drones with a pickup from, and a landing on, a moving, self-balancing robot.</p></div></section><section class="stage" aria-labelledby="stretch-title"><div class="stage-text"><h2 id="stretch-title">Stretch goals</h2><p>A passive hook instead of the magnet: with no magnetic pull to forgive an offset, the hook must line up within half its gap to thread the clip, which tests precise position control during descent. And a fan blowing on the hovering pair, with the wind speed measured at the drone, to test how well the controller rejects disturbances.</p></div><div class="media-pair proj-figure"><figure class="media-fig"><img src="media/acsi-hook.png" alt="Left: a magnet above a flat paper clip, with field lines and a wide two-headed arrow showing that a large sideways offset still works. Right: a hook on a shaft inside an upright clip loop, with a narrow two-headed arrow showing the small offset it allows." width="847" height="439" loading="lazy"><figcaption>Magnet (main) against hook (stretch): the magnet&rsquo;s pull forgives an offset; the hook must thread the loop.</figcaption></figure><figure class="media-fig"><img src="media/acsi-fan.png" alt="Left: the joined drone pair hovering over its target point. Right: a fan blows wind at the pair, tilting it and pushing it off its target point." width="847" height="438" loading="lazy"><figcaption>Fan disturbance: the pair should hold its point while a fan blows on it.</figcaption></figure></div></section><section class="stage" aria-labelledby="plan-title"><div class="stage-text"><h2 id="plan-title">The team&rsquo;s plan</h2><p>The Tumbller balances and follows its path under PID or LQR control. The drones fly on PID, track the moving Tumbller with model predictive control, and run pickup and landing as a finite-state machine with MPC. A host computer running ROS sends commands to the Tumbller and both drones, each of which estimates its own state with a Kalman filter.</p><p>The six weeks run from system identification and the drone coupling, through static pickup and speed matching, to the dynamic pickup and landing, then the stretch goals. The two highest risks are instability from rigidly joining the drones, which we will simulate before flying, and the cushion of air under the pair near the deck, which can make it float and drift during landing; we will match the Tumbller&rsquo;s speed before the final descent and keep a fallback routine.</p></div></section>
 
-
-<div class="proj-2col">
-  <section aria-labelledby="testing-title">
-    <h2 id="testing-title">Testing and results</h2>
-    <p>The frame was checked in FEA against the stiffness target at every iteration. The team then competed as Phoenix Racing Electric (team EA05) in Formula Bharat 2023, Class I, held virtually from October 7 to 29, 2022, and won the Concept Goals Management event in the electric category.</p>
-  </section>
-  <section aria-labelledby="why-title">
-    <h2 id="why-title">Why it matters</h2>
-    <p>A lighter frame that still meets its stiffness target makes the whole car faster. Leading the chassis team also meant making engineering trade-offs under a competition deadline and rulebook, while keeping a 30-person team working toward the same goal.</p>
-  </section>
-</div>
-
-<section class="proj-section" aria-labelledby="proof-title"><h2 id="proof-title">Certificate</h2><figure class="media-fig proof-fig" style="max-width:760px"><img src="media/fb2023-certificate.jpg" alt="Certificate of Participation, Formula Bharat 2023 - Class I, presented to Hardik Choudhary, EA05 Phoenix Racing Electric, Sardar Vallabhbhai National Institute of Technology, Surat, for participation in the competition held virtually between October 7 and 29, 2022." width="1058" height="826" loading="lazy"><figcaption>My certificate of participation in Formula Bharat 2023, Class I. The team&rsquo;s event win is listed in the official <a href="https://formulabharat.com/fb-2023-class-i-results/" target="_blank" rel="noopener">Formula Bharat 2023 Class I results</a>.</figcaption></figure></section>
-
-<section class="notes-block" aria-labelledby="notes-title">
-  <h2 id="notes-title">Technical notes</h2>
-  <div class="notes"><div class="tnote"><h3>Why stiffness matters</h3><p>A stiff frame lets the suspension, not the chassis, control how the tires load the track. If the frame twists, the car&rsquo;s handling becomes harder to predict and tune, which is why torsional stiffness is a standard check for a race-car frame.</p></div><div class="tnote"><h3>Reducing mass with FEA</h3><p>Analysis shows which parts of the frame carry little load. Those can be lightened or removed, then the frame is checked again, until mass is down and the stiffness target is still met.</p></div></div>
-</section>
-
-<nav class="pager" aria-label="More projects"><a class="prev" href="engine-powered-drone.html"><small>Previous project</small><span>Engine-Powered Drone</span></a><a class="next" href="prosthetic-foot.html"><small>Next project</small><span>Prosthetic Foot</span></a></nav>
+<nav class="pager" aria-label="More course projects"><a class="prev" href="moving-target-planner.html"><small>Previous course project</small><span>Moving-Target Interception Planner</span></a><a class="next" href="index.html#course-projects"><small>Back to</small><span>All course projects</span></a></nav>
 </div>
 </main>
 <footer>
