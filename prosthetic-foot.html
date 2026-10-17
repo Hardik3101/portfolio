@@ -355,7 +355,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 /* A lone compact card spans the row: text left, tags right */
 .course-grid > .course-card:only-child { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 48px); row-gap: 10px; align-items: start; }
 .course-grid > .course-card:only-child > * { grid-column: 1; }
-.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; padding-top: 0; }
+.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; padding-top: 0; }
 @media (max-width: 860px) { .course-grid > .course-card:only-child { display: flex; } .course-grid > .course-card:only-child > .tagrows { margin-top: auto; padding-top: 8px; } }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
@@ -409,33 +409,72 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   .filter-row { grid-template-columns: 1fr; gap: 6px; }
   .filter-label { padding-top: 0; }
 }
+/* The menu stays fixed at the top on every screen size; three links fit beside the name on phones */
 @media (max-width: 560px) {
-  html { scroll-padding-top: 0; }
-  .nav { position: static; }
-  .nav .wrap { height: auto; flex-wrap: wrap; row-gap: 2px; padding-top: 12px; padding-bottom: 8px; }
-  .nav ul { width: calc(100% + 20px); margin-left: -10px; }
-  .nav a.link { padding: 6px 10px; }
+  .nav .wrap { gap: 6px; height: auto; min-height: 56px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+  .nav a.link { padding: 6px 8px; }
 }
+@media (max-width: 380px) { .brand { font-size: 0.98rem; } .nav a.link { padding: 6px 6px; } }
+/* Academic / professional labels */
+.type-chip { display: block; margin: 0 0 0.45rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-ink); line-height: 1.4; max-width: none; }
+.proj-head .type-chip { margin-bottom: 0.55rem; }
+/* Reflection at the end of every case study */
+.reflect { margin-top: clamp(44px, 6vw, 72px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); }
+.reflect h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
+.reflect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px clamp(24px, 4vw, 48px); margin-top: 1.1rem; }
+.reflect h3 { font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: 0; margin: 0 0 0.6rem; }
+.reflect .did li { max-width: 60ch; }
+/* Links that open in a new tab carry an icon and a screen-reader note */
+.ext-icon { display: inline-block; width: 0.68em; height: 0.68em; margin-left: 0.28em; vertical-align: 0.02em; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* Landing page facts panel */
+.hero-facts .facts { border-top: 0; }
+.hero-facts .facts li { grid-template-columns: 7.4em minmax(0, 1fr); padding: 10px 0; }
+.hero-facts .facts li:last-child { border-bottom: 0; }
+/* About page */
+.about-story section + section { margin-top: clamp(28px, 4vw, 40px); }
+.about-story h2, .about-side h2.timeline-title { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin-bottom: 0.8rem; }
+.about-side h2.timeline-title { font-size: 1.05rem; margin-bottom: 12px; }
+.about-side { display: grid; gap: 24px; align-content: start; }
+.about-story .actions { margin-top: 1.2rem; }
+/* Contact page */
+.contact-form { display: grid; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); align-self: start; }
+.form-note { margin: 0; font-size: 0.92rem; color: var(--ink-2); }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; }
+.field .opt { font-weight: 400; color: var(--ink-2); }
+.field input, .field textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--ink-2); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.field textarea { resize: vertical; min-height: 9em; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.form-foot .btn { font: inherit; font-weight: 600; cursor: pointer; }
+.form-hint { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
+.form-status { margin: 0; font-weight: 600; }
+.form-status:empty { display: none; }
+.contact-side h2 { margin-bottom: 0.4rem; }
+.contact-form h2 { margin: 0 0 -6px; }
+.role-note { margin: 1rem 0 0; font-size: 0.97rem; color: var(--ink-2); max-width: 62ch; }
+.page-contact .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.skills-title { font-family: var(--display); font-weight: 650; }
+@media (max-width: 860px) { .page-contact .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .hero-facts .facts li { grid-template-columns: 1fr; gap: 2px; } }
 </style>
 </head>
 <body class="page-project">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Site">
   <div class="wrap">
-    <a class="brand" href="index.html">Hardik Choudhary</a>
+    <a class="brand" href="index.html">Hardik Choudhary<span class="sr">, home</span></a>
     <ul>
-      <li><a class="link" href="index.html#about">About</a></li>
-      <li><a class="link" href="index.html#projects">Projects</a></li>
-      <li><a class="link" href="index.html#course-projects">Course projects</a></li>
-      <li><a class="link" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-      <li><a class="link" href="index.html#contact">Contact</a></li>
+      <li><a class="link" href="index.html#work" aria-current="true">Work</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 <main id="main">
 <div class="wrap">
 <header class="proj-head">
-  <a class="back" href="index.html#projects">All projects</a>
+  <a class="back" href="index.html#work">All projects</a>
+  <p class="type-chip">Professional</p>
   <p class="kicker">Project assistant, Human-Centered Robotics Lab, IIT Gandhinagar</p>
   <h1>Prosthetic Foot</h1>
   <p class="proj-lead"><strong>I designed a prosthetic foot whose forefoot can tilt from side to side, as a human foot does on uneven ground, and built a test bed that loads it repeatably.</strong> With Ronak Vyas, under Prof. Vineet Vashista in IIT Gandhinagar&rsquo;s Human-Centered Robotics Lab, I took the design through three CAD iterations, each refined with finite element analysis in Ansys.</p>
@@ -450,13 +489,13 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
       <p>A foot has to carry around 0.8 times body weight in walking and up to 2.75 times in running, cushion the impact at heel strike, and still let the forefoot tilt inward and outward (inversion and eversion) on uneven ground. A prosthetic foot also has to fit a standard pylon mount, stay light, and survive years of daily steps. We set out to design one for forefoot mobility, a weight of 600&ndash;700 g, and a life of up to a million load cycles.</p>
     </section>
     <section aria-labelledby="built-title">
-      <h2 id="built-title">What I built</h2>
+      <h2 id="built-title">My role</h2>
       <p>I designed the foot in SolidWorks over three iterations. The first, inspired by the human foot, was a single piece with four slits in the forefoot for inversion and eversion, but it was thicker than the pylon mount. The second matched the back of the foot to the mount&rsquo;s width, cut the slits to two, and split the foot into four parts that are easier to make and assemble. In the third we worked on fewer forefoot fixtures and a lower weight. I also designed and built a test bed that applies repeatable loading to the mounted foot, so designs can be compared under the same conditions.</p>
     </section>
   </div>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Where</dt><dd>Human-Centered Robotics Lab, IIT Gandhinagar</dd><dt>When</dt><dd>Jan &ndash; Jun 2025</dd><dt>My role</dt><dd>Project assistant</dd><dt>Team</dt><dd>With Ronak Vyas; advisor Prof. Vineet Vashista</dd><dt>Targets</dt><dd>600&ndash;700 g, up to a million load cycles</dd></dl>
+    <dl><dt>Type</dt><dd>Professional (project assistant)</dd><dt>Where</dt><dd>Human-Centered Robotics Lab, IIT Gandhinagar</dd><dt>When</dt><dd>Jan &ndash; Jun 2025</dd><dt>My role</dt><dd>Project assistant</dd><dt>Team</dt><dd>With Ronak Vyas; advisor Prof. Vineet Vashista</dd><dt>Targets</dt><dd>600&ndash;700 g, up to a million load cycles</dd></dl>
     <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>SolidWorks</li><li>ANSYS</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Mechanism design</li><li>FEA</li><li>Material selection</li><li>Design for assembly</li><li>Test-rig design</li></ul></div></div>
   </aside>
 </div>
@@ -481,16 +520,18 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 <section class="notes-block" aria-labelledby="notes-title">
   <h2 id="notes-title">Technical notes</h2>
-  <div class="notes"><div class="tnote"><h3>Why slit the forefoot</h3><p>Slits let each side of the forefoot bend on its own, so the foot can tilt inward or outward on a slope or uneven ground. FEA showed that four slits weakened the foot without adding that motion, so the design went to two.</p></div><div class="tnote"><h3>What came next</h3><p>Our poster planned FEA of the toe-off phase to choose the forefoot&rsquo;s material properties, a stress-cycle test to check the foot lasts its intended life, and a physical prototype to validate the design.</p></div></div>
+  <div class="notes"><div class="tnote"><h3>Why slit the forefoot</h3><p>Slits let each side of the forefoot bend on its own, so the foot can tilt inward or outward on a slope or uneven ground.</p></div></div>
 </section>
 
-<nav class="pager" aria-label="More projects"><a class="prev" href="formula-electric-chassis.html"><small>Previous project</small><span>Formula Student Electric Car</span></a><a class="next" href="index.html#projects"><small>Back to</small><span>All projects</span></a></nav>
+<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>Checking every iteration in FEA caught problems while the foot was still in CAD: the extra slits that only weakened it, and the bending near the pylon mount.</li><li>Designing for manufacture and fit: splitting the foot into four parts that bolt together made it easier to make and assemble, and let its back end match the standard pylon mount.</li></ul></div><div><h3>Next steps</h3><ul class="did"><li>FEA of the toe-off phase to choose the forefoot&rsquo;s material properties, as our poster planned.</li><li>A stress-cycle test to check the foot lasts its intended life of up to a million load cycles.</li><li>A physical prototype to validate the design.</li></ul></div></div></section>
+
+<nav class="pager" aria-label="More projects"><a class="prev" href="formula-electric-chassis.html"><small>Previous project</small><span>Formula Student Electric Car</span></a><a class="next" href="index.html#work"><small>Back to</small><span>All projects</span></a></nav>
 </div>
 </main>
 <footer>
   <div class="wrap">
     <span>Hardik Choudhary, Pittsburgh, PA</span>
-    <span class="links"><a href="mailto:hardikchoudhary3101@gmail.com">Email</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></span>
+    <span class="links"><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></span>
   </div>
 </footer>
 

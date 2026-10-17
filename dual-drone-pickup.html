@@ -355,7 +355,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 /* A lone compact card spans the row: text left, tags right */
 .course-grid > .course-card:only-child { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 48px); row-gap: 10px; align-items: start; }
 .course-grid > .course-card:only-child > * { grid-column: 1; }
-.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; padding-top: 0; }
+.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; padding-top: 0; }
 @media (max-width: 860px) { .course-grid > .course-card:only-child { display: flex; } .course-grid > .course-card:only-child > .tagrows { margin-top: auto; padding-top: 8px; } }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
@@ -409,26 +409,64 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   .filter-row { grid-template-columns: 1fr; gap: 6px; }
   .filter-label { padding-top: 0; }
 }
+/* The menu stays fixed at the top on every screen size; three links fit beside the name on phones */
 @media (max-width: 560px) {
-  html { scroll-padding-top: 0; }
-  .nav { position: static; }
-  .nav .wrap { height: auto; flex-wrap: wrap; row-gap: 2px; padding-top: 12px; padding-bottom: 8px; }
-  .nav ul { width: calc(100% + 20px); margin-left: -10px; }
-  .nav a.link { padding: 6px 10px; }
+  .nav .wrap { gap: 6px; height: auto; min-height: 56px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+  .nav a.link { padding: 6px 8px; }
 }
+@media (max-width: 380px) { .brand { font-size: 0.98rem; } .nav a.link { padding: 6px 6px; } }
+/* Academic / professional labels */
+.type-chip { display: block; margin: 0 0 0.45rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-ink); line-height: 1.4; max-width: none; }
+.proj-head .type-chip { margin-bottom: 0.55rem; }
+/* Reflection at the end of every case study */
+.reflect { margin-top: clamp(44px, 6vw, 72px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); }
+.reflect h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
+.reflect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px clamp(24px, 4vw, 48px); margin-top: 1.1rem; }
+.reflect h3 { font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: 0; margin: 0 0 0.6rem; }
+.reflect .did li { max-width: 60ch; }
+/* Links that open in a new tab carry an icon and a screen-reader note */
+.ext-icon { display: inline-block; width: 0.68em; height: 0.68em; margin-left: 0.28em; vertical-align: 0.02em; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* Landing page facts panel */
+.hero-facts .facts { border-top: 0; }
+.hero-facts .facts li { grid-template-columns: 7.4em minmax(0, 1fr); padding: 10px 0; }
+.hero-facts .facts li:last-child { border-bottom: 0; }
+/* About page */
+.about-story section + section { margin-top: clamp(28px, 4vw, 40px); }
+.about-story h2, .about-side h2.timeline-title { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin-bottom: 0.8rem; }
+.about-side h2.timeline-title { font-size: 1.05rem; margin-bottom: 12px; }
+.about-side { display: grid; gap: 24px; align-content: start; }
+.about-story .actions { margin-top: 1.2rem; }
+/* Contact page */
+.contact-form { display: grid; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); align-self: start; }
+.form-note { margin: 0; font-size: 0.92rem; color: var(--ink-2); }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; }
+.field .opt { font-weight: 400; color: var(--ink-2); }
+.field input, .field textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--ink-2); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.field textarea { resize: vertical; min-height: 9em; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.form-foot .btn { font: inherit; font-weight: 600; cursor: pointer; }
+.form-hint { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
+.form-status { margin: 0; font-weight: 600; }
+.form-status:empty { display: none; }
+.contact-side h2 { margin-bottom: 0.4rem; }
+.contact-form h2 { margin: 0 0 -6px; }
+.role-note { margin: 1rem 0 0; font-size: 0.97rem; color: var(--ink-2); max-width: 62ch; }
+.page-contact .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.skills-title { font-family: var(--display); font-weight: 650; }
+@media (max-width: 860px) { .page-contact .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .hero-facts .facts li { grid-template-columns: 1fr; gap: 2px; } }
 </style>
 </head>
 <body class="page-project">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Site">
   <div class="wrap">
-    <a class="brand" href="index.html">Hardik Choudhary</a>
+    <a class="brand" href="index.html">Hardik Choudhary<span class="sr">, home</span></a>
     <ul>
-      <li><a class="link" href="index.html#about">About</a></li>
-      <li><a class="link" href="index.html#projects">Projects</a></li>
-      <li><a class="link" href="index.html#course-projects">Course projects</a></li>
-      <li><a class="link" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-      <li><a class="link" href="index.html#contact">Contact</a></li>
+      <li><a class="link" href="index.html#work" aria-current="true">Work</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -436,6 +474,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <div class="wrap">
 <header class="proj-head">
   <a class="back" href="index.html#course-projects">All course projects</a>
+  <p class="type-chip">Academic<span aria-hidden="true"> &middot; </span><span class="sr">, </span>Course project</p>
   <p class="kicker">24-774 Advanced Control Systems Integration, Carnegie Mellon University, Fall 2026 (in progress)</p>
   <h1>Dual-Drone Pickup and Landing on a Moving Self-Balancing Robot</h1>
   <p class="proj-lead"><strong>For our five-person team&rsquo;s proposal, I wrote the problem statement, the use cases, and the success metrics.</strong> Two Crazyflie 2.1 drones joined by a rigid frame will use a magnet to pick a paper clip off an ELEGOO Tumbller as it balances and drives a fixed path, then land back on its deck later in the run. The project is at the proposal stage, with a six-week plan from system identification to landing on the moving robot.</p>
@@ -446,18 +485,20 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 <div class="proj-grid">
   <section aria-labelledby="did-title">
-    <h2 id="did-title">My part so far</h2>
+    <h2 id="did-title">My role so far</h2>
     <ul class="did"><li>Wrote the problem statement the team planned around: what the joined drones must do, and on what.</li><li>Set the success metrics and grounded each target in a number we can check: added mass in the Crazyflie&rsquo;s recommended payload, touchdown speed in Bitcraze&rsquo;s default landing speed, deck size in the frame footprint, landing error in the deck margin, and the Tumbller&rsquo;s pitch in where its linear balance model holds.</li><li>Researched real-world use cases: robot-to-drone package handoff, drones landing on moving vehicles, and rigidly joined drones lifting more than one can alone.</li></ul>
   </section>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Course</dt><dd>24-774 Advanced Control Systems Integration</dd><dt>When</dt><dd>Fall 2026, in progress</dd><dt>Team</dt><dd>Amir White, Amogh Amonkar, Fawaz Mallick, Hardik Choudhary, Wenzhen Zhang</dd><dt>Hardware</dt><dd>Two Crazyflie 2.1 drones, an ELEGOO Tumbller</dd><dt>Stage</dt><dd>Proposal; six-week build plan</dd></dl>
+    <dl><dt>Type</dt><dd>Course project (academic)</dd><dt>Course</dt><dd>24-774 Advanced Control Systems Integration</dd><dt>When</dt><dd>Fall 2026, in progress</dd><dt>Team</dt><dd>Amir White, Amogh Amonkar, Fawaz Mallick, Hardik Choudhary, Wenzhen Zhang</dd><dt>Hardware</dt><dd>Two Crazyflie 2.1 drones, an ELEGOO Tumbller</dd><dt>Stage</dt><dd>Proposal; six-week build plan</dd></dl>
     <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Crazyflie 2.1</li><li>ELEGOO Tumbller</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Problem definition</li><li>Requirements and success metrics</li><li>Use-case research</li></ul></div></div>
   </aside>
 </div>
 
-<section class="proj-section" aria-labelledby="table-title"><h2 id="table-title">Success metrics</h2><div class="table-wrap"><table class="data-table text-table"><caption>Tentative design specifications from our proposal, with where each target comes from.</caption><thead><tr><th scope="col">Requirement</th><th scope="col">Target</th><th scope="col">Derived from</th></tr></thead><tbody><tr><th scope="row">Added mass (frame, magnet, and clip)</th><td>&le; 30 g</td><td>2 Crazyflie 2.1 drones &times; 15 g maximum recommended payload</td></tr><tr><th scope="row">Touchdown vertical speed</th><td>&le; 0.2 m/s</td><td>Bitcraze&rsquo;s default <code>land()</code> speed for the Crazyflie</td></tr><tr><th scope="row">Landing deck on the Tumbller</th><td>32 &times; 16 cm</td><td>Frame footprint of about 25 &times; 10 cm (two drones with a 6 cm mount between them), plus a 3 cm margin on each side</td></tr><tr><th scope="row">Landing position error</th><td>&le; &plusmn;3 cm</td><td>Equal to the deck margin</td></tr><tr><th scope="row">Tumbller pitch at contact</th><td>within &plusmn;10&deg;</td><td>Keeps the linear balance model valid (sin&nbsp;&theta; &asymp; &theta;)</td></tr></tbody></table></div></section>
+<section class="proj-section" aria-labelledby="table-title"><h2 id="table-title">Success metrics</h2><div class="table-wrap" tabindex="0" role="region" aria-label="Success metrics table"><table class="data-table text-table"><caption>Tentative design specifications from our proposal, with where each target comes from.</caption><thead><tr><th scope="col">Requirement</th><th scope="col">Target</th><th scope="col">Derived from</th></tr></thead><tbody><tr><th scope="row">Added mass (frame, magnet, and clip)</th><td>&le; 30 g</td><td>2 Crazyflie 2.1 drones &times; 15 g maximum recommended payload</td></tr><tr><th scope="row">Touchdown vertical speed</th><td>&le; 0.2 m/s</td><td>Bitcraze&rsquo;s default <code>land()</code> speed for the Crazyflie</td></tr><tr><th scope="row">Landing deck on the Tumbller</th><td>32 &times; 16 cm</td><td>Frame footprint of about 25 &times; 10 cm (two drones with a 6 cm mount between them), plus a 3 cm margin on each side</td></tr><tr><th scope="row">Landing position error</th><td>&le; &plusmn;3 cm</td><td>Equal to the deck margin</td></tr><tr><th scope="row">Tumbller pitch at contact</th><td>within &plusmn;10&deg;</td><td>Keeps the linear balance model valid (sin&nbsp;&theta; &asymp; &theta;)</td></tr></tbody></table></div></section>
 <section class="stage" aria-labelledby="mission-title"><div class="stage-text"><h2 id="mission-title">The mission, step by step</h2><p>The Tumbller drives a fixed path with the clip on its deck, balancing as it goes. The joined pair flies above it and matches its speed, lowers the magnet onto the clip, and climbs away. Some time later, it lands back on the deck at a new point on the path, which means touching down on a robot that is both moving and rocking.</p></div><figure class="media-fig proj-figure" style="max-width:1000px"><img src="media/acsi-mission.png" alt="Four panels in a loop. 1, Drive: the Tumbller follows its path with the clip on its deck. 2, Track: the joined pair matches the Tumbller's speed from above. 3, Pick up: the magnet grabs the clip and the pair climbs away. 4, Land back, later: after some time, the pair lands on the Tumbller at a new spot on its path." width="1600" height="766" loading="lazy"><figcaption>The four steps we will demonstrate: drive, track, pick up, and land back later.</figcaption></figure></section><section class="stage" aria-labelledby="why-title"><div class="stage-text"><h2 id="why-title">Why it matters</h2><p>Ground robots carry the load and drones cover the distance; the hard part is the handoff between them. In Serve Robotics and Wing&rsquo;s 2024 partnership, a sidewalk robot hands packages to a drone. In the MBZIRC 2017 challenge, drones landed on a moving car and picked objects off a field with magnetic grippers. Rigidly joined drones can lift more than one alone, for logistics, construction, and disaster response.</p><p>Existing demonstrations each cover part of this: eight rotor units fixed directly to an unknown 2.7 kg payload (Oishi et al., ICRA 2022), the MBZIRC pickups and moving-car landing, and teams of up to six Crazyflies carrying a cable-suspended payload. None we found combines joined drones with a pickup from, and a landing on, a moving, self-balancing robot.</p></div></section><section class="stage" aria-labelledby="stretch-title"><div class="stage-text"><h2 id="stretch-title">Stretch goals</h2><p>A passive hook instead of the magnet: with no magnetic pull to forgive an offset, the hook must line up within half its gap to thread the clip, which tests precise position control during descent. And a fan blowing on the hovering pair, with the wind speed measured at the drone, to test how well the controller rejects disturbances.</p></div><div class="media-pair proj-figure"><figure class="media-fig"><img src="media/acsi-hook.png" alt="Left: a magnet above a flat paper clip, with field lines and a wide two-headed arrow showing that a large sideways offset still works. Right: a hook on a shaft inside an upright clip loop, with a narrow two-headed arrow showing the small offset it allows." width="847" height="439" loading="lazy"><figcaption>Magnet (main) against hook (stretch): the magnet&rsquo;s pull forgives an offset; the hook must thread the loop.</figcaption></figure><figure class="media-fig"><img src="media/acsi-fan.png" alt="Left: the joined drone pair hovering over its target point. Right: a fan blows wind at the pair, tilting it and pushing it off its target point." width="847" height="438" loading="lazy"><figcaption>Fan disturbance: the pair should hold its point while a fan blows on it.</figcaption></figure></div></section><section class="stage" aria-labelledby="plan-title"><div class="stage-text"><h2 id="plan-title">The team&rsquo;s plan</h2><p>The Tumbller balances and follows its path under PID or LQR control. The drones fly on PID, track the moving Tumbller with model predictive control, and run pickup and landing as a finite-state machine with MPC. A host computer running ROS sends commands to the Tumbller and both drones, each of which estimates its own state with a Kalman filter.</p><p>The six weeks run from system identification and the drone coupling, through static pickup and speed matching, to the dynamic pickup and landing, then the stretch goals. The two highest risks are instability from rigidly joining the drones, which we will simulate before flying, and the cushion of air under the pair near the deck, which can make it float and drift during landing; we will match the Tumbller&rsquo;s speed before the final descent and keep a fallback routine.</p></div></section>
+
+
 
 <nav class="pager" aria-label="More course projects"><a class="prev" href="moving-target-planner.html"><small>Previous course project</small><span>Moving-Target Interception Planner</span></a><a class="next" href="index.html#course-projects"><small>Back to</small><span>All course projects</span></a></nav>
 </div>
@@ -465,7 +506,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <footer>
   <div class="wrap">
     <span>Hardik Choudhary, Pittsburgh, PA</span>
-    <span class="links"><a href="mailto:hardikchoudhary3101@gmail.com">Email</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></span>
+    <span class="links"><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></span>
   </div>
 </footer>
 

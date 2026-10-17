@@ -355,7 +355,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 /* A lone compact card spans the row: text left, tags right */
 .course-grid > .course-card:only-child { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 48px); row-gap: 10px; align-items: start; }
 .course-grid > .course-card:only-child > * { grid-column: 1; }
-.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; padding-top: 0; }
+.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; padding-top: 0; }
 @media (max-width: 860px) { .course-grid > .course-card:only-child { display: flex; } .course-grid > .course-card:only-child > .tagrows { margin-top: auto; padding-top: 8px; } }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
@@ -409,33 +409,72 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   .filter-row { grid-template-columns: 1fr; gap: 6px; }
   .filter-label { padding-top: 0; }
 }
+/* The menu stays fixed at the top on every screen size; three links fit beside the name on phones */
 @media (max-width: 560px) {
-  html { scroll-padding-top: 0; }
-  .nav { position: static; }
-  .nav .wrap { height: auto; flex-wrap: wrap; row-gap: 2px; padding-top: 12px; padding-bottom: 8px; }
-  .nav ul { width: calc(100% + 20px); margin-left: -10px; }
-  .nav a.link { padding: 6px 10px; }
+  .nav .wrap { gap: 6px; height: auto; min-height: 56px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+  .nav a.link { padding: 6px 8px; }
 }
+@media (max-width: 380px) { .brand { font-size: 0.98rem; } .nav a.link { padding: 6px 6px; } }
+/* Academic / professional labels */
+.type-chip { display: block; margin: 0 0 0.45rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-ink); line-height: 1.4; max-width: none; }
+.proj-head .type-chip { margin-bottom: 0.55rem; }
+/* Reflection at the end of every case study */
+.reflect { margin-top: clamp(44px, 6vw, 72px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); }
+.reflect h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
+.reflect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px clamp(24px, 4vw, 48px); margin-top: 1.1rem; }
+.reflect h3 { font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: 0; margin: 0 0 0.6rem; }
+.reflect .did li { max-width: 60ch; }
+/* Links that open in a new tab carry an icon and a screen-reader note */
+.ext-icon { display: inline-block; width: 0.68em; height: 0.68em; margin-left: 0.28em; vertical-align: 0.02em; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* Landing page facts panel */
+.hero-facts .facts { border-top: 0; }
+.hero-facts .facts li { grid-template-columns: 7.4em minmax(0, 1fr); padding: 10px 0; }
+.hero-facts .facts li:last-child { border-bottom: 0; }
+/* About page */
+.about-story section + section { margin-top: clamp(28px, 4vw, 40px); }
+.about-story h2, .about-side h2.timeline-title { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin-bottom: 0.8rem; }
+.about-side h2.timeline-title { font-size: 1.05rem; margin-bottom: 12px; }
+.about-side { display: grid; gap: 24px; align-content: start; }
+.about-story .actions { margin-top: 1.2rem; }
+/* Contact page */
+.contact-form { display: grid; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); align-self: start; }
+.form-note { margin: 0; font-size: 0.92rem; color: var(--ink-2); }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; }
+.field .opt { font-weight: 400; color: var(--ink-2); }
+.field input, .field textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--ink-2); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.field textarea { resize: vertical; min-height: 9em; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.form-foot .btn { font: inherit; font-weight: 600; cursor: pointer; }
+.form-hint { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
+.form-status { margin: 0; font-weight: 600; }
+.form-status:empty { display: none; }
+.contact-side h2 { margin-bottom: 0.4rem; }
+.contact-form h2 { margin: 0 0 -6px; }
+.role-note { margin: 1rem 0 0; font-size: 0.97rem; color: var(--ink-2); max-width: 62ch; }
+.page-contact .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.skills-title { font-family: var(--display); font-weight: 650; }
+@media (max-width: 860px) { .page-contact .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .hero-facts .facts li { grid-template-columns: 1fr; gap: 2px; } }
 </style>
 </head>
 <body class="page-project">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Site">
   <div class="wrap">
-    <a class="brand" href="index.html">Hardik Choudhary</a>
+    <a class="brand" href="index.html">Hardik Choudhary<span class="sr">, home</span></a>
     <ul>
-      <li><a class="link" href="index.html#about">About</a></li>
-      <li><a class="link" href="index.html#projects">Projects</a></li>
-      <li><a class="link" href="index.html#course-projects">Course projects</a></li>
-      <li><a class="link" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-      <li><a class="link" href="index.html#contact">Contact</a></li>
+      <li><a class="link" href="index.html#work" aria-current="true">Work</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 <main id="main">
 <div class="wrap">
 <header class="proj-head">
-  <a class="back" href="index.html#projects">All projects</a>
+  <a class="back" href="index.html#work">All projects</a>
+  <p class="type-chip">Academic<span aria-hidden="true"> &middot; </span><span class="sr">, </span>Undergraduate project</p>
   <p class="kicker">Designer and controls developer, SVNIT Surat</p>
   <h1>Engine-Powered Drone</h1>
   <p class="proj-lead"><strong>I designed a contact-free magnetic gear for each propeller whose gap can be changed</strong>, so one engine can power all four propellers of a drone built for long flights in remote places: the closer the two gears, the more power passes through, so each propeller&rsquo;s speed can be controlled even though they all share one engine. The feedback control improved stability in flight tests.</p>
@@ -450,13 +489,13 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
       <p>Battery-powered drones run out of energy quickly, and flying longer means carrying large, heavy, expensive battery packs. An engine carries far more energy in its fuel, but a drone flies by running each propeller at its own speed, and a conventional drivetrain from one engine fixes the speed ratio to every propeller when it is designed.</p>
     </section>
     <section aria-labelledby="built-title">
-      <h2 id="built-title">What I built</h2>
+      <h2 id="built-title">My role</h2>
       <p>Each propeller has its own pair of magnetic gears: one on the shaft driven by the engine and one on the propeller shaft. The gears never touch, so nothing wears. With the two gears at their closest, the most power passes through; widening the gap passes less. A servo drives a linkage that sets the gap, an encoder measures the propeller&rsquo;s speed, and an Arduino drove the servo and read the encoder. To calibrate it, we held the engine at 3,000 rpm, so with the 2:1 gear the ideal propeller speed was 6,000 rpm, and measured propeller speed as we closed the gap from 10 mm. At 10 mm the propeller didn&rsquo;t turn; speed then rose roughly exponentially and reached about 4,500 rpm, 75% of ideal, at the smallest gap. Interpolating the readings gave a continuous map of the gap needed for any propeller speed.</p>
     </section>
   </div>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Jan &ndash; Jun 2024</dd><dt>My role</dt><dd>Designer and controls developer</dd><dt>Result</dt><dd>Improved stability in flight tests</dd><dt>Calibration</dt><dd>About 75% of ideal propeller speed at the smallest gap</dd></dl>
+    <dl><dt>Type</dt><dd>Undergraduate project (academic)</dd><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Jan &ndash; Jun 2024</dd><dt>My role</dt><dd>Designer and controls developer</dd><dt>Result</dt><dd>Improved stability in flight tests</dd><dt>Calibration</dt><dd>About 75% of ideal propeller speed at the smallest gap</dd></dl>
     <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Arduino</li><li>MATLAB / Simulink</li><li>SolidWorks</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Feedback control</li><li>Mechanism design</li><li>Magnetic gearing</li><li>Calibration</li><li>Flight testing</li></ul></div></div>
   </aside>
 </div>
@@ -501,7 +540,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <div class="proj-2col">
   <section aria-labelledby="testing-title">
     <h2 id="testing-title">Testing and results</h2>
-    <p>We calibrated each gear pair by measuring propeller speed at a series of gaps with the engine held at 3,000 rpm; at the smallest gap the propeller reached about 75% of its ideal speed. We then tested the drivetrain and controller in flight, where the feedback control improved the drone&rsquo;s stability. Because the gears never touch, the transmission also avoids the tooth wear a conventional gearbox accumulates.</p>
+    <p>We calibrated each gear pair by measuring propeller speed at a series of gaps with the engine held at 3,000 rpm; at the smallest gap the propeller reached about 75% of its ideal speed. We then tested the drivetrain and controller in flight, where the feedback control improved the drone&rsquo;s stability.</p>
   </section>
   <section aria-labelledby="why-title">
     <h2 id="why-title">Why it matters</h2>
@@ -516,13 +555,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <div class="notes"><div class="tnote"><h3>How a magnetic gear works</h3><p>A magnetic gear transmits torque through the pull between magnets rather than through teeth in contact, so nothing wears, and it slips instead of breaking when it is overloaded. That pull weakens as the magnets move apart, which is what lets the gap control how much power gets through.</p></div><div class="tnote"><h3>Why one engine needs adjustable gears</h3><p>A drone steers and balances by running its propellers at different speeds. With one engine and fixed gearing, every propeller would turn at a set ratio to the engine; an adjustable gap gives each propeller its own speed.</p></div></div>
 </section>
 
+<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>A contact-free transmission trades speed for durability: even at the smallest gap the propeller reached only about three-quarters of its ideal speed, but with no teeth in contact, nothing wears.</li><li>Calibrate before you control: mapping propeller speed against gear gap is what let the controller pick the gap for any speed it needed.</li></ul></div></div></section>
+
 <nav class="pager" aria-label="More projects"><a class="prev" href="raksh-agriculture-robot.html"><small>Previous project</small><span>RAKSH</span></a><a class="next" href="formula-electric-chassis.html"><small>Next project</small><span>Formula Student Electric Car</span></a></nav>
 </div>
 </main>
 <footer>
   <div class="wrap">
     <span>Hardik Choudhary, Pittsburgh, PA</span>
-    <span class="links"><a href="mailto:hardikchoudhary3101@gmail.com">Email</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></span>
+    <span class="links"><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></span>
   </div>
 </footer>
 

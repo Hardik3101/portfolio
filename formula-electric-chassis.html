@@ -355,7 +355,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 /* A lone compact card spans the row: text left, tags right */
 .course-grid > .course-card:only-child { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 48px); row-gap: 10px; align-items: start; }
 .course-grid > .course-card:only-child > * { grid-column: 1; }
-.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; padding-top: 0; }
+.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; padding-top: 0; }
 @media (max-width: 860px) { .course-grid > .course-card:only-child { display: flex; } .course-grid > .course-card:only-child > .tagrows { margin-top: auto; padding-top: 8px; } }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
@@ -409,33 +409,72 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   .filter-row { grid-template-columns: 1fr; gap: 6px; }
   .filter-label { padding-top: 0; }
 }
+/* The menu stays fixed at the top on every screen size; three links fit beside the name on phones */
 @media (max-width: 560px) {
-  html { scroll-padding-top: 0; }
-  .nav { position: static; }
-  .nav .wrap { height: auto; flex-wrap: wrap; row-gap: 2px; padding-top: 12px; padding-bottom: 8px; }
-  .nav ul { width: calc(100% + 20px); margin-left: -10px; }
-  .nav a.link { padding: 6px 10px; }
+  .nav .wrap { gap: 6px; height: auto; min-height: 56px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+  .nav a.link { padding: 6px 8px; }
 }
+@media (max-width: 380px) { .brand { font-size: 0.98rem; } .nav a.link { padding: 6px 6px; } }
+/* Academic / professional labels */
+.type-chip { display: block; margin: 0 0 0.45rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-ink); line-height: 1.4; max-width: none; }
+.proj-head .type-chip { margin-bottom: 0.55rem; }
+/* Reflection at the end of every case study */
+.reflect { margin-top: clamp(44px, 6vw, 72px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); }
+.reflect h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
+.reflect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px clamp(24px, 4vw, 48px); margin-top: 1.1rem; }
+.reflect h3 { font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: 0; margin: 0 0 0.6rem; }
+.reflect .did li { max-width: 60ch; }
+/* Links that open in a new tab carry an icon and a screen-reader note */
+.ext-icon { display: inline-block; width: 0.68em; height: 0.68em; margin-left: 0.28em; vertical-align: 0.02em; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* Landing page facts panel */
+.hero-facts .facts { border-top: 0; }
+.hero-facts .facts li { grid-template-columns: 7.4em minmax(0, 1fr); padding: 10px 0; }
+.hero-facts .facts li:last-child { border-bottom: 0; }
+/* About page */
+.about-story section + section { margin-top: clamp(28px, 4vw, 40px); }
+.about-story h2, .about-side h2.timeline-title { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin-bottom: 0.8rem; }
+.about-side h2.timeline-title { font-size: 1.05rem; margin-bottom: 12px; }
+.about-side { display: grid; gap: 24px; align-content: start; }
+.about-story .actions { margin-top: 1.2rem; }
+/* Contact page */
+.contact-form { display: grid; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); align-self: start; }
+.form-note { margin: 0; font-size: 0.92rem; color: var(--ink-2); }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; }
+.field .opt { font-weight: 400; color: var(--ink-2); }
+.field input, .field textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--ink-2); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.field textarea { resize: vertical; min-height: 9em; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.form-foot .btn { font: inherit; font-weight: 600; cursor: pointer; }
+.form-hint { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
+.form-status { margin: 0; font-weight: 600; }
+.form-status:empty { display: none; }
+.contact-side h2 { margin-bottom: 0.4rem; }
+.contact-form h2 { margin: 0 0 -6px; }
+.role-note { margin: 1rem 0 0; font-size: 0.97rem; color: var(--ink-2); max-width: 62ch; }
+.page-contact .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.skills-title { font-family: var(--display); font-weight: 650; }
+@media (max-width: 860px) { .page-contact .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .hero-facts .facts li { grid-template-columns: 1fr; gap: 2px; } }
 </style>
 </head>
 <body class="page-project">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Site">
   <div class="wrap">
-    <a class="brand" href="index.html">Hardik Choudhary</a>
+    <a class="brand" href="index.html">Hardik Choudhary<span class="sr">, home</span></a>
     <ul>
-      <li><a class="link" href="index.html#about">About</a></li>
-      <li><a class="link" href="index.html#projects">Projects</a></li>
-      <li><a class="link" href="index.html#course-projects">Course projects</a></li>
-      <li><a class="link" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-      <li><a class="link" href="index.html#contact">Contact</a></li>
+      <li><a class="link" href="index.html#work" aria-current="true">Work</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 <main id="main">
 <div class="wrap">
 <header class="proj-head">
-  <a class="back" href="index.html#projects">All projects</a>
+  <a class="back" href="index.html#work">All projects</a>
+  <p class="type-chip">Academic<span aria-hidden="true"> &middot; </span><span class="sr">, </span>Student team</p>
   <p class="kicker">Chassis head, Team Phoenix Racing, SVNIT Surat</p>
   <h1>Formula Student Electric Car</h1>
   <p class="proj-lead"><strong>As chassis head, I led the design and fabrication of Team Phoenix Racing&rsquo;s Formula Student electric car chassis with a 30-member team</strong>, optimizing the frame with finite element analysis to cut mass while meeting its stiffness target. Competing as Phoenix Racing Electric in Formula Bharat 2023, Class I, the team won the Concept Goals Management event in the electric category.</p>
@@ -450,13 +489,13 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
       <p>The chassis carries every load the car sees, from the suspension and driver to the battery pack, and has to meet the rulebook&rsquo;s safety requirements and a stiffness target while weighing as little as possible. Every kilogram of frame is acceleration and battery range lost.</p>
     </section>
     <section aria-labelledby="built-title">
-      <h2 id="built-title">What I built</h2>
+      <h2 id="built-title">My role</h2>
       <p>As chassis head, I led a 30-member team through the design and fabrication of the chassis. I ran finite element analysis on the frame and removed material where it wasn&rsquo;t needed, iterating until it met the stiffness target at lower mass. I also calculated the suspension hardpoints, optimized the vehicle dynamics, balanced the weight distribution and driver ergonomics, and developed the bodywork and aero package alongside performance simulations. In 2023, I mentored juniors on the team&rsquo;s design and development for the next competition.</p>
     </section>
   </div>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Nov 2021 &ndash; Jan 2023</dd><dt>My role</dt><dd>Chassis head</dd><dt>Team</dt><dd>Phoenix Racing Electric (team EA05), 30 members</dd><dt>Competition</dt><dd>Formula Bharat 2023, Class I, held virtually Oct 7&ndash;29, 2022</dd><dt>Result</dt><dd>Team won the Concept Goals Management event (electric)</dd><dt>After</dt><dd>Mentored the next team, 2023</dd></dl>
+    <dl><dt>Type</dt><dd>Student team project (academic)</dd><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Nov 2021 &ndash; Jan 2023</dd><dt>My role</dt><dd>Chassis head</dd><dt>Team</dt><dd>Phoenix Racing Electric (team EA05), 30 members</dd><dt>Competition</dt><dd>Formula Bharat 2023, Class I, held virtually Oct 7&ndash;29, 2022</dd><dt>Result</dt><dd>Team won the Concept Goals Management event (electric)</dd><dt>After</dt><dd>Mentored the next team, 2023</dd></dl>
     <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>SolidWorks</li><li>ANSYS</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>FEA</li><li>Vehicle dynamics</li><li>Design optimization</li><li>Aero and bodywork</li><li>GD&amp;T</li><li>CNC machining</li><li>Team leadership</li></ul></div></div>
   </aside>
 </div>
@@ -480,16 +519,18 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   </section>
   <section aria-labelledby="why-title">
     <h2 id="why-title">Why it matters</h2>
-    <p>A lighter frame that still meets its stiffness target makes the whole car faster. Leading the chassis team also meant making engineering trade-offs under a competition deadline and rulebook, while keeping a 30-person team working toward the same goal.</p>
+    <p>A lighter frame that still meets its stiffness target makes the whole car faster.</p>
   </section>
 </div>
 
-<section class="proj-section" aria-labelledby="proof-title"><h2 id="proof-title">Certificate</h2><figure class="media-fig proof-fig" style="max-width:760px"><img src="media/fb2023-certificate.jpg" alt="Certificate of Participation, Formula Bharat 2023 - Class I, presented to Hardik Choudhary, EA05 Phoenix Racing Electric, Sardar Vallabhbhai National Institute of Technology, Surat, for participation in the competition held virtually between October 7 and 29, 2022." width="1058" height="826" loading="lazy"><figcaption>My certificate of participation in Formula Bharat 2023, Class I. The team&rsquo;s event win is listed in the official <a href="https://formulabharat.com/fb-2023-class-i-results/" target="_blank" rel="noopener">Formula Bharat 2023 Class I results</a>.</figcaption></figure></section>
+<section class="proj-section" aria-labelledby="proof-title"><h2 id="proof-title">Certificate</h2><figure class="media-fig proof-fig" style="max-width:760px"><img src="media/fb2023-certificate.jpg" alt="Certificate of Participation, Formula Bharat 2023 - Class I, presented to Hardik Choudhary, EA05 Phoenix Racing Electric, Sardar Vallabhbhai National Institute of Technology, Surat, for participation in the competition held virtually between October 7 and 29, 2022." width="1058" height="826" loading="lazy"><figcaption>My certificate of participation in Formula Bharat 2023, Class I. The team&rsquo;s event win is listed in the official <a href="https://formulabharat.com/fb-2023-class-i-results/" target="_blank" rel="noopener">Formula Bharat 2023 Class I results<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a>.</figcaption></figure></section>
 
 <section class="notes-block" aria-labelledby="notes-title">
   <h2 id="notes-title">Technical notes</h2>
-  <div class="notes"><div class="tnote"><h3>Why stiffness matters</h3><p>A stiff frame lets the suspension, not the chassis, control how the tires load the track. If the frame twists, the car&rsquo;s handling becomes harder to predict and tune, which is why torsional stiffness is a standard check for a race-car frame.</p></div><div class="tnote"><h3>Reducing mass with FEA</h3><p>Analysis shows which parts of the frame carry little load. Those can be lightened or removed, then the frame is checked again, until mass is down and the stiffness target is still met.</p></div></div>
+  <div class="notes"><div class="tnote"><h3>Why stiffness matters</h3><p>A stiff frame lets the suspension, not the chassis, control how the tires load the track. If the frame twists, the car&rsquo;s handling becomes harder to predict and tune, which is why torsional stiffness is a standard check for a race-car frame.</p></div></div>
 </section>
+
+<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>FEA as a design loop, not just a final check: it shows which parts of the frame carry little load, so mass can come out there, and each change is checked against the stiffness target.</li><li>Leading a 30-person team meant making engineering trade-offs under a competition deadline and rulebook while keeping everyone working toward the same goal.</li></ul></div></div></section>
 
 <nav class="pager" aria-label="More projects"><a class="prev" href="engine-powered-drone.html"><small>Previous project</small><span>Engine-Powered Drone</span></a><a class="next" href="prosthetic-foot.html"><small>Next project</small><span>Prosthetic Foot</span></a></nav>
 </div>
@@ -497,7 +538,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <footer>
   <div class="wrap">
     <span>Hardik Choudhary, Pittsburgh, PA</span>
-    <span class="links"><a href="mailto:hardikchoudhary3101@gmail.com">Email</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></span>
+    <span class="links"><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></span>
   </div>
 </footer>
 

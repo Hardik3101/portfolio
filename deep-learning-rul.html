@@ -355,7 +355,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 /* A lone compact card spans the row: text left, tags right */
 .course-grid > .course-card:only-child { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 48px); row-gap: 10px; align-items: start; }
 .course-grid > .course-card:only-child > * { grid-column: 1; }
-.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; padding-top: 0; }
+.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; padding-top: 0; }
 @media (max-width: 860px) { .course-grid > .course-card:only-child { display: flex; } .course-grid > .course-card:only-child > .tagrows { margin-top: auto; padding-top: 8px; } }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
@@ -409,26 +409,64 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   .filter-row { grid-template-columns: 1fr; gap: 6px; }
   .filter-label { padding-top: 0; }
 }
+/* The menu stays fixed at the top on every screen size; three links fit beside the name on phones */
 @media (max-width: 560px) {
-  html { scroll-padding-top: 0; }
-  .nav { position: static; }
-  .nav .wrap { height: auto; flex-wrap: wrap; row-gap: 2px; padding-top: 12px; padding-bottom: 8px; }
-  .nav ul { width: calc(100% + 20px); margin-left: -10px; }
-  .nav a.link { padding: 6px 10px; }
+  .nav .wrap { gap: 6px; height: auto; min-height: 56px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+  .nav a.link { padding: 6px 8px; }
 }
+@media (max-width: 380px) { .brand { font-size: 0.98rem; } .nav a.link { padding: 6px 6px; } }
+/* Academic / professional labels */
+.type-chip { display: block; margin: 0 0 0.45rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-ink); line-height: 1.4; max-width: none; }
+.proj-head .type-chip { margin-bottom: 0.55rem; }
+/* Reflection at the end of every case study */
+.reflect { margin-top: clamp(44px, 6vw, 72px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); }
+.reflect h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
+.reflect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px clamp(24px, 4vw, 48px); margin-top: 1.1rem; }
+.reflect h3 { font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: 0; margin: 0 0 0.6rem; }
+.reflect .did li { max-width: 60ch; }
+/* Links that open in a new tab carry an icon and a screen-reader note */
+.ext-icon { display: inline-block; width: 0.68em; height: 0.68em; margin-left: 0.28em; vertical-align: 0.02em; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* Landing page facts panel */
+.hero-facts .facts { border-top: 0; }
+.hero-facts .facts li { grid-template-columns: 7.4em minmax(0, 1fr); padding: 10px 0; }
+.hero-facts .facts li:last-child { border-bottom: 0; }
+/* About page */
+.about-story section + section { margin-top: clamp(28px, 4vw, 40px); }
+.about-story h2, .about-side h2.timeline-title { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin-bottom: 0.8rem; }
+.about-side h2.timeline-title { font-size: 1.05rem; margin-bottom: 12px; }
+.about-side { display: grid; gap: 24px; align-content: start; }
+.about-story .actions { margin-top: 1.2rem; }
+/* Contact page */
+.contact-form { display: grid; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); align-self: start; }
+.form-note { margin: 0; font-size: 0.92rem; color: var(--ink-2); }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; }
+.field .opt { font-weight: 400; color: var(--ink-2); }
+.field input, .field textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--ink-2); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.field textarea { resize: vertical; min-height: 9em; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.form-foot .btn { font: inherit; font-weight: 600; cursor: pointer; }
+.form-hint { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
+.form-status { margin: 0; font-weight: 600; }
+.form-status:empty { display: none; }
+.contact-side h2 { margin-bottom: 0.4rem; }
+.contact-form h2 { margin: 0 0 -6px; }
+.role-note { margin: 1rem 0 0; font-size: 0.97rem; color: var(--ink-2); max-width: 62ch; }
+.page-contact .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.skills-title { font-family: var(--display); font-weight: 650; }
+@media (max-width: 860px) { .page-contact .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .hero-facts .facts li { grid-template-columns: 1fr; gap: 2px; } }
 </style>
 </head>
 <body class="page-project">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Site">
   <div class="wrap">
-    <a class="brand" href="index.html">Hardik Choudhary</a>
+    <a class="brand" href="index.html">Hardik Choudhary<span class="sr">, home</span></a>
     <ul>
-      <li><a class="link" href="index.html#about">About</a></li>
-      <li><a class="link" href="index.html#projects">Projects</a></li>
-      <li><a class="link" href="index.html#course-projects">Course projects</a></li>
-      <li><a class="link" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-      <li><a class="link" href="index.html#contact">Contact</a></li>
+      <li><a class="link" href="index.html#work" aria-current="true">Work</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -436,9 +474,10 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <div class="wrap">
 <header class="proj-head">
   <a class="back" href="index.html#course-projects">All course projects</a>
+  <p class="type-chip">Academic<span aria-hidden="true"> &middot; </span><span class="sr">, </span>Course project</p>
   <p class="kicker">Introduction to Deep Learning, Carnegie Mellon University, Spring 2026</p>
   <h1>Deep Learning for Engine Remaining-Useful-Life Prediction</h1>
-  <p class="proj-lead"><strong>With my teammate Harshit Jain, I compared three deep-learning architectures</strong> for predicting how many cycles a turbofan engine has left before it fails, on NASA&rsquo;s C-MAPSS FD001 data: a stacked LSTM, a Transformer encoder, and a temporal convolutional network (TCN). We trained all three in PyTorch under one protocol, with three random seeds each, and wrote up the results as a paper.</p>
+  <p class="proj-lead"><strong>I built the data pipeline, the LSTM baseline, the training metrics, and the learning-curve experiment</strong> for a two-person comparison of three deep-learning architectures with my teammate Harshit Jain. The models predict how many cycles a turbofan engine has left before it fails, on NASA&rsquo;s C-MAPSS FD001 data: a stacked LSTM, a Transformer encoder, and a temporal convolutional network (TCN), all trained in PyTorch under one protocol with three random seeds each. We wrote up the results as a paper, and I wrote its introduction and methods.</p>
   <ul class="results" aria-label="Key results"><li><strong>13.66 &plusmn; 0.47</strong> cycles test RMSE for the Transformer, the most accurate of the three, which also had the lowest PHM-2008 score</li><li><strong>Flipped</strong> ranking of the two best models between a single-seed run and the three-seed average</li><li><strong>&rho; = 0.99</strong> agreement between the LSTM and the Transformer on which sensors matter</li></ul>
 </header>
 
@@ -446,18 +485,20 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 <div class="proj-grid">
   <section aria-labelledby="did-title">
-    <h2 id="did-title">What we did</h2>
-    <ul class="did"><li>Built 30-cycle sensor windows with remaining useful life capped at 125 cycles: 14,241 training, 3,490 validation, and 100 test windows.</li><li>Trained an LSTM (56,641 parameters), a Transformer encoder (70,337), and a TCN (34,593) with Adam, a cosine learning-rate schedule, gradient clipping, and early stopping, three seeds each, on a Colab T4 GPU.</li><li>Evaluated with RMSE, MAE, and the asymmetric PHM-2008 score, by life stage, and against training-set size.</li><li>Measured per-sensor importance with gradients to compare what each model relies on.</li></ul>
+    <h2 id="did-title">My role</h2>
+    <ul class="did"><li>Built the data preprocessing pipeline: 30-cycle sensor windows with remaining useful life capped at 125 cycles, giving 14,241 training, 3,490 validation, and 100 test windows.</li><li>Implemented the LSTM baseline (56,641 parameters).</li><li>Wrote the training utilities and the metrics: RMSE, MAE, and the asymmetric PHM-2008 score.</li><li>Ran the learning-curve experiment, retraining each model on smaller fractions of the training data, down to 10%.</li><li>Wrote the paper&rsquo;s introduction and methods.</li></ul><p class="role-note">My teammate Harshit Jain implemented the Transformer and the TCN, the multi-seed training loop, and the life-stage, residual, and sensor-importance analyses.</p>
   </section>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Course</dt><dd>Introduction to Deep Learning</dd><dt>When</dt><dd>Spring 2026</dd><dt>Team</dt><dd>Hardik Choudhary, Harshit Jain</dd><dt>Data</dt><dd>NASA C-MAPSS, sub-fleet FD001</dd><dt>Compute</dt><dd>Colab T4 GPU, about 22 min for the full sweep</dd></dl>
-    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>PyTorch</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>LSTM</li><li>Transformer</li><li>Temporal convolutional networks</li><li>Multi-seed evaluation</li><li>Gradient-based attribution</li></ul></div></div>
+    <dl><dt>Type</dt><dd>Course project (academic)</dd><dt>Course</dt><dd>Introduction to Deep Learning</dd><dt>When</dt><dd>Spring 2026</dd><dt>Team</dt><dd>Hardik Choudhary, Harshit Jain</dd><dt>Data</dt><dd>NASA C-MAPSS, sub-fleet FD001</dd><dt>Compute</dt><dd>Colab T4 GPU, about 22 min for the full sweep</dd></dl>
+    <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>PyTorch</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>LSTM</li><li>Data pipelines</li><li>Evaluation metrics</li><li>Learning curves</li><li>Multi-seed evaluation</li></ul></div></div>
   </aside>
 </div>
 
-<section class="proj-section" aria-labelledby="table-title"><h2 id="table-title">Results</h2><div class="table-wrap"><table class="data-table "><caption>Test-set results on FD001 (mean &plusmn; standard deviation over 3 seeds; lower is better on every metric).</caption><thead><tr><th scope="col">Model</th><th scope="col">Parameters</th><th scope="col">Test RMSE</th><th scope="col">Test MAE</th><th scope="col">PHM score</th></tr></thead><tbody><tr><th scope="row">LSTM (baseline)</th><td>56,641</td><td>13.81 &plusmn; 0.15</td><td>10.04 &plusmn; 0.11</td><td>369 &plusmn; 14</td></tr><tr><th scope="row">Transformer</th><td>70,337</td><td><strong>13.66 &plusmn; 0.47</strong></td><td>10.06 &plusmn; 0.57</td><td><strong>337 &plusmn; 13</strong></td></tr><tr><th scope="row">TCN</th><td>34,593</td><td>15.43 &plusmn; 1.04</td><td>11.59 &plusmn; 0.75</td><td>423 &plusmn; 129</td></tr></tbody></table></div></section>
-<section class="stage" aria-labelledby="train-title"><div class="stage-text"><h2 id="train-title">Training under one protocol</h2><p>Every model saw the same windows, the same optimizer and schedule, and the same three seeds, so the differences come from the architectures. The Transformer converged fastest, the TCN plateaued earliest, and the LSTM kept improving slowly across the full schedule.</p><p>One run is not enough on this benchmark: in a preliminary single-seed run the LSTM looked clearly better than the Transformer (13.55 against 14.14 RMSE), but across three seeds the order flips and the gap is small.</p></div><figure class="media-fig proj-figure" style="max-width:620px"><img src="media/dl-val-curves.png" alt="Validation RMSE in cycles against epoch for the LSTM, Transformer, and TCN: all start high, the Transformer drops fastest, the TCN levels off around 14 to 15, and the LSTM keeps improving." width="702" height="455" loading="lazy"><figcaption>Validation RMSE per epoch (seed 42).</figcaption></figure></section><section class="stage" aria-labelledby="data-title"><div class="stage-text"><h2 id="data-title">How much data each model needs</h2><p>Trained on less data, the models rank differently. With 10% of the training windows the TCN was far better (RMSE 23.6 against about 71 for the other two); the Transformer improved sharply between 25% and 50% of the data, and the LSTM gave the best full-data result in this single-seed sweep (14.05).</p></div><figure class="media-fig proj-figure" style="max-width:620px"><img src="media/dl-data-size.png" alt="Test RMSE against the number of training windows on a log axis: the TCN stays near 20 to 24 throughout, while the LSTM and Transformer start near 70 and fall to about 14 with the full data." width="702" height="455" loading="lazy"><figcaption>Test RMSE against training-set size (single seed).</figcaption></figure></section><section class="stage" aria-labelledby="sensors-title"><div class="stage-text"><h2 id="sensors-title">Which sensors each model relies on</h2><p>Gradient-based importance shows the two most accurate models also agree on what matters: the LSTM and Transformer rank the sensors almost identically (Spearman &rho; = 0.99), while the TCN diverges (&rho; &asymp; 0.7).</p></div><figure class="media-fig proj-figure" style="max-width:1000px"><img src="media/dl-sensor-importance.png" alt="Grouped bar chart of relative gradient-based importance for each sensor and operating setting, for the LSTM, Transformer, and TCN; sensor 9 has the tallest Transformer bar." width="1400" height="500" loading="lazy"><figcaption>Relative per-sensor importance for each model.</figcaption></figure></section>
+<section class="proj-section" aria-labelledby="table-title"><h2 id="table-title">Results</h2><div class="table-wrap" tabindex="0" role="region" aria-label="Results table"><table class="data-table "><caption>Test-set results on FD001 (mean &plusmn; standard deviation over 3 seeds; lower is better on every metric).</caption><thead><tr><th scope="col">Model</th><th scope="col">Parameters</th><th scope="col">Test RMSE</th><th scope="col">Test MAE</th><th scope="col">PHM score</th></tr></thead><tbody><tr><th scope="row">LSTM (baseline)</th><td>56,641</td><td>13.81 &plusmn; 0.15</td><td>10.04 &plusmn; 0.11</td><td>369 &plusmn; 14</td></tr><tr><th scope="row">Transformer</th><td>70,337</td><td><strong>13.66 &plusmn; 0.47</strong></td><td>10.06 &plusmn; 0.57</td><td><strong>337 &plusmn; 13</strong></td></tr><tr><th scope="row">TCN</th><td>34,593</td><td>15.43 &plusmn; 1.04</td><td>11.59 &plusmn; 0.75</td><td>423 &plusmn; 129</td></tr></tbody></table></div></section>
+<section class="stage" aria-labelledby="train-title"><div class="stage-text"><h2 id="train-title">Training under one protocol</h2><p>Every model saw the same windows, the same optimizer and schedule, and the same three seeds, so the differences come from the architectures. The Transformer converged fastest, the TCN plateaued earliest, and the LSTM kept improving slowly across the full schedule.</p><p>One run is not enough on this benchmark: in a preliminary single-seed run the LSTM looked clearly better than the Transformer (13.55 against 14.14 RMSE), but across three seeds the order flips and the gap is small.</p></div><figure class="media-fig proj-figure" style="max-width:620px"><img src="media/dl-val-curves.png" alt="Validation RMSE in cycles against epoch for the LSTM, Transformer, and TCN: all start high, the Transformer drops fastest, the TCN levels off around 14 to 15, and the LSTM keeps improving." width="702" height="455" loading="lazy"><figcaption>Validation RMSE per epoch (seed 42).</figcaption></figure></section><section class="stage" aria-labelledby="data-title"><div class="stage-text"><h2 id="data-title">How much data each model needs</h2><p>My learning-curve experiment showed that on less data the models rank differently. With 10% of the training windows the TCN was far better (RMSE 23.6 against about 71 for the other two); the Transformer improved sharply between 25% and 50% of the data, and the LSTM gave the best full-data result in this single-seed sweep (14.05).</p></div><figure class="media-fig proj-figure" style="max-width:620px"><img src="media/dl-data-size.png" alt="Test RMSE against the number of training windows on a log axis: the TCN stays near 20 to 24 throughout, while the LSTM and Transformer start near 70 and fall to about 14 with the full data." width="702" height="455" loading="lazy"><figcaption>Test RMSE against training-set size (single seed).</figcaption></figure></section><section class="stage" aria-labelledby="sensors-title"><div class="stage-text"><h2 id="sensors-title">Which sensors each model relies on</h2><p>Harshit&rsquo;s gradient-based importance analysis shows the two most accurate models also agree on what matters: the LSTM and Transformer rank the sensors almost identically (Spearman &rho; = 0.99), while the TCN diverges (&rho; &asymp; 0.7).</p></div><figure class="media-fig proj-figure" style="max-width:1000px"><img src="media/dl-sensor-importance.png" alt="Grouped bar chart of relative gradient-based importance for each sensor and operating setting, for the LSTM, Transformer, and TCN; sensor 9 has the tallest Transformer bar." width="1400" height="500" loading="lazy"><figcaption>Relative per-sensor importance for each model.</figcaption></figure></section>
+
+<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>One run can mislead: with only 100 test engines, a single seed put the top two models in the wrong order, which is why the main comparison here is a three-seed average.</li><li>The best architecture depends on the data budget: the TCN, least accurate on the full data, was by far the best with a tenth of it.</li></ul></div><div><h3>Next steps</h3><ul class="did"><li>Extend to the harder C-MAPSS subsets, FD002 to FD004, with several operating conditions and fault modes.</li><li>Tune the TCN&rsquo;s receptive field.</li><li>Ensemble the three models, since their errors are visibly decorrelated.</li></ul></div></div></section>
 
 <nav class="pager" aria-label="More course projects"><a class="prev" href="control-autonomous-vehicles.html"><small>Previous course project</small><span>Control and Estimation for Autonomous Vehicles</span></a><a class="next" href="moving-target-planner.html"><small>Next course project</small><span>Moving-Target Interception Planner</span></a></nav>
 </div>
@@ -465,7 +506,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <footer>
   <div class="wrap">
     <span>Hardik Choudhary, Pittsburgh, PA</span>
-    <span class="links"><a href="mailto:hardikchoudhary3101@gmail.com">Email</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></span>
+    <span class="links"><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></span>
   </div>
 </footer>
 

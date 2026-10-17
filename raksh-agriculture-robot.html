@@ -355,7 +355,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 /* A lone compact card spans the row: text left, tags right */
 .course-grid > .course-card:only-child { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 48px); row-gap: 10px; align-items: start; }
 .course-grid > .course-card:only-child > * { grid-column: 1; }
-.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; padding-top: 0; }
+.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; padding-top: 0; }
 @media (max-width: 860px) { .course-grid > .course-card:only-child { display: flex; } .course-grid > .course-card:only-child > .tagrows { margin-top: auto; padding-top: 8px; } }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
@@ -409,33 +409,72 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   .filter-row { grid-template-columns: 1fr; gap: 6px; }
   .filter-label { padding-top: 0; }
 }
+/* The menu stays fixed at the top on every screen size; three links fit beside the name on phones */
 @media (max-width: 560px) {
-  html { scroll-padding-top: 0; }
-  .nav { position: static; }
-  .nav .wrap { height: auto; flex-wrap: wrap; row-gap: 2px; padding-top: 12px; padding-bottom: 8px; }
-  .nav ul { width: calc(100% + 20px); margin-left: -10px; }
-  .nav a.link { padding: 6px 10px; }
+  .nav .wrap { gap: 6px; height: auto; min-height: 56px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+  .nav a.link { padding: 6px 8px; }
 }
+@media (max-width: 380px) { .brand { font-size: 0.98rem; } .nav a.link { padding: 6px 6px; } }
+/* Academic / professional labels */
+.type-chip { display: block; margin: 0 0 0.45rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-ink); line-height: 1.4; max-width: none; }
+.proj-head .type-chip { margin-bottom: 0.55rem; }
+/* Reflection at the end of every case study */
+.reflect { margin-top: clamp(44px, 6vw, 72px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); }
+.reflect h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
+.reflect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px clamp(24px, 4vw, 48px); margin-top: 1.1rem; }
+.reflect h3 { font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: 0; margin: 0 0 0.6rem; }
+.reflect .did li { max-width: 60ch; }
+/* Links that open in a new tab carry an icon and a screen-reader note */
+.ext-icon { display: inline-block; width: 0.68em; height: 0.68em; margin-left: 0.28em; vertical-align: 0.02em; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* Landing page facts panel */
+.hero-facts .facts { border-top: 0; }
+.hero-facts .facts li { grid-template-columns: 7.4em minmax(0, 1fr); padding: 10px 0; }
+.hero-facts .facts li:last-child { border-bottom: 0; }
+/* About page */
+.about-story section + section { margin-top: clamp(28px, 4vw, 40px); }
+.about-story h2, .about-side h2.timeline-title { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin-bottom: 0.8rem; }
+.about-side h2.timeline-title { font-size: 1.05rem; margin-bottom: 12px; }
+.about-side { display: grid; gap: 24px; align-content: start; }
+.about-story .actions { margin-top: 1.2rem; }
+/* Contact page */
+.contact-form { display: grid; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); align-self: start; }
+.form-note { margin: 0; font-size: 0.92rem; color: var(--ink-2); }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; }
+.field .opt { font-weight: 400; color: var(--ink-2); }
+.field input, .field textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--ink-2); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.field textarea { resize: vertical; min-height: 9em; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.form-foot .btn { font: inherit; font-weight: 600; cursor: pointer; }
+.form-hint { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
+.form-status { margin: 0; font-weight: 600; }
+.form-status:empty { display: none; }
+.contact-side h2 { margin-bottom: 0.4rem; }
+.contact-form h2 { margin: 0 0 -6px; }
+.role-note { margin: 1rem 0 0; font-size: 0.97rem; color: var(--ink-2); max-width: 62ch; }
+.page-contact .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.skills-title { font-family: var(--display); font-weight: 650; }
+@media (max-width: 860px) { .page-contact .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .hero-facts .facts li { grid-template-columns: 1fr; gap: 2px; } }
 </style>
 </head>
 <body class="page-project">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Site">
   <div class="wrap">
-    <a class="brand" href="index.html">Hardik Choudhary</a>
+    <a class="brand" href="index.html">Hardik Choudhary<span class="sr">, home</span></a>
     <ul>
-      <li><a class="link" href="index.html#about">About</a></li>
-      <li><a class="link" href="index.html#projects">Projects</a></li>
-      <li><a class="link" href="index.html#course-projects">Course projects</a></li>
-      <li><a class="link" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-      <li><a class="link" href="index.html#contact">Contact</a></li>
+      <li><a class="link" href="index.html#work" aria-current="true">Work</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 <main id="main">
 <div class="wrap">
 <header class="proj-head">
-  <a class="back" href="index.html#projects">All projects</a>
+  <a class="back" href="index.html#work">All projects</a>
+  <p class="type-chip">Academic<span aria-hidden="true"> &middot; </span><span class="sr">, </span>Student team</p>
   <p class="kicker">Team lead, SVNIT Surat</p>
   <h1>RAKSH</h1>
   <p class="proj-lead"><strong>I led the five-person team that built RAKSH and developed its navigation.</strong> RAKSH is an autonomous robot for polyhouses: it drives along the crop rows, uses machine learning on its camera images to spot diseased plants, and sprays from a modular system that holds 10 chemicals. It qualified the Proof of Concept stage of Robofest-Gujarat 3.0, with a Rs 1,00,000 cash prize, and competed in the prototype stage.</p>
@@ -450,13 +489,13 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
       <p>Spraying pesticides inside a polyhouse, a plastic-covered greenhouse, is hot, repetitive work that keeps farm workers in close contact with chemicals, and blanket spraying uses more pesticide than the plants need. A robot that drives itself down the rows, checks the plants, and treats only where it is needed takes people out of that exposure.</p>
     </section>
     <section aria-labelledby="built-title">
-      <h2 id="built-title">What I built</h2>
+      <h2 id="built-title">My role</h2>
       <p>I led the five-person team and owned navigation and perception. I developed the robot&rsquo;s autonomous navigation using sensor fusion and vision-based crop-row detection, so it can follow the rows it sees with its camera. I designed the modular pesticide-delivery system: ten containers in a slide-in module, each with its own servo-driven valve feeding a shared line, so one robot can switch between treatments. I also designed a custom lead-screw linear actuator in the 3D-printed tower, which lifts the camera up to the plant&rsquo;s leaves, and implemented the rocker-bogie suspension, which keeps the wheels on uneven ground. The robot runs on ESP32, Jetson Nano, and Raspberry Pi boards with ROS and Python.</p>
     </section>
   </div>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Feb &ndash; Dec 2023</dd><dt>My role</dt><dd>Team lead; navigation and perception</dd><dt>Team</dt><dd>5 members, mentored by Prof. Suresh Dahiya (SVNIT)</dd><dt>Competition</dt><dd>Robofest-Gujarat 3.0 (GUJCOST), Others Application Based Robot category</dd><dt>Result</dt><dd>Qualified the Proof of Concept stage (Rs 1,00,000 prize); competed in the prototype stage, Dec 29&ndash;31, 2023</dd></dl>
+    <dl><dt>Type</dt><dd>Student team project (academic)</dd><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Feb &ndash; Dec 2023</dd><dt>My role</dt><dd>Team lead; navigation and perception</dd><dt>Team</dt><dd>5 members, mentored by Prof. Suresh Dahiya (SVNIT)</dd><dt>Competition</dt><dd>Robofest-Gujarat 3.0 (GUJCOST), Others Application Based Robot category</dd><dt>Result</dt><dd>Qualified the Proof of Concept stage (Rs 1,00,000 prize); competed in the prototype stage, Dec 29&ndash;31, 2023</dd></dl>
     <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>ROS</li><li>Jetson Nano</li><li>ESP32</li><li>Raspberry Pi</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Sensor fusion</li><li>Computer vision</li><li>VSLAM</li><li>Mechanism design</li><li>Team leadership</li></ul></div></div>
   </aside>
 </div>
@@ -489,8 +528,10 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 <section class="notes-block" aria-labelledby="notes-title">
   <h2 id="notes-title">Technical notes</h2>
-  <div class="notes"><div class="tnote"><h3>Navigation</h3><p>Crop-row detection gives the robot a visual reference to follow down each row. Fusing it with the robot&rsquo;s other onboard sensors makes the estimate of where the robot is in the row more robust than vision alone.</p></div><div class="tnote"><h3>Modular pesticide delivery</h3><p>Each of the ten containers has its own servo-driven valve on a shared line, so the robot can switch treatments without changing hardware, and the whole module slides out of the frame.</p></div><div class="tnote"><h3>Leading the team</h3><p>As team lead I coordinated the five-person team from concept to the Robofest prototype stage, while owning the navigation and perception work myself.</p></div></div>
+  <div class="notes"><div class="tnote"><h3>Modular pesticide delivery</h3><p>Each of the ten containers has its own servo-driven valve on a shared line, so the robot can switch treatments without changing hardware, and the whole module slides out of the frame.</p></div></div>
 </section>
+
+<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>Following a crop row is as much a sensor-fusion problem as a vision problem: crop-row detection gives the robot a line to follow, and fusing it with the other onboard sensors makes its estimate of where it is in the row more robust than vision alone.</li><li>Leading the team and owning a subsystem at once: I coordinated five people from concept to a working prototype in under a year while building the navigation and perception myself.</li></ul></div></div></section>
 
 <nav class="pager" aria-label="More projects"><a class="prev" href="on-orbit-manipulation.html"><small>Previous project</small><span>On-Orbit Manipulation</span></a><a class="next" href="engine-powered-drone.html"><small>Next project</small><span>Engine-Powered Drone</span></a></nav>
 </div>
@@ -498,7 +539,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <footer>
   <div class="wrap">
     <span>Hardik Choudhary, Pittsburgh, PA</span>
-    <span class="links"><a href="mailto:hardikchoudhary3101@gmail.com">Email</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></span>
+    <span class="links"><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></span>
   </div>
 </footer>
 

@@ -355,7 +355,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 /* A lone compact card spans the row: text left, tags right */
 .course-grid > .course-card:only-child { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 48px); row-gap: 10px; align-items: start; }
 .course-grid > .course-card:only-child > * { grid-column: 1; }
-.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; padding-top: 0; }
+.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; padding-top: 0; }
 @media (max-width: 860px) { .course-grid > .course-card:only-child { display: flex; } .course-grid > .course-card:only-child > .tagrows { margin-top: auto; padding-top: 8px; } }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
@@ -409,26 +409,64 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   .filter-row { grid-template-columns: 1fr; gap: 6px; }
   .filter-label { padding-top: 0; }
 }
+/* The menu stays fixed at the top on every screen size; three links fit beside the name on phones */
 @media (max-width: 560px) {
-  html { scroll-padding-top: 0; }
-  .nav { position: static; }
-  .nav .wrap { height: auto; flex-wrap: wrap; row-gap: 2px; padding-top: 12px; padding-bottom: 8px; }
-  .nav ul { width: calc(100% + 20px); margin-left: -10px; }
-  .nav a.link { padding: 6px 10px; }
+  .nav .wrap { gap: 6px; height: auto; min-height: 56px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+  .nav a.link { padding: 6px 8px; }
 }
+@media (max-width: 380px) { .brand { font-size: 0.98rem; } .nav a.link { padding: 6px 6px; } }
+/* Academic / professional labels */
+.type-chip { display: block; margin: 0 0 0.45rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-ink); line-height: 1.4; max-width: none; }
+.proj-head .type-chip { margin-bottom: 0.55rem; }
+/* Reflection at the end of every case study */
+.reflect { margin-top: clamp(44px, 6vw, 72px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); }
+.reflect h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
+.reflect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px clamp(24px, 4vw, 48px); margin-top: 1.1rem; }
+.reflect h3 { font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: 0; margin: 0 0 0.6rem; }
+.reflect .did li { max-width: 60ch; }
+/* Links that open in a new tab carry an icon and a screen-reader note */
+.ext-icon { display: inline-block; width: 0.68em; height: 0.68em; margin-left: 0.28em; vertical-align: 0.02em; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* Landing page facts panel */
+.hero-facts .facts { border-top: 0; }
+.hero-facts .facts li { grid-template-columns: 7.4em minmax(0, 1fr); padding: 10px 0; }
+.hero-facts .facts li:last-child { border-bottom: 0; }
+/* About page */
+.about-story section + section { margin-top: clamp(28px, 4vw, 40px); }
+.about-story h2, .about-side h2.timeline-title { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin-bottom: 0.8rem; }
+.about-side h2.timeline-title { font-size: 1.05rem; margin-bottom: 12px; }
+.about-side { display: grid; gap: 24px; align-content: start; }
+.about-story .actions { margin-top: 1.2rem; }
+/* Contact page */
+.contact-form { display: grid; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); align-self: start; }
+.form-note { margin: 0; font-size: 0.92rem; color: var(--ink-2); }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; }
+.field .opt { font-weight: 400; color: var(--ink-2); }
+.field input, .field textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--ink-2); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.field textarea { resize: vertical; min-height: 9em; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.form-foot .btn { font: inherit; font-weight: 600; cursor: pointer; }
+.form-hint { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
+.form-status { margin: 0; font-weight: 600; }
+.form-status:empty { display: none; }
+.contact-side h2 { margin-bottom: 0.4rem; }
+.contact-form h2 { margin: 0 0 -6px; }
+.role-note { margin: 1rem 0 0; font-size: 0.97rem; color: var(--ink-2); max-width: 62ch; }
+.page-contact .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.skills-title { font-family: var(--display); font-weight: 650; }
+@media (max-width: 860px) { .page-contact .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .hero-facts .facts li { grid-template-columns: 1fr; gap: 2px; } }
 </style>
 </head>
 <body class="page-project">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Site">
   <div class="wrap">
-    <a class="brand" href="index.html">Hardik Choudhary</a>
+    <a class="brand" href="index.html">Hardik Choudhary<span class="sr">, home</span></a>
     <ul>
-      <li><a class="link" href="index.html#about">About</a></li>
-      <li><a class="link" href="index.html#projects">Projects</a></li>
-      <li><a class="link" href="index.html#course-projects">Course projects</a></li>
-      <li><a class="link" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-      <li><a class="link" href="index.html#contact">Contact</a></li>
+      <li><a class="link" href="index.html#work" aria-current="true">Work</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -436,6 +474,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <div class="wrap">
 <header class="proj-head">
   <a class="back" href="index.html#course-projects">All course projects</a>
+  <p class="type-chip">Academic<span aria-hidden="true"> &middot; </span><span class="sr">, </span>Course project</p>
   <p class="kicker">24-677 Modern Control Theory, Carnegie Mellon University, Fall 2025</p>
   <h1>Control and Estimation for Autonomous Vehicles</h1>
   <p class="proj-lead"><strong>I derived a car&rsquo;s dynamics by hand and wrote its controllers in Python</strong> for a simulated Tesla Model 3 on a CMU-themed course in Webots, then moved to a DJI Mavic 2 Pro quadrotor: PID and LQR tracking, A* re-planning to overtake another car, EKF SLAM, and model reference adaptive control (MRAC) that keeps the drone flying when a motor loses thrust.</p>
@@ -446,12 +485,12 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 <div class="proj-grid">
   <section aria-labelledby="did-title">
-    <h2 id="did-title">What I did</h2>
+    <h2 id="did-title">My role</h2>
     <ul class="did"><li>Derived the linearized lateral and longitudinal state-space models of the car by hand.</li><li>Tuned PID steering and speed control, then designed discrete-time infinite-horizon LQR steering.</li><li>Implemented A* on an occupancy grid of the road to re-plan around a slower car and overtake it.</li><li>Derived the EKF SLAM Jacobians and implemented EKF SLAM that estimates the car&rsquo;s pose and the map features from range and bearing.</li><li>Layered MRAC on an LQR baseline so the quadrotor keeps tracking altitude after a motor loses thrust, and found where it fails.</li></ul>
   </section>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Course</dt><dd>24-677 Modern Control Theory</dd><dt>When</dt><dd>Fall 2025</dd><dt>Simulator</dt><dd>Webots</dd><dt>Vehicles</dt><dd>Tesla Model 3, DJI Mavic 2 Pro</dd></dl>
+    <dl><dt>Type</dt><dd>Course project (academic)</dd><dt>Course</dt><dd>24-677 Modern Control Theory</dd><dt>When</dt><dd>Fall 2025</dd><dt>Simulator</dt><dd>Webots</dd><dt>Vehicles</dt><dd>Tesla Model 3, DJI Mavic 2 Pro</dd></dl>
     <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>Webots</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Linearization</li><li>PID control</li><li>LQR</li><li>A* planning</li><li>EKF SLAM</li><li>Adaptive control (MRAC)</li></ul></div></div>
   </aside>
 </div>
@@ -459,13 +498,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 <section class="stage" aria-labelledby="pid-title"><div class="stage-split side"><div class="stage-text"><h2 id="pid-title">A hand-derived model and a PID lap</h2><p>I linearized the car&rsquo;s bicycle model into a lateral system (lateral position and velocity, heading, and yaw rate, driven by the steering angle) and a longitudinal one (driven by the throttle force), using the course&rsquo;s vehicle parameters. On that model I tuned PID controllers for steering and speed. The car finished the course in about 123 s, well inside the 400 s limit.</p></div><figure class="media-fig side-fig" style="max-width:360px"><img src="media/mct-lateral-derivation.jpg" alt="Handwritten derivation on lined paper of the lateral state-space model, with the matrices A1 and B1 written out symbolically." width="900" height="1145" loading="lazy"><figcaption>Part of my hand derivation: the lateral state-space matrices.</figcaption></figure></div><figure class="media-fig proj-figure" style="max-width:980px"><img src="media/mct-pid-plots.jpg" alt="Eight plots from the PID lap: the car's path in red over the gray course, and steering angle, longitudinal and lateral speed, heading, yaw rate, distance from the path, and throttle force against time over about 123 seconds." width="1240" height="826" loading="lazy"><figcaption>The PID lap: the car&rsquo;s path (red) over the course (gray), then steering, speeds, heading, yaw rate, distance from the path, and throttle force over time.</figcaption></figure></section><section class="stage" aria-labelledby="lqr-title"><div class="stage-text"><h2 id="lqr-title">LQR steering</h2><p>Next I replaced PID steering with a discrete-time infinite-horizon LQR controller, keeping a PID loop on speed. It scored 99.2/100 on the course autograder, staying 0.67 m from the path on average.</p></div><figure class="media-fig proj-figure" style="max-width:980px"><img src="media/mct-lqr-run.jpg" alt="Webots screenshot of the LQR run with the Python controller open, and the console reading: score for completing the loop 30/30, average distance 30/30, maximum distance 29.17/30, time 239.904, total score 99.17/100, average distance 0.674." width="1240" height="737" loading="lazy"><figcaption>The LQR run in Webots, with the autograder&rsquo;s result in the console: 99.17/100 and 0.67 m average distance from the path.</figcaption></figure></section><section class="stage" aria-labelledby="astar-title"><div class="stage-text"><h2 id="astar-title">A* re-planning to overtake</h2><p>Then a second car joins the track. When my car closes in on it, A* re-plans over an occupancy grid of the road ahead, with the other car&rsquo;s predicted path and the road edges marked as obstacles, and the LQR controller follows the new path. My car passed the other car and finished the lap, though it weaved along the straight while following the grid path, up to about 8 m from the reference.</p></div><figure class="media-fig proj-figure" style="max-width:900px"><img src="media/mct-astar-map.jpg" alt="A* planning plot of a long diagonal strip of road: yellow blocked cells, purple free road that splits around the other car's predicted path, and a blue path from start to goal along the upper branch." width="887" height="284" loading="lazy"><figcaption>A* on the grid of the road ahead. Yellow cells are blocked, including the other car&rsquo;s predicted path; purple cells are free road. The blue path passes the other car.</figcaption></figure><figure class="media-fig proj-figure" style="max-width:980px"><img src="media/mct-astar-run.jpg" alt="Eight plots from the overtaking run: the path weaves along the first straight, with steering and heading oscillating for about 130 seconds, then settles for the rest of the lap." width="1226" height="798" loading="lazy"><figcaption>The overtaking lap. The car finished, but weaved along the straight for its first 130 s while following the grid path.</figcaption></figure></section><section class="stage" aria-labelledby="ekf-title"><div class="stage-split side"><div class="stage-text"><h2 id="ekf-title">EKF SLAM</h2><p>For EKF SLAM the car no longer gets its position for free. I derived the motion and measurement Jacobians by hand and implemented an extended Kalman filter that estimates the car&rsquo;s position and heading together with the positions of the map features, from range and bearing measurements to each. In an offline test the estimate stayed on top of the true pose. In Webots, with LQR steering on the SLAM estimate, the car scored 100/100: a 136 s lap, 0.44 m from the path on average.</p></div><figure class="media-fig side-fig" style="max-width:360px"><img src="media/mct-ekf-jacobian.jpg" alt="Handwritten derivation of the measurement Jacobian H for a landmark's range and bearing, with partial derivatives with respect to the car's position and the landmark's position." width="900" height="1241" loading="lazy"><figcaption>My derivation of the measurement Jacobian for one landmark&rsquo;s range and bearing.</figcaption></figure></div><figure class="media-fig proj-figure" style="max-width:900px"><img src="media/mct-ekf-estimate.jpg" alt="Plots from the offline EKF SLAM test: the estimated and true trajectories overlap among blue landmark dots, and estimated and true X, Y, and heading overlap over 20 seconds." width="910" height="523" loading="lazy"><figcaption>Offline EKF SLAM test: the estimated and true trajectory, X, Y, and heading lie almost on top of each other; blue dots are map features.</figcaption></figure><figure class="media-fig proj-figure" style="max-width:980px"><img src="media/mct-ekf-run.jpg" alt="Webots screenshot of the EKF SLAM run with the console reading: score for completing the loop 30/30, average distance 30/30, maximum distance 30/30, time 135.872, total score 100/100, average distance 0.437." width="1240" height="692" loading="lazy"><figcaption>Driving on the EKF SLAM estimate: 100/100 from the autograder, with a 136 s lap and 0.44 m average distance from the path.</figcaption></figure></section><section class="stage" aria-labelledby="mrac-title"><div class="stage-text"><h2 id="mrac-title">Adaptive control through a motor failure</h2><p>The last project moved to a DJI Mavic 2 Pro. An LQR controller tracked a sequence of altitude commands. Then, partway through the flight, one motor loses half its thrust: the LQR drone falls, while my model reference adaptive controller, layered on the LQR baseline, keeps following the commands. Raising the loss, it still flew at 65%; at 66% it could no longer climb back to the last command, and at 70% it went down.</p></div><figure class="media-fig proj-figure" style="max-width:640px"><img src="media/mct-mrac-50.png" alt="Altitude against time: the black command steps between 1 and 4 m; the blue LQR trace drops to zero partway through, while the orange MRAC trace keeps following the steps." width="849" height="702" loading="lazy"><figcaption>One motor at 50% thrust: LQR (blue) crashes; MRAC (orange) keeps tracking the commands (black).</figcaption></figure><div class="media-pair proj-figure"><figure class="media-fig"><img src="media/mct-mrac-65.png" alt="Altitude plot at 65% thrust loss: the orange MRAC trace follows every command step to the end." width="885" height="701" loading="lazy"><figcaption>65% loss: MRAC still follows every command.</figcaption></figure><figure class="media-fig"><img src="media/mct-mrac-66.png" alt="Altitude plot at 66% thrust loss: the orange MRAC trace falls to about 0.6 m and stays there instead of climbing to the last 4 m command." width="901" height="703" loading="lazy"><figcaption>66% loss: MRAC can no longer climb back to the last command.</figcaption></figure></div></section>
 
+<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>Estimation and control can be built separately and still work together: LQR steering on my own EKF SLAM estimate, instead of the simulator&rsquo;s true position, still gave a full-score lap.</li><li>A path from a grid planner isn&rsquo;t ready to track as it is: following the raw A* path got my car past the other car, but made it weave along the straight.</li><li>Adaptive control widens the margin but doesn&rsquo;t remove it: MRAC kept following every command through thrust losses that crashed LQR, until a sharp limit between 65% and 66%.</li></ul></div></div></section>
+
 <nav class="pager" aria-label="More course projects"><a class="next" href="deep-learning-rul.html"><small>Next course project</small><span>Deep Learning for Engine RUL Prediction</span></a></nav>
 </div>
 </main>
 <footer>
   <div class="wrap">
     <span>Hardik Choudhary, Pittsburgh, PA</span>
-    <span class="links"><a href="mailto:hardikchoudhary3101@gmail.com">Email</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></span>
+    <span class="links"><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></span>
   </div>
 </footer>
 

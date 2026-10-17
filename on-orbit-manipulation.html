@@ -355,7 +355,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 /* A lone compact card spans the row: text left, tags right */
 .course-grid > .course-card:only-child { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 48px); row-gap: 10px; align-items: start; }
 .course-grid > .course-card:only-child > * { grid-column: 1; }
-.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; padding-top: 0; }
+.course-grid > .course-card:only-child > .tagrows { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; padding-top: 0; }
 @media (max-width: 860px) { .course-grid > .course-card:only-child { display: flex; } .course-grid > .course-card:only-child > .tagrows { margin-top: auto; padding-top: 8px; } }
 .flag-inline { color: var(--flag-ink); font-weight: 600; }
 .sub-h { font-family: var(--body); font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.9rem; letter-spacing: 0; }
@@ -409,36 +409,75 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   .filter-row { grid-template-columns: 1fr; gap: 6px; }
   .filter-label { padding-top: 0; }
 }
+/* The menu stays fixed at the top on every screen size; three links fit beside the name on phones */
 @media (max-width: 560px) {
-  html { scroll-padding-top: 0; }
-  .nav { position: static; }
-  .nav .wrap { height: auto; flex-wrap: wrap; row-gap: 2px; padding-top: 12px; padding-bottom: 8px; }
-  .nav ul { width: calc(100% + 20px); margin-left: -10px; }
-  .nav a.link { padding: 6px 10px; }
+  .nav .wrap { gap: 6px; height: auto; min-height: 56px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+  .nav a.link { padding: 6px 8px; }
 }
+@media (max-width: 380px) { .brand { font-size: 0.98rem; } .nav a.link { padding: 6px 6px; } }
+/* Academic / professional labels */
+.type-chip { display: block; margin: 0 0 0.45rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-ink); line-height: 1.4; max-width: none; }
+.proj-head .type-chip { margin-bottom: 0.55rem; }
+/* Reflection at the end of every case study */
+.reflect { margin-top: clamp(44px, 6vw, 72px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); }
+.reflect h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
+.reflect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px clamp(24px, 4vw, 48px); margin-top: 1.1rem; }
+.reflect h3 { font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: 0; margin: 0 0 0.6rem; }
+.reflect .did li { max-width: 60ch; }
+/* Links that open in a new tab carry an icon and a screen-reader note */
+.ext-icon { display: inline-block; width: 0.68em; height: 0.68em; margin-left: 0.28em; vertical-align: 0.02em; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* Landing page facts panel */
+.hero-facts .facts { border-top: 0; }
+.hero-facts .facts li { grid-template-columns: 7.4em minmax(0, 1fr); padding: 10px 0; }
+.hero-facts .facts li:last-child { border-bottom: 0; }
+/* About page */
+.about-story section + section { margin-top: clamp(28px, 4vw, 40px); }
+.about-story h2, .about-side h2.timeline-title { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin-bottom: 0.8rem; }
+.about-side h2.timeline-title { font-size: 1.05rem; margin-bottom: 12px; }
+.about-side { display: grid; gap: 24px; align-content: start; }
+.about-story .actions { margin-top: 1.2rem; }
+/* Contact page */
+.contact-form { display: grid; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 3vw, 32px); align-self: start; }
+.form-note { margin: 0; font-size: 0.92rem; color: var(--ink-2); }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; }
+.field .opt { font-weight: 400; color: var(--ink-2); }
+.field input, .field textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--ink-2); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.field textarea { resize: vertical; min-height: 9em; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.form-foot .btn { font: inherit; font-weight: 600; cursor: pointer; }
+.form-hint { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
+.form-status { margin: 0; font-weight: 600; }
+.form-status:empty { display: none; }
+.contact-side h2 { margin-bottom: 0.4rem; }
+.contact-form h2 { margin: 0 0 -6px; }
+.role-note { margin: 1rem 0 0; font-size: 0.97rem; color: var(--ink-2); max-width: 62ch; }
+.page-contact .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.skills-title { font-family: var(--display); font-weight: 650; }
+@media (max-width: 860px) { .page-contact .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .hero-facts .facts li { grid-template-columns: 1fr; gap: 2px; } }
 </style>
 </head>
 <body class="page-project">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Site">
   <div class="wrap">
-    <a class="brand" href="index.html">Hardik Choudhary</a>
+    <a class="brand" href="index.html">Hardik Choudhary<span class="sr">, home</span></a>
     <ul>
-      <li><a class="link" href="index.html#about">About</a></li>
-      <li><a class="link" href="index.html#projects">Projects</a></li>
-      <li><a class="link" href="index.html#course-projects">Course projects</a></li>
-      <li><a class="link" href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-      <li><a class="link" href="index.html#contact">Contact</a></li>
+      <li><a class="link" href="index.html#work" aria-current="true">Work</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 <main id="main">
 <div class="wrap">
 <header class="proj-head">
-  <a class="back" href="index.html#projects">All projects</a>
+  <a class="back" href="index.html#work">All projects</a>
+  <p class="type-chip">Academic<span aria-hidden="true"> &middot; </span><span class="sr">, </span>Graduate research</p>
   <p class="kicker">Graduate student researcher, Carnegie Mellon University, funded by SURI</p>
   <h1>On-Orbit Manipulation</h1>
-  <p class="proj-lead"><strong>I work on every stage of our CMU team&rsquo;s pipeline for capturing a tumbling satellite.</strong> A failed satellite is often tumbling, and most were never built to be grabbed, so in simulation a free-flying servicing robot has to reach a moving grasp point, grasp it, and stop its spin. For the grasp we use Snaker, a snake robot that wraps around the satellite&rsquo;s engine nozzle instead of pinching a single feature, and we&rsquo;ve started building a tendon-driven Snaker in hardware that needs far fewer motors.</p>
+  <p class="proj-lead"><strong>I work on every stage of our CMU team&rsquo;s pipeline for capturing a tumbling satellite.</strong> A failed satellite is often tumbling, and most were never built to be grabbed, so in simulation a free-flying servicing robot has to reach a moving grasp point, grasp it, and stop its spin. For the grasp we use Snaker, a snake robot that wraps around the satellite&rsquo;s engine nozzle instead of pinching a single feature, and we&rsquo;ve started building a tendon-driven Snaker in hardware with the minimum possible number of motors, since power and heat dissipation are limited in orbit.</p>
   <ul class="results" aria-label="Key results">
     <li><strong>99%</strong> of 200 randomized rendezvous trials reached the moving grasp point, up from 80%</li>
     <li><strong>Up to 5&times;</strong> more misalignment tolerated by Snaker than by a standard gripper</li>
@@ -450,7 +489,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 <div class="proj-grid">
   <section aria-labelledby="built-title">
-    <h2 id="built-title">What I worked on</h2>
+    <h2 id="built-title">My role</h2>
     <ul class="did">
       <li><strong>Rendezvous planning:</strong> extended the INSAT planner to moving targets and ran the randomized evaluation.</li>
       <li><strong>Grasp and detumble control:</strong> a grasp controller, plus base and arm controllers that stop the spin within actuation limits.</li>
@@ -460,7 +499,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   </section>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Where</dt><dd>Carnegie Mellon University</dd><dt>Funding</dt><dd>SURI</dd><dt>Advisors</dt><dd>Matt Travers, Howie Choset</dd><dt>Team</dt><dd>Three graduate students</dd><dt>When</dt><dd>Aug 2025 &ndash; present</dd><dt>Status</dt><dd>Simulation in progress; hardware at a very early stage</dd></dl>
+    <dl><dt>Type</dt><dd>Graduate research (academic)</dd><dt>Where</dt><dd>Carnegie Mellon University</dd><dt>Funding</dt><dd>SURI</dd><dt>Advisors</dt><dd>Matt Travers, Howie Choset</dd><dt>Team</dt><dd>Three graduate students</dd><dt>When</dt><dd>Aug 2025 &ndash; present</dd><dt>Status</dt><dd>Simulation in progress; hardware at a very early stage</dd></dl>
     <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Python</li><li>C++</li><li>Drake</li><li>MuJoCo</li><li>Isaac Sim</li><li>Pinocchio</li><li>SOFA</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Kinodynamic motion planning</li><li>Trajectory optimization</li><li>Feedback control</li><li>Grasp analysis</li><li>Snake-robot design</li><li>Tendon-driven mechanisms</li><li>Soft-robot simulation</li><li>3D printing</li></ul></div></div>
   </aside>
 </div>
@@ -537,19 +576,19 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
     <p>To even out the loops, the spine, the links, and their spacing all taper toward the tip, so each section gets softer exactly as fast as the pull fades; the size follows the cube root of the remaining pull. For the droop, we designed an elastic meshed shell between the links. We modelled the full 1 m, 18-link gripper in SOFA with its SoftRobots plugin, giving a tapered and a uniform spine the same 12 N pull and the same friction.</p>
   </div>
   <div class="media-pair">
-    <figure class="media-fig"><a href="media/sofa-tapered.jpg" target="_blank" rel="noopener"><img src="media/sofa-tapered.jpg" alt="SOFA view: the tapered gripper coiled into about three even loops." loading="lazy"></a><figcaption>SOFA, tapered spine: about three even loops along the whole length. <a href="media/sofa-tapered.jpg" target="_blank" rel="noopener">Open full size</a></figcaption></figure>
-    <figure class="media-fig"><a href="media/sofa-uniform.jpg" target="_blank" rel="noopener"><img src="media/sofa-uniform.jpg" alt="SOFA view: the uniform gripper coils near the base while its tip half straightens out." loading="lazy"></a><figcaption>SOFA, uniform spine: coils at the base, but the tip half straightens out. <a href="media/sofa-uniform.jpg" target="_blank" rel="noopener">Open full size</a></figcaption></figure>
+    <figure class="media-fig"><a href="media/sofa-tapered.jpg" target="_blank" rel="noopener"><img src="media/sofa-tapered.jpg" alt="SOFA view: the tapered gripper coiled into about three even loops." loading="lazy"><span class="sr"> (opens in a new tab)</span></a><figcaption>SOFA, tapered spine: about three even loops along the whole length. <a href="media/sofa-tapered.jpg" target="_blank" rel="noopener">Open full size<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></figcaption></figure>
+    <figure class="media-fig"><a href="media/sofa-uniform.jpg" target="_blank" rel="noopener"><img src="media/sofa-uniform.jpg" alt="SOFA view: the uniform gripper coils near the base while its tip half straightens out." loading="lazy"><span class="sr"> (opens in a new tab)</span></a><figcaption>SOFA, uniform spine: coils at the base, but the tip half straightens out. <a href="media/sofa-uniform.jpg" target="_blank" rel="noopener">Open full size<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></figcaption></figure>
   </div>
   <div class="stage-split result-split">
-    <figure class="media-fig"><a href="media/sofa-loop-radius.png" target="_blank" rel="noopener"><img src="media/sofa-loop-radius.png" alt="Chart of loop radius along the gripper: the tapered spine stays between about 37 and 53 mm, close to the 50 mm design; the uniform spine grows to 172 mm at the tip." loading="lazy"></a><figcaption>Loop radius along the gripper in SOFA, against the 50 mm design radius. <a href="media/sofa-loop-radius.png" target="_blank" rel="noopener">Open full size</a></figcaption></figure>
+    <figure class="media-fig"><a href="media/sofa-loop-radius.png" target="_blank" rel="noopener"><img src="media/sofa-loop-radius.png" alt="Chart of loop radius along the gripper: the tapered spine stays between about 37 and 53 mm, close to the 50 mm design; the uniform spine grows to 172 mm at the tip." loading="lazy"><span class="sr"> (opens in a new tab)</span></a><figcaption>Loop radius along the gripper in SOFA, against the 50 mm design radius. <a href="media/sofa-loop-radius.png" target="_blank" rel="noopener">Open full size<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></figcaption></figure>
     <div class="stage-text">
       <p><strong>Result.</strong> Along the tapered gripper the loops stay between 37 and 53 mm, close to the 50 mm design, for about three turns. The uniform gripper&rsquo;s loops grow to 172 mm toward the tip, and it makes only about two turns. In a separate flat-curl test, the tapered spine&rsquo;s bend stayed within about 3% along its length, while the uniform spine&rsquo;s varied 2.3&times;.</p>
-      <p><strong>Next:</strong> the round TPU spine still twists under the spiralling tendon, as it did on the prototype, so the next step is a spine that resists twisting, then a motor-driven test of the printed gripper with a force sensor.</p>
+      <p><strong>Still open:</strong> the round TPU spine still twists under the spiralling tendon, as it did on the prototype.</p>
     </div>
   </div>
 </section>
 
-<p class="next-line"><strong>What&rsquo;s next in simulation:</strong> testing Snaker across more spin rates and handling perception uncertainty during rendezvous.</p>
+<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>A planner is only as good as the graph it searches: when early paths reached the moving grasp point too late, a denser space-time graph fixed nearly all of them.</li><li>Wrapping a feature the satellite already has, instead of pinching one, makes the grasp far more forgiving of misalignment, which is where most standard-gripper failures on the harder cases came from.</li><li>In a tendon-driven body, friction sets the design: it weakens the pull toward the tip, so the structure has to taper to match.</li></ul></div><div><h3>Next steps</h3><ul class="did"><li>Hardware: a spine that resists twisting, then a motor-driven test of the printed gripper with a force sensor.</li><li>Simulation: testing Snaker across more spin rates, and handling perception uncertainty during rendezvous.</li></ul></div></div></section>
 
 <nav class="pager" aria-label="More projects"><a class="next" href="raksh-agriculture-robot.html"><small>Next project</small><span>RAKSH</span></a></nav>
 </div>
@@ -557,7 +596,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <footer>
   <div class="wrap">
     <span>Hardik Choudhary, Pittsburgh, PA</span>
-    <span class="links"><a href="mailto:hardikchoudhary3101@gmail.com">Email</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn</a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></span>
+    <span class="links"><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/hardik-choudhary-38524324a/" rel="me noopener" target="_blank">LinkedIn<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a><a href="Hardik_Choudhary_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></span>
   </div>
 </footer>
 <script>
