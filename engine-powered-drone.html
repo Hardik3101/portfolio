@@ -471,7 +471,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <p class="type-chip">Academic<span aria-hidden="true"> &middot; </span><span class="sr">, </span>Undergraduate project</p>
   <p class="kicker">Designer and controls developer, SVNIT Surat</p>
   <h1>Engine-Powered Drone</h1>
-  <p class="proj-lead"><strong>I designed a contact-free magnetic gear for each propeller whose gap can be changed</strong>, so one engine can power all four propellers of a drone built for long flights in remote places: the closer the two gears, the more power passes through, so each propeller&rsquo;s speed can be controlled even though they all share one engine. The feedback control improved stability in flight tests.</p>
+  <p class="proj-lead"><strong>I designed the drivetrain and speed control for a drone that runs all four propellers off one engine</strong>, built for long flights in remote places. Each propeller is driven through a contact-free magnetic gear with an adjustable gap: the closer the two gears, the more power passes through. That gives each propeller its own speed even though all four share one engine. The feedback control improved stability in flight tests.</p>
 </header>
 
 <figure class="media-fig lead-photo"><img src="media/drone-cad.jpg" alt="CAD model of a four-rotor drone seen from above and from the side: a central body, four arms, and a transparent gearbox under each propeller." width="1269" height="495"><figcaption>CAD model of the drone, from above and from the side. A single engine drives all four propellers through shafts that run along the arms.</figcaption></figure>
@@ -479,17 +479,18 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <div class="proj-grid">
   <div>
     <section aria-labelledby="problem-title">
-      <h2 id="problem-title">The problem</h2>
+      <h2 id="problem-title">The problem, and why it matters</h2>
       <p>Battery-powered drones run out of energy quickly, and flying longer means carrying large, heavy, expensive battery packs. An engine carries far more energy in its fuel, but a drone flies by running each propeller at its own speed, and a conventional drivetrain from one engine fixes the speed ratio to every propeller when it is designed.</p>
+      <p>The drone is meant for long flights in remote locations. Running on fuel lets it fly longer while staying lighter and cheaper than a drone carrying large battery packs. Crop monitoring, infrastructure inspection, and search and rescue all run into the battery limit first.</p>
     </section>
     <section aria-labelledby="built-title">
       <h2 id="built-title">My role</h2>
-      <p>Each propeller has its own pair of magnetic gears: one on the shaft driven by the engine and one on the propeller shaft. The gears never touch, so nothing wears. With the two gears at their closest, the most power passes through; widening the gap passes less. A servo drives a linkage that sets the gap, an encoder measures the propeller&rsquo;s speed, and an Arduino drove the servo and read the encoder. To calibrate it, we held the engine at 3,000 rpm, so with the 2:1 gear the ideal propeller speed was 6,000 rpm, and measured propeller speed as we closed the gap from 10 mm. At 10 mm the propeller didn&rsquo;t turn; speed then rose roughly exponentially and reached about 4,500 rpm, 75% of ideal, at the smallest gap. Interpolating the readings gave a continuous map of the gap needed for any propeller speed.</p>
+      <p>This was a solo project: I designed the gear pairs, the servo linkage, and the control, and ran the calibration and the flight tests. Each propeller has its own pair of magnetic gears: one on the shaft driven by the engine and one on the propeller shaft. The gears never touch, so nothing wears. With the two gears at their closest, the most power passes through; widening the gap passes less. A servo drives a linkage that sets the gap, an encoder measures the propeller&rsquo;s speed, and an Arduino drives the servo and reads the encoder. To calibrate it, I held the engine at 3,000 rpm. The gearing doubles the engine speed, so the ideal propeller speed was 6,000 rpm. I then measured propeller speed as I closed the gap from 10 mm. At 10 mm the propeller didn&rsquo;t turn; speed then rose roughly exponentially and reached about 4,500 rpm, 75% of ideal, at the smallest gap. Interpolating the readings gave a continuous map of the gap needed for any propeller speed.</p>
     </section>
   </div>
   <aside class="glance" aria-labelledby="glance-title">
     <h2 id="glance-title">At a glance</h2>
-    <dl><dt>Type</dt><dd>Undergraduate project (academic)</dd><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Jan &ndash; Jun 2024</dd><dt>My role</dt><dd>Designer and controls developer</dd><dt>Result</dt><dd>Improved stability in flight tests</dd><dt>Calibration</dt><dd>About 75% of ideal propeller speed at the smallest gap</dd></dl>
+    <dl><dt>Type</dt><dd>Undergraduate project (academic)</dd><dt>Where</dt><dd>SVNIT Surat, India</dd><dt>When</dt><dd>Jan &ndash; Jun 2024</dd><dt>My role</dt><dd>Designer and controls developer</dd><dt>Team</dt><dd>Solo project</dd><dt>Result</dt><dd>Improved stability in flight tests</dd><dt>Calibration</dt><dd>About 75% of ideal propeller speed at the smallest gap</dd></dl>
     <div class="tagrows"><div class="tagrow"><span class="tag-label">Tools</span><ul class="tags tags-tools"><li>Arduino</li><li>MATLAB / Simulink</li><li>SolidWorks</li></ul></div><div class="tagrow"><span class="tag-label">Skills</span><ul class="tags"><li>Feedback control</li><li>Mechanism design</li><li>Magnetic gearing</li><li>Calibration</li><li>Flight testing</li></ul></div></div>
   </aside>
 </div>
@@ -531,16 +532,10 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <text x="358" y="326" class="d-label-2">sketch of the trend, not measured data</text>
 </svg></div><figcaption><span class="scroll-hint">Scroll sideways to see the whole drawing.</span>Calibration with the engine held at 3,000 rpm. The two marked values are from the test: no rotation at a 10 mm gap, and about 4,500 rpm, 75% of the ideal 6,000 rpm, at the smallest gap. The dashed curve sketches the roughly exponential rise between them; it is not the original data. The full interpolated curve is what the controller used to pick the gap for a desired speed.</figcaption></figure>
 
-<div class="proj-2col">
-  <section aria-labelledby="testing-title">
+<section class="proj-section" aria-labelledby="testing-title">
     <h2 id="testing-title">Testing and results</h2>
-    <p>We calibrated each gear pair by measuring propeller speed at a series of gaps with the engine held at 3,000 rpm; at the smallest gap the propeller reached about 75% of its ideal speed. We then tested the drivetrain and controller in flight, where the feedback control improved the drone&rsquo;s stability.</p>
+    <p>I calibrated each gear pair by measuring propeller speed at a series of gaps with the engine held at 3,000 rpm; at the smallest gap the propeller reached about 75% of its ideal speed. I then tested the drivetrain and controller in flight, where the feedback control improved the drone&rsquo;s stability.</p>
   </section>
-  <section aria-labelledby="why-title">
-    <h2 id="why-title">Why it matters</h2>
-    <p>The drone is meant for long flights in remote locations. Running on fuel lets it fly longer while staying lighter and cheaper than a drone carrying large battery packs, without giving up agility or stability. Crop monitoring, infrastructure inspection, and search and rescue all run into the battery limit first.</p>
-  </section>
-</div>
 
 
 

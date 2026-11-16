@@ -471,7 +471,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <p class="type-chip">Academic<span aria-hidden="true"> &middot; </span><span class="sr">, </span>Graduate research</p>
   <p class="kicker">Graduate student researcher, Carnegie Mellon University, funded by SURI</p>
   <h1>On-Orbit Manipulation</h1>
-  <p class="proj-lead"><strong>I work on every stage of our CMU team&rsquo;s pipeline for capturing a tumbling satellite.</strong> A failed satellite is often tumbling, and most were never built to be grabbed, so in simulation a free-flying servicing robot has to reach a moving grasp point, grasp it, and stop its spin. For the grasp we use Snaker, a snake robot that wraps around the satellite&rsquo;s engine nozzle instead of pinching a single feature, and we&rsquo;ve started building a tendon-driven Snaker in hardware with the minimum possible number of motors, since power and heat dissipation are limited in orbit.</p>
+  <p class="proj-lead"><strong>I work on every stage of our CMU team&rsquo;s pipeline for capturing a tumbling satellite</strong>: planning the approach, controlling the grasp and the detumble, and designing the gripper. A failed satellite can&rsquo;t be repaired, refueled, or moved out of the way until something catches it, but it is often tumbling and was never built to be grabbed. In our simulations, a free-flying servicing robot reaches a moving grasp point on the satellite, grasps it, and stops its spin. For the grasp we use Snaker, a snake robot that wraps around the satellite&rsquo;s engine nozzle instead of pinching a single feature. We&rsquo;ve also started building a tendon-driven Snaker in hardware with the minimum possible number of motors, since power and heat dissipation are limited in orbit.</p>
   <ul class="results" aria-label="Key results">
     <li><strong>99%</strong> of 200 randomized rendezvous trials reached the moving grasp point, up from 80%</li>
     <li><strong>Up to 5&times;</strong> more misalignment tolerated by Snaker than by a standard gripper</li>
@@ -559,7 +559,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
       <p>Our first 3D-printed prototype is simpler than the full design: links on a flexible TPU spine, with one tendon that steps one hole further around at each link, so a single pull coils the body into a helix. Pulled by hand, it wraps a 3D-printed nozzle at many points. These tests are qualitative; we haven&rsquo;t measured grip force yet.</p>
       <ul class="did">
         <li><strong>Fixed:</strong> the links used to twist about the spine&rsquo;s axis, and the tendon rubbed hard at the edges of its channels. Both are resolved in the current links.</li>
-        <li><strong>Still open:</strong> the gripper droops under its own weight, and its loops come out tight at the base and open at the tip, because friction at every hole weakens the pull toward the tip.</li>
+        <li><strong>Still open:</strong> the gripper droops under its own weight, and its loops come out tight at the base and open at the tip.</li>
       </ul>
     </div>
     <figure class="media-fig portrait-fig"><video muted playsinline preload="none" controls width="540" height="720" poster="media/tendon-proto-test.jpg" aria-label="Video: the black tendon-driven prototype is pulled by hand and wraps around a white 3D-printed rocket nozzle."><source src="media/tendon-proto-test.mp4" type="video/mp4"></video><figcaption>Hand-actuated test of the prototype wrapping a 3D-printed nozzle.</figcaption></figure>
@@ -577,7 +577,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
     <figure class="media-fig"><a href="media/sofa-loop-radius.png" target="_blank" rel="noopener"><img src="media/sofa-loop-radius.png" alt="Chart of loop radius along the gripper: the tapered spine stays between about 37 and 53 mm, close to the 50 mm design; the uniform spine grows to 172 mm at the tip." loading="lazy"><span class="sr"> (opens in a new tab)</span></a><figcaption>Loop radius along the gripper in SOFA, against the 50 mm design radius. <a href="media/sofa-loop-radius.png" target="_blank" rel="noopener">Open full size<svg class="ext-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M4.5 2.5h5v5M9.5 2.5 2.5 9.5"/></svg><span class="sr"> (opens in a new tab)</span></a></figcaption></figure>
     <div class="stage-text">
       <p><strong>Result.</strong> Along the tapered gripper the loops stay between 37 and 53 mm, close to the 50 mm design, for about three turns. The uniform gripper&rsquo;s loops grow to 172 mm toward the tip, and it makes only about two turns. In a separate flat-curl test, the tapered spine&rsquo;s bend stayed within about 3% along its length, while the uniform spine&rsquo;s varied 2.3&times;.</p>
-      <p><strong>Still open:</strong> the round TPU spine still twists under the spiralling tendon, as it did on the prototype.</p>
+      <p><strong>Still open:</strong> the round TPU spine itself twists along its length under the spiralling tendon, in SOFA as on the prototype. The fix above stopped the links from rotating on the spine; it did not stop the spine from twisting.</p>
     </div>
   </div>
 </section>

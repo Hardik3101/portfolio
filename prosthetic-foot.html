@@ -479,8 +479,9 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <div class="proj-grid">
   <div>
     <section aria-labelledby="problem-title">
-      <h2 id="problem-title">The problem</h2>
+      <h2 id="problem-title">The problem, and why it matters</h2>
       <p>A foot has to carry around 0.8 times body weight in walking and up to 2.75 times in running, cushion the impact at heel strike, and still let the forefoot tilt inward and outward (inversion and eversion) on uneven ground. A prosthetic foot also has to fit a standard pylon mount, stay light, and survive years of daily steps. We set out to design one for forefoot mobility, a weight of 600&ndash;700 g, and a life of up to a million load cycles.</p>
+      <p>Affordable prosthetic feet are often rigid, which makes slopes and uneven ground harder to walk on. A foot whose forefoot can adapt to the ground, while staying light and durable, brings walking closer to natural.</p>
     </section>
     <section aria-labelledby="built-title">
       <h2 id="built-title">My role</h2>
@@ -499,16 +500,10 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <figure class="media-fig proj-figure" style="max-width:900px"><img src="media/foot-fea-deformation.jpg" alt="Ansys result: side view of the foot standing on a plate, colored by total deformation, up to 5.04 mm at the pylon mount." width="1400" height="721" loading="lazy"><figcaption>Ansys static analysis of the foot standing on a plate: total deformation, up to about 5 mm.</figcaption></figure>
 <div class="media-pair proj-figure"><figure class="media-fig"><img src="media/foot-fea-stress-pps.jpg" alt="Ansys result: von Mises stress in a PPS foot at mid-stance, up to 96.8 MPa near the keel." width="1400" height="729" loading="lazy"><figcaption>PPS at mid-stance: von Mises stress, up to about 97 MPa.</figcaption></figure><figure class="media-fig"><img src="media/foot-fea-heel-cf.jpg" alt="Ansys result: strain energy in a carbon fiber foot at heel strike, concentrated in the curved heel spring." width="1400" height="718" loading="lazy"><figcaption>Carbon fiber at heel strike: strain energy stored in the heel spring.</figcaption></figure></div>
 
-<div class="proj-2col">
-  <section aria-labelledby="testing-title">
+<section class="proj-section" aria-labelledby="testing-title">
     <h2 id="testing-title">Testing and results</h2>
-    <p>FEA in Ansys checked each iteration. On the first it showed that four forefoot slits weakened the structure without improving inversion or eversion, and that the foot bent near the pylon mount. Stress results on the second led to a lower profile. On the third we compared materials, carbon fiber, POM, and PPS, for energy storage, deformation at mid-stance, and impact absorption at heel strike. The test bed lets each design be loaded the same way, again and again, on the bench.</p>
+    <p>FEA in Ansys checked each iteration. On the first it showed that four forefoot slits weakened the structure without improving inversion or eversion, and that the foot bent near the pylon mount. Stress results on the second led to a lower profile. On the third we compared three materials, carbon fiber, POM, and PPS, for energy storage, deformation at mid-stance, and impact absorption at heel strike. PPS reinforced with 40% carbon fiber (PPS-CF40) came out best. The test bed lets each design be loaded the same way, again and again, on the bench.</p>
   </section>
-  <section aria-labelledby="why-title">
-    <h2 id="why-title">Why it matters</h2>
-    <p>Affordable prosthetic feet are often rigid, which makes slopes and uneven ground harder to walk on. A foot whose forefoot can adapt to the ground, while staying light and durable, brings walking closer to natural.</p>
-  </section>
-</div>
 
 
 
@@ -517,7 +512,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <div class="notes"><div class="tnote"><h3>Why slit the forefoot</h3><p>Slits let each side of the forefoot bend on its own, so the foot can tilt inward or outward on a slope or uneven ground.</p></div></div>
 </section>
 
-<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>Checking every iteration in FEA caught problems while the foot was still in CAD: the extra slits that only weakened it, and the bending near the pylon mount.</li><li>Designing for manufacture and fit: splitting the foot into four parts that bolt together made it easier to make and assemble, and let its back end match the standard pylon mount.</li></ul></div><div><h3>Next steps</h3><ul class="did"><li>FEA of the toe-off phase to choose the forefoot&rsquo;s material properties, as our poster planned.</li><li>A stress-cycle test to check the foot lasts its intended life of up to a million load cycles.</li><li>A physical prototype to validate the design.</li></ul></div></div></section>
+<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>Checking every iteration in FEA caught problems while the foot was still in CAD: the extra slits that only weakened it, and the bending near the pylon mount.</li><li>Designing for manufacture and fit: splitting the foot into four parts that bolt together made it easier to make and assemble, and let its back end match the standard pylon mount.</li></ul></div><div><h3>Next steps</h3><ul class="did"><li>FEA of the toe-off phase to choose the forefoot&rsquo;s material properties.</li><li>A stress-cycle test to check the foot lasts its intended life of up to a million load cycles.</li><li>A physical prototype to validate the design.</li></ul></div></div></section>
 
 <nav class="pager" aria-label="More projects"><a class="prev" href="formula-electric-chassis.html"><small>Previous project</small><span>Formula Student Electric Car</span></a><a class="next" href="index.html#work"><small>Back to</small><span>All projects</span></a></nav>
 </div>
