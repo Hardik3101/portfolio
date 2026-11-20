@@ -450,6 +450,14 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 #contact .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 .skills-title { font-family: var(--display); font-weight: 650; }
 @media (max-width: 860px) { #contact .contact-grid { grid-template-columns: 1fr; } }
+
+/* IMRD / IDEC part markers */
+.part-h { font-family: var(--body); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); margin: clamp(56px, 8vw, 88px) 0 1rem; display: flex; align-items: center; gap: 12px; max-width: none; }
+.part-h::after { content: ""; flex: 1; height: 2px; background: currentColor; opacity: 0.3; }
+.proj-head .part-h { margin: 1.4rem 0 0.6rem; }
+.part-h + .stage, .part-h + .proj-section { margin-top: 0; border-top: 0; padding-top: 0; }
+.part-text { max-width: 68ch; font-size: 1.06rem; margin: 0 0 1rem; }
+.stage h3.stage-h { font-size: clamp(1.4rem, 2.6vw, 1.85rem); margin-bottom: 0.9rem; max-width: 30ch; }
 </style>
 </head>
 <body class="page-project">
@@ -471,15 +479,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <p class="type-chip">Professional</p>
   <p class="kicker">Project assistant, Human-Centered Robotics Lab, IIT Gandhinagar</p>
   <h1>Prosthetic Foot</h1>
-  <p class="proj-lead"><strong>I designed a prosthetic foot whose forefoot can tilt from side to side, as a human foot does on uneven ground, and built a test bed that loads it repeatably.</strong> With Ronak Vyas, under Prof. Vineet Vashista in IIT Gandhinagar&rsquo;s Human-Centered Robotics Lab, I took the design through three CAD iterations, each refined with finite element analysis in Ansys.</p>
+  <h2 class="part-h" id="part-intro"><span>1&nbsp;&nbsp;Introduction</span></h2><p class="proj-lead">Affordable prosthetic feet are often rigid, which makes slopes and uneven ground harder to walk on. Under Prof. Vineet Vashista in IIT Gandhinagar&rsquo;s Human-Centered Robotics Lab, our objective was a foot whose forefoot can tilt from side to side like a human foot&rsquo;s, while weighing 600&ndash;700 g and lasting up to a million load cycles. <strong>Working with Ronak Vyas, I designed the foot over three CAD iterations, refined each with FEA in Ansys, and built a test bed that loads it repeatably.</strong></p>
 </header>
 
 <figure class="media-fig lead-photo" style="max-width:860px"><img src="media/foot-cad-later.jpg" alt="CAD render of a prosthetic foot in several parts: a round pylon mount with bolt holes on top of a curved keel, a heel, and a tan toe plate split by a slit, bolted to the keel by four bolts." width="1131" height="703"><figcaption>A later iteration in SolidWorks: separate parts that bolt together, a back end matched to the pylon mount, and two slits in the forefoot.</figcaption></figure>
 
-<div class="proj-grid">
+<h2 class="part-h" id="part-design"><span>2&nbsp;&nbsp;Design</span></h2><div class="proj-grid">
   <div>
     <section aria-labelledby="problem-title">
-      <h2 id="problem-title">The problem, and why it matters</h2>
+      <h2 id="problem-title">Design requirements</h2>
       <p>A foot has to carry around 0.8 times body weight in walking and up to 2.75 times in running, cushion the impact at heel strike, and still let the forefoot tilt inward and outward (inversion and eversion) on uneven ground. A prosthetic foot also has to fit a standard pylon mount, stay light, and survive years of daily steps. We set out to design one for forefoot mobility, a weight of 600&ndash;700 g, and a life of up to a million load cycles.</p>
       <p>Affordable prosthetic feet are often rigid, which makes slopes and uneven ground harder to walk on. A foot whose forefoot can adapt to the ground, while staying light and durable, brings walking closer to natural.</p>
     </section>
@@ -500,19 +508,14 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 <figure class="media-fig proj-figure" style="max-width:900px"><img src="media/foot-fea-deformation.jpg" alt="Ansys result: side view of the foot standing on a plate, colored by total deformation, up to 5.04 mm at the pylon mount." width="1400" height="721" loading="lazy"><figcaption>Ansys static analysis of the foot standing on a plate: total deformation, up to about 5 mm.</figcaption></figure>
 <div class="media-pair proj-figure"><figure class="media-fig"><img src="media/foot-fea-stress-pps.jpg" alt="Ansys result: von Mises stress in a PPS foot at mid-stance, up to 96.8 MPa near the keel." width="1400" height="729" loading="lazy"><figcaption>PPS at mid-stance: von Mises stress, up to about 97 MPa.</figcaption></figure><figure class="media-fig"><img src="media/foot-fea-heel-cf.jpg" alt="Ansys result: strain energy in a carbon fiber foot at heel strike, concentrated in the curved heel spring." width="1400" height="718" loading="lazy"><figcaption>Carbon fiber at heel strike: strain energy stored in the heel spring.</figcaption></figure></div>
 
-<section class="proj-section" aria-labelledby="testing-title">
-    <h2 id="testing-title">Testing and results</h2>
-    <p>FEA in Ansys checked each iteration. On the first it showed that four forefoot slits weakened the structure without improving inversion or eversion, and that the foot bent near the pylon mount. Stress results on the second led to a lower profile. On the third we compared three materials, carbon fiber, POM, and PPS, for energy storage, deformation at mid-stance, and impact absorption at heel strike. PPS reinforced with 40% carbon fiber (PPS-CF40) came out best. The test bed lets each design be loaded the same way, again and again, on the bench.</p>
-  </section>
+
 
 
 
 <section class="notes-block" aria-labelledby="notes-title">
   <h2 id="notes-title">Technical notes</h2>
   <div class="notes"><div class="tnote"><h3>Why slit the forefoot</h3><p>Slits let each side of the forefoot bend on its own, so the foot can tilt inward or outward on a slope or uneven ground.</p></div></div>
-</section>
-
-<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>Checking every iteration in FEA caught problems while the foot was still in CAD: the extra slits that only weakened it, and the bending near the pylon mount.</li><li>Designing for manufacture and fit: splitting the foot into four parts that bolt together made it easier to make and assemble, and let its back end match the standard pylon mount.</li></ul></div><div><h3>Next steps</h3><ul class="did"><li>FEA of the toe-off phase to choose the forefoot&rsquo;s material properties.</li><li>A stress-cycle test to check the foot lasts its intended life of up to a million load cycles.</li><li>A physical prototype to validate the design.</li></ul></div></div></section>
+</section><h2 class="part-h" id="part-eval"><span>3&nbsp;&nbsp;Evaluation</span></h2><div class="part-text"><p>FEA in Ansys checked each iteration. On the first it showed that four forefoot slits weakened the structure without improving inversion or eversion, and that the foot bent near the pylon mount. Stress results on the second led to a lower profile. On the third we compared three materials, carbon fiber, POM, and PPS, for energy storage, deformation at mid-stance, and impact absorption at heel strike. PPS reinforced with 40% carbon fiber (PPS-CF40) came out best. The test bed lets each design be loaded the same way, again and again, on the bench.</p></div><h2 class="part-h" id="part-conclusion"><span>4&nbsp;&nbsp;Conclusion</span></h2><p class="part-text">FEA shaped every iteration: two forefoot slits instead of four, a four-part assembly that fits a standard pylon mount, and PPS-CF40 as the best of the three materials. A physical prototype and a fatigue test are still needed to confirm the design.</p><section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>Checking every iteration in FEA caught problems while the foot was still in CAD: the extra slits that only weakened it, and the bending near the pylon mount.</li><li>Designing for manufacture and fit: splitting the foot into four parts that bolt together made it easier to make and assemble, and let its back end match the standard pylon mount.</li></ul></div><div><h3>Next steps</h3><ul class="did"><li>FEA of the toe-off phase to choose the forefoot&rsquo;s material properties.</li><li>A stress-cycle test to check the foot lasts its intended life of up to a million load cycles.</li><li>A physical prototype to validate the design.</li></ul></div></div></section>
 
 <nav class="pager" aria-label="More projects"><a class="prev" href="formula-electric-chassis.html"><small>Previous project</small><span>Formula Student Electric Car</span></a><a class="next" href="index.html#work"><small>Back to</small><span>All projects</span></a></nav>
 </div>
