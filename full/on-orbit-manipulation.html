@@ -451,6 +451,14 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 #contact .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 .skills-title { font-family: var(--display); font-weight: 650; }
 @media (max-width: 860px) { #contact .contact-grid { grid-template-columns: 1fr; } }
+
+/* IMRD / IDEC part markers */
+.part-h { font-family: var(--body); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); margin: clamp(56px, 8vw, 88px) 0 1rem; display: flex; align-items: center; gap: 12px; max-width: none; }
+.part-h::after { content: ""; flex: 1; height: 2px; background: currentColor; opacity: 0.3; }
+.proj-head .part-h { margin: 1.4rem 0 0.6rem; }
+.part-h + .stage, .part-h + .proj-section { margin-top: 0; border-top: 0; padding-top: 0; }
+.part-text { max-width: 68ch; font-size: 1.06rem; margin: 0 0 1rem; }
+.stage h3.stage-h { font-size: clamp(1.4rem, 2.6vw, 1.85rem); margin-bottom: 0.9rem; max-width: 30ch; }
 </style>
 </head>
 <body class="page-project">
@@ -472,7 +480,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   <p class="type-chip">Academic<span aria-hidden="true"> &middot; </span><span class="sr">, </span>Graduate research</p>
   <p class="kicker">Graduate student researcher, Carnegie Mellon University, funded by SURI</p>
   <h1>On-Orbit Manipulation</h1>
-  <p class="proj-lead"><strong>I work on every stage of our CMU team&rsquo;s pipeline for capturing a tumbling satellite</strong>: planning the approach, controlling the grasp and the detumble, and designing the gripper. A failed satellite can&rsquo;t be repaired, refueled, or moved out of the way until something catches it, but it is often tumbling and was never built to be grabbed. In our simulations, a free-flying servicing robot reaches a moving grasp point on the satellite, grasps it, and stops its spin. For the grasp we use Snaker, a snake robot that wraps around the satellite&rsquo;s engine nozzle instead of pinching a single feature. We&rsquo;ve also started building a tendon-driven Snaker in hardware with the minimum possible number of motors, since power and heat dissipation are limited in orbit.</p>
+  <h2 class="part-h" id="part-intro"><span>1&nbsp;&nbsp;Introduction</span></h2><p class="proj-lead">A failed satellite cannot be repaired, refueled, or moved out of a crowded orbit until something catches it. Most of these satellites are tumbling, and none were built to be grabbed. Our CMU team, funded by SURI, aims to let a free-flying servicing robot reach a tumbling satellite, grasp it, and stop its spin. <strong>I work on every stage of this pipeline</strong>: planning the approach, controlling the grasp and the detumble, and designing the gripper.</p>
   <ul class="results" aria-label="Key results">
     <li><strong>99%</strong> of 200 randomized rendezvous trials reached the moving grasp point, up from 80%</li>
     <li><strong>Up to 5&times;</strong> more misalignment tolerated by Snaker than by a standard gripper</li>
@@ -482,7 +490,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 <figure class="media-fig"><video muted playsinline loop autoplay preload="metadata" data-hero controls poster="../media/snaker-full-pipeline.jpg" aria-label="Simulation: Snaker, a snake robot on the servicer's arm, wraps a satellite's nozzle and stops it tumbling"><source src="../media/snaker-full-pipeline.mp4" type="video/mp4"></video><figcaption>Simulation of the full Snaker pipeline: the servicer approaches the tumbling satellite, Snaker wraps its engine nozzle, and the arm and base stop the spin.</figcaption></figure>
 
-<div class="proj-grid">
+<h2 class="part-h" id="part-methods"><span>2&nbsp;&nbsp;Methods</span></h2><div class="proj-grid">
   <section aria-labelledby="built-title">
     <h2 id="built-title">My role</h2>
     <ul class="did">
@@ -583,7 +591,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   </div>
 </section>
 
-<section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>A planner is only as good as the graph it searches: when early paths reached the moving grasp point too late, a denser space-time graph fixed nearly all of them.</li><li>Wrapping a feature the satellite already has, instead of pinching one, makes the grasp far more forgiving of misalignment, which is where most standard-gripper failures on the harder cases came from.</li><li>In a tendon-driven body, friction sets the design: it weakens the pull toward the tip, so the structure has to taper to match.</li></ul></div><div><h3>Next steps</h3><ul class="did"><li>Hardware: a spine that resists twisting, then a motor-driven test of the printed gripper with a force sensor.</li><li>Simulation: testing Snaker across more spin rates, and handling perception uncertainty during rendezvous.</li></ul></div></div></section>
+<h2 class="part-h" id="part-results"><span>3&nbsp;&nbsp;Results</span></h2><p class="part-text">The planner raised rendezvous success from 80% to 99% over 200 randomized trials. Snaker tolerated up to five times more misalignment than a standard gripper. In SOFA, the tapered gripper&rsquo;s loops stayed between 37 and 53 mm, close to the 50 mm design, while a uniform one&rsquo;s grew to 172 mm.</p><h2 class="part-h" id="part-discussion"><span>4&nbsp;&nbsp;Discussion</span></h2><p class="part-text">Wrapping a feature the satellite already has makes the grasp far more forgiving, and a denser space-time graph fixed nearly all late rendezvous paths. In hardware, the spine still twists and grip force is not yet measured, so the next step is a motor-driven test with a force sensor.</p><section class="reflect" aria-labelledby="reflect-title"><h2 id="reflect-title">Reflection</h2><div class="reflect-grid"><div><h3>What I learned</h3><ul class="did"><li>A planner is only as good as the graph it searches: when early paths reached the moving grasp point too late, a denser space-time graph fixed nearly all of them.</li><li>Wrapping a feature the satellite already has, instead of pinching one, makes the grasp far more forgiving of misalignment, which is where most standard-gripper failures on the harder cases came from.</li><li>In a tendon-driven body, friction sets the design: it weakens the pull toward the tip, so the structure has to taper to match.</li></ul></div><div><h3>Next steps</h3><ul class="did"><li>Hardware: a spine that resists twisting, then a motor-driven test of the printed gripper with a force sensor.</li><li>Simulation: testing Snaker across more spin rates, and handling perception uncertainty during rendezvous.</li></ul></div></div></section>
 
 <nav class="pager" aria-label="More projects"><a class="next" href="raksh-agriculture-robot.html"><small>Next project</small><span>RAKSH</span></a></nav>
 </div>
